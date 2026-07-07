@@ -1,0 +1,58 @@
+:root {
+  /* ===== Spacing scale (4px base) ===== */
+  --lw-space-0:  0;
+  --lw-space-1:  0.25rem;  /* 4 */
+  --lw-space-2:  0.5rem;   /* 8 */
+  --lw-space-3:  0.75rem;  /* 12 */
+  --lw-space-4:  1rem;     /* 16 */
+  --lw-space-5:  1.5rem;   /* 24 */
+  --lw-space-6:  2rem;     /* 32 */
+  --lw-space-7:  3rem;     /* 48 */
+  --lw-space-8:  4rem;     /* 64 */
+  --lw-space-9:  6rem;     /* 96 */
+  --lw-space-10: 8rem;     /* 128 */
+
+  /* ===== Radii (brand is geometric/minimal — modest rounding) ===== */
+  --lw-radius-xs:   4px;
+  --lw-radius-sm:   8px;
+  --lw-radius-md:   12px;
+  --lw-radius-lg:   18px;
+  --lw-radius-xl:   28px;
+  --lw-radius-pill: 999px;
+  --lw-radius-circle: 50%;
+
+  /* ===== Borders ===== */
+  --lw-border-thin: 1px;
+  --lw-border-med:  1.5px;
+  --lw-border-thick: 2px;
+
+  /* ===== Shadows (soft, low-spread; brand is clean/airy) ===== */
+  --lw-shadow-xs: 0 1px 2px rgba(11, 11, 13, 0.06);
+  --lw-shadow-sm: 0 1px 3px rgba(11, 11, 13, 0.08), 0 1px 2px rgba(11, 11, 13, 0.04);
+  --lw-shadow-md: 0 4px 12px rgba(11, 11, 13, 0.08), 0 2px 4px rgba(11, 11, 13, 0.04);
+  --lw-shadow-lg: 0 12px 32px rgba(11, 11, 13, 0.12), 0 4px 8px rgba(11, 11, 13, 0.05);
+  --lw-shadow-xl: 0 24px 60px rgba(11, 11, 13, 0.16);
+  /* Brand-tinted glow for pink highlights */
+  --lw-shadow-pink: 0 8px 28px rgba(233, 92, 233, 0.30);
+  --lw-shadow-blue: 0 8px 28px rgba(50, 0, 190, 0.26);
+
+  /* ===== Motion ===== */
+  --lw-ease:        cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --lw-ease-out:    cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --lw-ease-inout:  cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --lw-dur-fast:    120ms; /* @kind other */
+  --lw-dur:         200ms; /* @kind other */
+  --lw-dur-slow:    360ms; /* @kind other */
+
+  /* ===== Layout ===== */
+  --lw-container:   1200px;
+  --lw-container-narrow: 760px;
+  --lw-focus-ring:  0 0 0 3px rgba(50, 0, 190, 0.35);
+
+  /* Semantic aliases */
+  --radius-card:    var(--lw-radius-lg);
+  --radius-control: var(--lw-radius-sm);
+  --radius-pill:    var(--lw-radius-pill);
+  --shadow-card:    var(--lw-shadow-md);
+  --shadow-pop:     var(--lw-shadow-lg);
+}

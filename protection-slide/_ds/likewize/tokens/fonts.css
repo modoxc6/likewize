@@ -1,0 +1,30 @@
+/* Likewize Sans — the proprietary brand typeface.
+   Two supplied weights: Regular (400) and Bold (700). Intermediate/heavier
+   weights (500/600/800/900 referenced in the scale) are synthesized by the
+   browser from these. If additional cuts are supplied, add @font-face rules. */
+
+@font-face {
+  font-family: "Likewize Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/Likewize-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Likewize Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/Likewize-Bold.otf") format("opentype");
+}
+
+/* Map the heavier display weights onto Bold so display text renders in the
+   real brand cut rather than a synthesized faux-bold of Regular. */
+@font-face {
+  font-family: "Likewize Sans";
+  font-style: normal;
+  font-weight: 800 900;
+  font-display: swap;
+  src: url("../assets/fonts/Likewize-Bold.otf") format("opentype");
+}
