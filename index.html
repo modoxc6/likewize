@@ -5,18 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Likewize Decks</title>
 <style>
-  :root { color-scheme: light dark; }
+  :root { color-scheme: light; }
   body {
     font-family: -apple-system, "Segoe UI", Aptos, Arial, sans-serif;
     max-width: 720px;
     margin: 4rem auto;
     padding: 0 1.5rem;
     color: #1a1a1a;
-    background: #fff;
-  }
-  @media (prefers-color-scheme: dark) {
-    body { color: #eaeaea; background: #14141a; }
-    a { color: #b98cff; }
+    background: linear-gradient(180deg, #FBF3FD 0%, #FFFFFF 45%);
   }
   h1 {
     color: #3200BE;
@@ -27,15 +23,23 @@
   ul { list-style: none; padding: 0; margin-top: 2rem; }
   li {
     padding: 0.9rem 0;
-    border-bottom: 1px solid rgba(128,128,128,0.25);
+    border-bottom: 1px solid rgba(50,0,190,0.12);
   }
+  ul ul {
+    list-style: none;
+    padding: 0.6rem 0 0 1.5rem;
+    margin-top: 0;
+  }
+  ul ul li {
+    padding: 0.4rem 0;
+    border-bottom: none;
+    font-size: 0.9rem;
+  }
+  ul ul li a { font-weight: 500; }
   a {
     text-decoration: none;
     font-weight: 600;
     color: #3200BE;
-  }
-  @media (prefers-color-scheme: dark) {
-    a { color: #FF96FF; }
   }
   a:hover { text-decoration: underline; }
   .date { color: #6b6b6b; font-weight: 400; font-size: 0.9rem; margin-left: 0.5rem; }
@@ -45,10 +49,14 @@
   <h1>Decks</h1>
   <p class="sub">Links published from Claude Code.</p>
   <ul>
-    <li><a href="partner-proposition/">Likewize Moments — Partner Proposition</a></li>
+    <li>
+      <a href="partner-proposition/">Likewize Moments — Partner Proposition</a>
+      <ul>
+        <li><a href="tickets-pdf-export/">Tickets PDF Export (variant)</a></li>
+      </ul>
+    </li>
     <li><a href="protection-slide/">Ticket Protection — How It Works</a></li>
     <li><a href="tickets-partner-portal/">Likewize Moments — Tickets Partner Portal</a></li>
-    <li><a href="tickets-pdf-export/">Tickets PDF Export</a></li>
     <!-- New decks are added here as they're published -->
   </ul>
 </body>
