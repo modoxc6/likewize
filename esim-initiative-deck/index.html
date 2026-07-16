@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#3200BE">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#3200BE"/>
+    <circle cx="50" cy="30" r="6" fill="#FF96FF"/>
+    <rect x="20" y="46" width="60" height="8" rx="4" fill="#FFFFFF"/>
+    <rect x="20" y="60" width="40" height="6" rx="3" fill="#FF96FF" opacity="0.7"/>
+    <rect x="20" y="74" width="26" height="14" rx="7" fill="#F5D2FA"/>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<!--
+INITIATIVE DECK TEMPLATE
+Base template for product-initiative stakeholder decks (piloted on Ticket Protection).
+Slides 1-5, 7 (outcomes only), and 15 are initiative-specific — fill in the bracketed placeholders.
+Slides 6, 8-14, and 16's kicker/heading/blurb are FIXED course-methodology text — do not edit those, only replace the content block beneath them.
+-->
+<helmet>
+<style>
+body { margin: 0; background: #0B0B0D; }
+.lw-slide { width: 1920px; height: 1080px; box-sizing: border-box; font-family: "Likewize Sans", system-ui, sans-serif; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.lw-eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin: 0; }
+.lw-kicker-dot { display: inline-block; width: 14px; height: 14px; border-radius: 999px; background: #FF96FF; flex: none; }
+.lw-kicker-row { display: flex; align-items: center; gap: 18px; position: relative; z-index: 2; }
+.lw-photo-bg { position: absolute; inset: 0; background-image: linear-gradient(100deg, rgba(50,0,190,0.95) 0%, rgba(50,0,190,0.88) 40%, rgba(50,0,190,0.55) 100%), url('./assets/images/hero-travel-balloons.jpeg'); background-size: cover; background-position: center; }
+.lw-photo-bg.pink { background-image: linear-gradient(100deg, rgba(255,150,255,0.95) 0%, rgba(255,150,255,0.88) 40%, rgba(255,150,255,0.55) 100%), url('./assets/images/hero-travel-balloons.jpeg'); }
+.lw-watermark { position: absolute; top: 50%; left: -40px; transform: translateY(-50%); font-size: 460px; font-weight: 800; color: rgba(255,255,255,0.055); letter-spacing: 0.02em; white-space: nowrap; pointer-events: none; z-index: 1; }
+.deck-logo-word { font-size: 34px; font-weight: 800; color: #FF96FF; letter-spacing: -0.01em; line-height: 1; }
+.deck-logo-sub { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+.status-chip { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.14); border: 1.5px solid rgba(255,255,255,0.4); border-radius: 999px; padding: 12px 28px; font-size: 24px; font-weight: 800; letter-spacing: 0.02em; }
+.status-dot { width: 12px; height: 12px; border-radius: 999px; background: #FF96FF; }
+
+/* Slide 2 - the ask */
+.quote-block { font-size: 56px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.28; margin: 0 0 20px; max-width: 1240px; }
+.quote-attr { font-size: 22px; color: #86868F; font-weight: 600; margin: 0 0 56px; }
+.why-now-list { display: flex; flex-direction: column; gap: 22px; max-width: 1160px; }
+.why-now-item { display: flex; gap: 18px; align-items: flex-start; font-size: 25px; line-height: 1.5; color: #232329; font-weight: 400; }
+.why-now-mark { flex: none; width: 32px; height: 32px; border-radius: 999px; background: #3200BE; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; }
+.not-this-band { margin-top: 44px; border-top: 1.5px solid #E7E7EC; padding-top: 28px; max-width: 1160px; font-size: 20px; color: #5C5C65; font-style: italic; }
+
+/* Mockup frame (shared pattern) */
+.mockup-shell { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+.mockup-frame { width: 1420px; height: 860px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 90px rgba(11,11,13,0.28); position: relative; border: 1px solid #E7E7EC; background: #fff; }
+.browser-chrome { height: 44px; background: #F3F3F6; border-bottom: 1px solid #E7E7EC; display: flex; align-items: center; padding: 0 18px; gap: 8px; }
+.chrome-dot { width: 10px; height: 10px; border-radius: 999px; border: 1.5px solid #B2B2BC; background: transparent; }
+.chrome-address { margin-left: 16px; background: #fff; border: 1px solid #E7E7EC; border-radius: 999px; padding: 5px 18px; font-size: 12px; color: #86868F; display: flex; align-items: center; gap: 7px; }
+.mockup-viewport { width: 1420px; height: 816px; overflow: hidden; position: relative; background: #FAFAFB; }
+.mockup-scale { position: absolute; top: 0; left: 0; width: 1440px; transform-origin: 30% 26%; transform: scale(0.985); font-family: "Likewize Sans", system-ui, sans-serif; }
+.m-header { background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 20px 32px; border-bottom: 1px solid #E7E7EC; }
+.m-logo-word { font-weight: 800; font-size: 22px; color: #3200BE; }
+.m-logo-sub { font-size: 10px; color: #86868F; }
+.m-body { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.55fr 1fr; gap: 24px; padding: 32px; background: #FAFAFB; }
+.m-card { background: #fff; border: 1px solid #E7E7EC; border-radius: 18px; padding: 24px; }
+.m-card + .m-card { margin-top: 20px; }
+.m-card-title { font-size: 18px; font-weight: 800; margin: 0; }
+.tp-card { position: relative; border: 1.5px solid #3200BE; }
+.tp-head { display: flex; align-items: center; justify-content: space-between; }
+.tp-head-left { display: flex; align-items: center; gap: 12px; }
+.tp-icon { flex: none; width: 34px; height: 34px; border-radius: 8px; background: #3200BE; display: flex; align-items: center; justify-content: center; }
+.tp-label { font-weight: 800; font-size: 15px; }
+.tp-body { margin-top: 18px; padding-top: 18px; border-top: 1px solid #E7E7EC; }
+.tp-copy { font-size: 13px; color: #5C5C65; margin: 0 0 14px; line-height: 1.5; }
+.tp-checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 20px; margin-bottom: 10px; }
+.tp-item { font-size: 12px; display: flex; gap: 7px; align-items: flex-start; }
+.tp-item.yes { color: #232329; }
+.tp-item.yes .tp-mark { color: #1E8A5A; font-weight: 800; }
+.tp-item.no { color: #86868F; }
+.tp-item.no .tp-mark { color: #B2B2BC; font-weight: 800; }
+.tp-foot { font-size: 11px; color: #5C5C65; margin: 8px 0 16px; line-height: 1.5; }
+.tp-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.tp-option { border: 1px solid #D6D6DD; border-radius: 8px; padding: 12px 14px; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
+.tp-option.on { border: 1.5px solid #3200BE; background: #F5D2FA; color: #3200BE; }
+.tp-trust { font-size: 11px; font-weight: 700; color: #3200BE; }
+.m-collapsed-title { font-size: 15px; font-weight: 800; color: #B2B2BC; }
+.m-price-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; }
+.m-price-row.protect { color: #3200BE; font-weight: 700; }
+.m-price-row.total { border-top: 1px solid #E7E7EC; margin-top: 4px; padding-top: 11px; font-weight: 800; font-size: 15px; }
+.m-confirm { border: none; background: #3200BE; color: #fff; border-radius: 999px; padding: 13px; font-size: 14px; font-weight: 700; width: 100%; margin: 14px 0; text-align: center; }
+.mockup-link { font-size: 18px; font-weight: 700; color: #3200BE; margin-top: 26px; text-align: center; }
+
+/* Slide 4 - known vs assumed */
+.known-assumed { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; flex: 1; }
+.ka-col { border-radius: 20px; padding: 40px 44px; }
+.ka-col.know { background: #F5D2FA22; border: 1.5px solid #E7E7EC; }
+.ka-col.assume { background: #FAFAFB; border: 1.5px dashed #C7C7D1; }
+.ka-title { font-size: 26px; font-weight: 800; margin: 0 0 26px; }
+.ka-title.know { color: #3200BE; }
+.ka-title.assume { color: #5C5C65; }
+.ka-item { font-size: 21px; line-height: 1.5; color: #232329; margin: 0 0 20px; padding-left: 26px; position: relative; }
+.ka-item::before { content: ''; position: absolute; left: 0; top: 10px; width: 10px; height: 10px; border-radius: 999px; }
+.ka-col.know .ka-item::before { background: #3200BE; }
+.ka-col.assume .ka-item::before { background: #B2B2BC; }
+.risk-band { margin-top: 36px; background: #0B0B0D; color: #fff; border-radius: 18px; padding: 30px 40px; display: flex; gap: 22px; align-items: center; }
+.risk-tag { flex: none; background: #FF96FF; color: #0B0B0D; font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 16px; border-radius: 999px; }
+.risk-text { font-size: 24px; font-weight: 600; line-height: 1.4; }
+
+/* Slide 5 - next steps */
+.next-row { display: flex; gap: 32px; margin-top: 20px; }
+.next-card { flex: 1; background: rgba(255,255,255,0.6); border: 1.5px solid rgba(50,0,190,0.2); border-radius: 22px; padding: 40px; box-shadow: 0 8px 30px rgba(50,0,190,0.1); }
+.next-num { width: 54px; height: 54px; border-radius: 999px; background: #FF96FF; color: #3200BE; font-size: 24px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+.next-title { font-size: 26px; font-weight: 800; color: #1B0A45; margin: 0 0 12px; line-height: 1.3; }
+.next-gate { font-size: 17px; color: #46337a; font-weight: 600; }
+.next-gate b { color: #3200BE; }
+
+/* Divider */
+.divider-line { width: 90px; height: 5px; background: #3200BE; margin: 0 0 34px; }
+
+/* NatWest comparison section */
+.ntw-timeline { display: flex; align-items: stretch; gap: 14px; margin: 44px 0 40px; }
+.ntw-beat { flex: 1; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 32px 26px; position: relative; }
+.ntw-beat-date { font-size: 15px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #FF96FF; margin: 0 0 14px; }
+.ntw-beat-text { font-size: 19px; line-height: 1.45; font-weight: 600; color: #fff; margin: 0; }
+.ntw-beat.loss { background: #FF96FF; border-color: #FF96FF; }
+.ntw-beat.loss .ntw-beat-date { color: #1B0070; }
+.ntw-beat.loss .ntw-beat-text { color: #1B0070; font-weight: 800; font-size: 22px; }
+.ntw-beat-badge { position: absolute; top: -14px; right: 20px; background: #0B0B0D; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.3); }
+.ntw-arrow { align-self: center; font-size: 26px; color: rgba(255,255,255,0.35); flex: none; }
+.ntw-callout { margin-top: 8px; background: #FF96FF; border-radius: 24px; padding: 40px 48px; text-align: center; }
+.ntw-callout-text { font-size: 42px; font-weight: 800; color: #1B0070; line-height: 1.3; margin: 0; letter-spacing: -0.02em; }
+
+.flow-intro { font-size: 24px; color: #5C5C65; margin: 0 0 50px; max-width: 1600px; }
+.flow-row { display: flex; align-items: center; gap: 0; margin-bottom: 16px; }
+.flow-row-label { flex: none; width: 260px; font-size: 19px; font-weight: 800; color: #3200BE; padding-right: 20px; }
+.flow-row-label span { display: block; font-weight: 600; color: #86868F; font-size: 15px; text-transform: none; letter-spacing: 0; margin-top: 6px; }
+.flow-chain { display: flex; align-items: center; gap: 0; flex: 1; }
+.flow-node { background: #F3F3F6; border: 1.5px solid #E7E7EC; border-radius: 16px; padding: 26px 30px; font-size: 19px; font-weight: 700; color: #232329; text-align: center; white-space: nowrap; }
+.flow-node.us { background: #3200BE; color: #fff; border-color: #3200BE; font-size: 22px; }
+.flow-node.dest { background: #F5D2FA44; border-color: #C9A6D9; }
+.flow-arrow { width: 44px; height: 3px; background: #C7C7D1; position: relative; flex: none; }
+.flow-arrow::after { content: ''; position: absolute; right: 0; top: -5px; border: 7px solid transparent; border-left-color: #C7C7D1; }
+.flow-fee { width: 38px; height: 38px; border-radius: 999px; background: #0B0B0D; color: #fff; font-size: 17px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; margin: 0 -2px; z-index: 2; position: relative; border: 2px solid #fff; }
+.flow-caption { font-size: 18px; color: #5C5C65; margin: 12px 0 46px 280px; font-style: italic; }
+
+.cmp-table { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
+.cmp-header-row { display: flex; }
+.cmp-row-label { width: 320px; flex: none; }
+.cmp-col { flex: 1; padding: 16px 24px; font-size: 22px; font-weight: 800; text-align: center; }
+.cmp-col.wholesale { background: #3200BE0D; border-radius: 16px 16px 0 0; }
+.cmp-row { display: flex; border-top: 1px solid #E7E7EC; align-items: stretch; }
+.cmp-row-label-cell { width: 320px; flex: none; padding: 22px 20px 22px 0; font-size: 14px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #86868F; display: flex; align-items: center; line-height: 1.4; }
+.cmp-cell { flex: 1; padding: 22px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.cmp-cell.wholesale { background: #3200BE0D; }
+.cmp-figure { font-size: 32px; font-weight: 800; color: #232329; letter-spacing: -0.02em; }
+.cmp-figure.big { font-size: 38px; color: #3200BE; }
+.cmp-sub { font-size: 13px; color: #86868F; line-height: 1.4; max-width: 240px; }
+.cmp-pill-tbd { display: inline-block; background: #F3F3F6; border: 1.5px dashed #C7C7D1; color: #86868F; font-size: 16px; font-weight: 800; letter-spacing: 0.04em; padding: 8px 20px; border-radius: 999px; }
+.cmp-bar-track { width: 100%; max-width: 220px; height: 9px; background: #E7E7EC; border-radius: 999px; margin-top: 4px; overflow: hidden; }
+.cmp-bar-fill { height: 100%; border-radius: 999px; background: #3200BE; }
+.cmp-resp-list { font-size: 13px; line-height: 1.6; text-align: left; margin: 0; padding-left: 16px; }
+.cmp-resp-list.heavy { font-weight: 600; }
+.cmp-cell.heavy { background: #3200BE; color: #fff; border-radius: 0 0 16px 16px; }
+.cmp-cell.heavy .cmp-resp-list { color: rgba(255,255,255,0.92); }
+.cmp-strapline { margin-top: 30px; background: #0B0B0D; color: #fff; border-radius: 18px; padding: 26px 40px; font-size: 23px; font-weight: 700; line-height: 1.4; text-align: center; }
+
+.decision-cols { display: flex; gap: 36px; flex: 1; margin-top: 30px; }
+.decision-col { flex: 1; border-radius: 24px; padding: 40px 44px; }
+.decision-col.pink { background: #FF96FF14; border: 1.5px solid #FF96FF66; }
+.decision-col.violet { background: #3200BE0D; border: 1.5px solid #3200BE33; }
+.decision-icon { width: 52px; height: 52px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; margin-bottom: 22px; }
+.decision-col.pink .decision-icon { background: #FF96FF; color: #1B0070; }
+.decision-col.violet .decision-icon { background: #3200BE; color: #fff; }
+.decision-title { font-size: 28px; font-weight: 800; margin: 0 0 24px; letter-spacing: -0.01em; }
+.decision-item { font-size: 19px; line-height: 1.55; color: #232329; margin: 0 0 18px; padding-left: 26px; position: relative; }
+.decision-item:last-child { margin-bottom: 0; }
+.decision-item::before { content: ''; position: absolute; left: 0; top: 9px; width: 9px; height: 9px; border-radius: 999px; }
+.decision-col.pink .decision-item::before { background: #FF96FF; border: 1.5px solid #1B0070; }
+.decision-col.violet .decision-item::before { background: #3200BE; }
+
+.vendor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 20px; }
+.vendor-card { background: #fff; border: 1.5px solid #E7E7EC; border-radius: 16px; padding: 24px 22px; }
+.vendor-name { font-size: 19px; font-weight: 800; color: #3200BE; margin: 0 0 14px; }
+.vendor-item { font-size: 13px; line-height: 1.55; color: #232329; margin: 0 0 10px; padding-left: 14px; position: relative; }
+.vendor-item:last-child { margin-bottom: 0; }
+.vendor-item::before { content: ''; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 999px; background: #3200BE; }
+.vendor-assumptions { margin-top: 22px; border-top: 1px solid #E7E7EC; padding-top: 16px; font-size: 12px; color: #86868F; line-height: 1.6; max-width: 1600px; }
+
+/* Slide 6 - pipeline */
+.pipeline-strip { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 16px; margin-top: 6px; }
+.pipe-step { flex: 0 1 380px; background: #fff; border: 1.5px solid #E7E7EC; border-radius: 16px; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px; }
+.pipe-head { display: flex; align-items: center; gap: 12px; }
+.pipe-num { width: 32px; height: 32px; border-radius: 999px; background: #3200BE; color: #fff; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; }
+.pipe-name { font-size: 20px; font-weight: 800; line-height: 1.3; }
+.pipe-field { font-size: 13px; line-height: 1.42; color: #232329; margin: 0; }
+.pipe-field b { color: #3200BE; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+.pipe-step.accent-pink { background: #FF96FF14; border-color: #FF96FF66; }
+.pipe-step.accent-pink .pipe-num { background: #FF96FF; color: #3200BE; }
+.pipe-step.accent-lavender { background: #F5D2FA44; border-color: #C9A6D9; }
+.pipe-step.accent-lavender .pipe-num { background: #F5D2FA; color: #3200BE; }
+
+/* Slide 7 - canvas */
+.phase-badge { display: inline-block; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.32); color: #fff; font-size: 13px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; margin-bottom: 18px; }
+.strategy-blurb { font-size: 18px; line-height: 1.5; color: rgba(255,255,255,0.72); max-width: 1450px; margin: 0 0 22px; }
+.canvas-tree { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 2px; }
+.canvas-box { background: #fff; border: 1.5px solid #E7E7EC; border-radius: 16px; padding: 16px 30px; text-align: left; font-size: 15px; font-weight: 400; max-width: 1150px; width: 100%; box-sizing: border-box; }
+.canvas-kicker { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-bottom: 8px; }
+.canvas-kicker.lavender { background: #F5D2FA; color: #1B0070; }
+.canvas-kicker.pink { background: #FF96FF; color: #1B0070; }
+.canvas-kicker.white { background: rgba(255,255,255,0.92); color: #1B0070; }
+.canvas-body { font-size: 15px; line-height: 1.45; }
+.canvas-body > div { margin-bottom: 2px; }
+.canvas-box.vision { color: #5C5C65; }
+.canvas-box.intent { background: #F5D2FA33; border-color: #FF96FF; }
+.canvas-box.initiative { background: #3200BE; color: #fff; font-weight: 700; font-size: 17px; }
+.canvas-box.options { background: #F5D2FA22; border-color: #E7C6EF; }
+.canvas-arrow { width: 2px; height: 16px; background: #C7C7D1; }
+.canvas-options { display: flex; gap: 14px; margin-top: 4px; flex-wrap: wrap; justify-content: center; max-width: 1400px; }
+.canvas-opt { background: #fff; border: 1px solid #D6D6DD; border-radius: 999px; padding: 10px 22px; font-size: 15px; font-weight: 700; color: #232329; }
+.canvas-sibling { margin-top: 14px; background: #F3F3F6; border: 1.5px dashed #C7C7D1; border-radius: 14px; padding: 12px 24px; font-size: 13px; color: #86868F; text-align: center; max-width: 900px; }
+
+/* Slide 8 - goals */
+.stat-row { display: flex; gap: 48px; flex: 1; align-items: center; justify-content: center; }
+.stat-tile { flex: 1; max-width: 600px; background: #fff; border: 1.5px solid #E7E7EC; border-radius: 24px; padding: 52px 48px; }
+.stat-tag { display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 16px; border-radius: 999px; margin-bottom: 24px; }
+.stat-tag.assumption { background: #F5D2FA; color: #3200BE; }
+.stat-tag.guardrail { background: #0B0B0D; color: #fff; }
+.stat-label { font-size: 20px; color: #5C5C65; font-weight: 600; margin: 0 0 14px; }
+.stat-value { font-size: 52px; font-weight: 800; letter-spacing: -0.02em; margin: 0; line-height: 1.15; }
+.stat-detail { font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.82); margin: 16px 0 0; font-weight: 400; }
+
+/* Slide 9 - personas */
+.persona-row { display: flex; gap: 40px; flex: 1; align-items: stretch; }
+.persona-card { flex: 1; background: #FAF5FE; border: 1.5px solid #E7DCF0; border-radius: 24px; padding: 40px 44px; display: flex; flex-direction: column; }
+.persona-badge { align-self: flex-start; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #86868F; border: 1px solid #D6D6DD; border-radius: 999px; padding: 6px 14px; margin-bottom: 14px; }
+.persona-name { font-size: 34px; font-weight: 800; margin: 0 0 6px; }
+.persona-tagline { font-size: 18px; color: #86868F; margin: 0 0 24px; }
+.persona-arrival { font-size: 17px; color: #5C5C65; margin: 0 0 28px; }
+.barrier-tag { font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #3200BE; margin-bottom: 10px; }
+.barrier-text { font-size: 22px; line-height: 1.5; color: #232329; font-weight: 500; }
+.persona-field { font-size: 18px; line-height: 1.55; color: #232329; margin: 0 0 20px; }
+.persona-field:last-child { margin-bottom: 0; }
+.persona-field b { color: #3200BE; font-weight: 800; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; display: block; margin-bottom: 4px; }
+
+/* Slide 10 - real problem */
+.problem-row { display: flex; gap: 56px; flex: 1; }
+.problem-col { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.js-title { font-size: 22px; font-weight: 800; margin: 0 0 16px; }
+.js-item { display: flex; gap: 14px; margin-bottom: 22px; align-items: flex-start; }
+.js-tag { flex: none; font-size: 11px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; padding: 5px 10px; border-radius: 6px; margin-top: 2px; }
+.js-tag.unmet { background: #0B0B0D; color: #fff; }
+.js-tag.unrealized { background: #F5D2FA; color: #3200BE; }
+.js-text { font-size: 19px; line-height: 1.5; color: #232329; }
+.quadrant-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.quadrant-box { width: 300px; height: 300px; position: relative; border-left: 2px solid #C7C7D1; border-bottom: 2px solid #C7C7D1; margin: 10px 0; }
+.q-axis-label { position: absolute; font-size: 13px; font-weight: 700; color: #86868F; text-transform: uppercase; letter-spacing: 0.04em; }
+.q-dot { position: absolute; width: 26px; height: 26px; border-radius: 999px; background: #3200BE; border: 4px solid #FF96FF; }
+.q-reading { font-size: 18px; color: #5C5C65; text-align: center; max-width: 520px; line-height: 1.5; }
+.job-intro { font-size: 15px; line-height: 1.5; color: #5C5C65; margin: 0 0 20px; }
+.job-card { background: #fff; border: 1.5px solid #E7E7EC; border-radius: 16px; padding: 20px 24px; margin-bottom: 14px; }
+.job-card:last-child { margin-bottom: 0; }
+.job-card .js-tag { margin-bottom: 10px; }
+.job-card .js-text { display: block; margin: 0; }
+.job-card.accent-violet { background: #3200BE0D; border-color: #3200BE33; }
+.job-card.accent-pink { background: #FF96FF14; border-color: #FF96FF66; }
+.job-card.accent-lavender { background: #F5D2FA44; border-color: #C9A6D9; }
+.axis-detail { border-radius: 14px; padding: 12px 18px; margin-bottom: 8px; width: 100%; box-sizing: border-box; max-width: 520px; }
+.axis-detail:last-of-type { margin-bottom: 0; }
+.axis-detail.low { background: #FAFAFB; border: 1.5px dashed #C7C7D1; }
+.axis-detail.high { background: #F5D2FA22; border: 1.5px solid #E7E7EC; }
+.axis-detail-title { font-size: 14px; font-weight: 800; margin: 0 0 4px; }
+.axis-detail-title.low { color: #5C5C65; }
+.axis-detail-title.high { color: #3200BE; }
+.axis-detail-text { font-size: 13px; line-height: 1.42; color: #232329; margin: 0; }
+.q-verdict { font-size: 14px; color: #5C5C65; line-height: 1.4; margin-top: 8px; font-style: italic; text-align: center; max-width: 520px; }
+
+/* Slide 11 - de-risking */
+.exp-row { display: flex; gap: 32px; flex: 1; align-items: center; }
+.exp-card { flex: 1; background: #fff; border: 1.5px solid #E7E7EC; border-radius: 20px; padding: 28px 30px; display: flex; flex-direction: column; }
+.exp-name { font-size: 22px; font-weight: 800; margin: 0 0 10px; }
+.exp-tests { font-size: 17px; color: #5C5C65; line-height: 1.5; margin: 0 0 18px; }
+.exp-meta { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #E7E7EC; padding-top: 14px; }
+.exp-cost { font-size: 14px; font-weight: 700; color: #232329; }
+.status-pill { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding: 5px 12px; border-radius: 999px; }
+.status-pill.designed { background: #F3F3F6; color: #5C5C65; }
+.status-pill.queued { background: #F5D2FA; color: #3200BE; }
+.status-pill.proposed { background: #FAFAFB; border: 1px dashed #C7C7D1; color: #86868F; }
+.dark-slide .status-pill.proposed { background: rgba(255,255,255,0.06); border: 1px dashed rgba(255,255,255,0.35); color: rgba(255,255,255,0.65); }
+.confidence-wrap { margin-top: 32px; }
+.confidence-label { font-size: 17px; font-weight: 700; color: #232329; margin-bottom: 12px; display: flex; justify-content: space-between; }
+.confidence-bar { position: relative; height: 20px; background: #F3F3F6; border-radius: 999px; overflow: visible; margin-top: 44px; }
+.confidence-fill { height: 100%; background: #3200BE; border-radius: 999px; }
+.confidence-target { position: absolute; top: -6px; bottom: -6px; width: 2px; background: #0B0B0D; }
+.confidence-target-label { position: absolute; top: -30px; font-size: 12px; font-weight: 700; color: #0B0B0D; white-space: nowrap; }
+
+/* Slide 12b - solution exploration */
+.assumption-row { display: flex; gap: 20px; margin: 4px 0 28px; }
+.assumption-chip { flex: 1; border-radius: 14px; padding: 18px 20px; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.2); }
+.assumption-tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+.assumption-tag.ruled-out { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
+.assumption-tag.riskiest { background: #1B0070; color: #FF96FF; }
+.assumption-name { font-size: 17px; font-weight: 800; margin: 0 0 6px; color: #fff; }
+.assumption-reason { font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.7); margin: 0; }
+.assumption-chip.riskiest { background: #FF96FF; border-color: #FF96FF; }
+.assumption-chip.riskiest .assumption-name { color: #1B0070; }
+.assumption-chip.riskiest .assumption-reason { color: rgba(27,0,112,0.78); }
+.solution-explore-grid { display: flex; gap: 40px; flex: 1; }
+.solution-explore-grid > div { flex: 1; display: flex; flex-direction: column; }
+.riskiest-quote { background: rgba(255,150,255,0.12); border: 1.5px solid #FF96FF; border-radius: 18px; padding: 24px 28px; font-size: 17px; line-height: 1.5; color: #fff; font-style: italic; margin-bottom: 14px; }
+.riskiest-quote-label { display: block; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #FF96FF; font-style: normal; margin-bottom: 10px; }
+.risk-note { font-size: 13px; color: rgba(255,255,255,0.55); font-style: italic; line-height: 1.5; margin: 0; }
+.test-card { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 24px 28px; margin-bottom: 22px; }
+.test-name { font-size: 18px; font-weight: 800; margin: 0 0 14px; color: #fff; }
+.test-field { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85); margin: 0 0 12px; }
+.test-field:last-child { margin-bottom: 0; }
+.test-field b { display: block; color: #FF96FF; text-transform: uppercase; font-size: 11px; letter-spacing: 0.04em; margin-bottom: 3px; }
+
+/* Slide 12a - story map */
+.storymap-strip { display: flex; gap: 16px; margin: 30px 0 20px; }
+.theme-box { flex: 1; background: #fff; border: 1.5px solid #E7E7EC; border-radius: 16px; padding: 30px 24px; text-align: center; }
+.theme-box.below { background: #FAFAFB; border-style: dashed; }
+.theme-num { font-size: 15px; font-weight: 800; color: #3200BE; margin-bottom: 10px; }
+.theme-name { font-size: 21px; font-weight: 800; line-height: 1.3; }
+.theme-sub { font-size: 14px; line-height: 1.5; color: #86868F; margin-top: 12px; }
+.theme-box.accent-violet { background: #3200BE0D; border-color: #3200BE33; }
+.theme-box.accent-pink { background: #FF96FF14; border-color: #FF96FF66; }
+.theme-box.accent-lavender { background: #F5D2FA44; border-color: #C9A6D9; }
+.theme-tasks { margin-top: 16px; text-align: left; }
+.theme-task { font-size: 14px; line-height: 1.6; color: #5C5C65; margin-bottom: 8px; padding-left: 16px; position: relative; }
+.theme-task:last-child { margin-bottom: 0; }
+.theme-task::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 999px; background: #3200BE; }
+.theme-task.bonus { color: #86868F; font-style: italic; }
+.theme-task.bonus::before { background: #C7C7D1; }
+.mfs-line-row { display: flex; align-items: center; gap: 16px; margin: 8px 0 30px; }
+.mfs-line { flex: 1; height: 2px; background: #0B0B0D; border-top: 3px dashed #0B0B0D; }
+.mfs-label { font-size: 14px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #0B0B0D; white-space: nowrap; }
+
+/* Slide 12b - wireframes */
+.variant-row { display: flex; gap: 40px; flex: 1; }
+.variant-card { flex: 1; background: #fff; border: 1.5px solid #E7E7EC; border-radius: 20px; padding: 26px 30px; display: flex; flex-direction: column; justify-content: center; }
+.variant-label { font-size: 22px; font-weight: 800; margin: 0 0 6px; }
+.variant-status { font-size: 14px; font-weight: 700; color: #3200BE; margin-bottom: 14px; }
+.variant-status.wf-only { color: #86868F; }
+.variant-note { font-size: 15px; color: #5C5C65; line-height: 1.5; }
+
+.wf-panel { background: #FAFAFB; border: 1px solid #E7E7EC; border-radius: 14px; padding: 16px; margin-bottom: 16px; }
+.wf-chrome { display: flex; gap: 5px; margin-bottom: 10px; }
+.wf-dot { width: 7px; height: 7px; border-radius: 999px; border: 1px solid #C7C7D1; display: inline-block; }
+.wf-header-bar { height: 12px; background: #E1E1E7; border-radius: 4px; margin-bottom: 10px; width: 55%; }
+.wf-grid { display: flex; gap: 12px; }
+.wf-col { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.wf-block { background: #fff; border: 1px dashed #D6D6DD; border-radius: 8px; padding: 8px 10px; }
+.wf-block .wf-bar { margin-bottom: 5px; }
+.wf-block .wf-bar:last-child { margin-bottom: 0; width: 65%; }
+.wf-bar { height: 8px; background: #E1E1E7; border-radius: 3px; }
+.wf-card-tp { border: 1.5px solid #3200BE; border-radius: 8px; padding: 9px 10px; position: relative; background: #F5F1FE; }
+.wf-card-tp.filled { background: #3200BE; border-color: #3200BE; }
+.wf-new-tag { position: absolute; top: -7px; right: -6px; background: #0B0B0D; color: #fff; font-size: 8px; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.04em; }
+.wf-swatch { width: 12px; height: 12px; border-radius: 4px; background: #3200BE; display: inline-block; vertical-align: middle; margin-right: 7px; }
+.wf-card-tp.filled .wf-swatch { background: #fff; }
+.wf-inline-bar { display: inline-block; vertical-align: middle; }
+.wf-chevron { float: right; color: #3200BE; font-size: 13px; font-weight: 800; }
+.wf-card-tp.filled .wf-chevron { color: #fff; }
+.wf-checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 12px; margin: 9px 0; }
+.wf-check-item { display: flex; align-items: center; gap: 5px; }
+.wf-check-item .mark { font-weight: 800; font-size: 10px; flex: none; }
+.wf-check-item.yes .mark { color: #1E8A5A; }
+.wf-check-item.no .mark { color: #B2B2BC; }
+.wf-check-item .wf-bar { flex: 1; height: 7px; margin: 0; }
+.wf-btn-row { display: flex; gap: 8px; margin-top: 6px; }
+.wf-btn { flex: 1; border: 1px solid #D6D6DD; border-radius: 6px; height: 18px; }
+.wf-btn.on { border-color: #3200BE; background: #F5D2FA55; }
+.wf-confirm-bar { background: #3200BE; height: 20px; border-radius: 6px; margin-top: 8px; }
+.wf-annotations { display: flex; flex-direction: column; gap: 8px; }
+.wf-annotation { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #5C5C65; line-height: 1.4; }
+.wf-annotation-num { flex: none; width: 18px; height: 18px; border-radius: 999px; background: #3200BE; color: #fff; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.wf-legend { display: flex; gap: 26px; margin-top: 18px; font-size: 13px; color: #5C5C65; flex-wrap: wrap; align-items: center; }
+.wf-legend-item { display: flex; align-items: center; gap: 7px; }
+.wf-legend-swatch { width: 13px; height: 13px; border-radius: 3px; display: inline-block; }
+.wf-legend-swatch.tp { border: 1.5px solid #3200BE; background: #F5F1FE; }
+.wf-legend-swatch.existing { border: 1px dashed #C7C7D1; background: #fff; }
+.wf-legend-mark { font-weight: 800; font-size: 13px; }
+
+/* Slide 13 - roadmap */
+.roadmap-card { background: #fff; color: #0B0B0D; border: 1.5px solid #E7E7EC; border-radius: 24px; padding: 40px 48px; display: flex; flex-direction: column; gap: 22px; }
+.roadmap-top { display: flex; gap: 40px; }
+.roadmap-field { flex: 1; }
+.roadmap-field-label { font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #86868F; margin-bottom: 10px; }
+.roadmap-field-value { font-size: 22px; font-weight: 800; }
+.roadmap-outcomes { font-size: 18px; line-height: 1.5; color: #232329; border-top: 1px solid #E7E7EC; padding-top: 22px; }
+.gate-list { display: flex; gap: 20px; }
+.gate-chip { flex: 1; background: #F5D2FA33; border: 1px solid #FF96FF; border-radius: 12px; padding: 14px 20px; font-size: 15px; font-weight: 700; color: #3200BE; }
+.kano-note { font-size: 15px; color: #5C5C65; font-style: italic; }
+.kano-grid { display: flex; gap: 28px; border-top: 1px solid #E7E7EC; padding-top: 20px; }
+.kano-col { flex: 1; }
+.kano-col-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 10px; }
+.kano-col-title.basic { color: #3200BE; }
+.kano-col-title.performance { color: #86868F; }
+.kano-col-title.none { color: #B2B2BC; }
+.kano-col-title span { font-weight: 600; text-transform: none; letter-spacing: 0; opacity: 0.75; }
+.kano-list { margin: 0; padding: 0; list-style: none; }
+.kano-list li { font-size: 13px; line-height: 1.45; color: #232329; margin-bottom: 8px; padding-left: 14px; position: relative; }
+.kano-list li:last-child { margin-bottom: 0; }
+.kano-list li::before { content: ''; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 999px; background: #3200BE; }
+.kano-list.performance-list li::before { background: #86868F; }
+.kano-none-text { font-size: 13px; line-height: 1.5; color: #5C5C65; margin: 0; }
+
+.eyebrow-wrap { margin-bottom: 30px; }
+
+/* Dark & gradient slide variants (Framing, Goals, De-risking) — background-variety pass */
+.dark-slide { background: #1B0070; color: #FFFFFF; }
+.dark-slide .lw-eyebrow { color: #FF96FF; }
+.dark-slide .lw-kicker-dot { background: #FF96FF; }
+.dark-slide h2 { color: #FFFFFF; }
+.dark-slide .canvas-box { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #FFFFFF; }
+.dark-slide .canvas-box.vision { color: rgba(255,255,255,0.65); }
+.dark-slide .canvas-box.intent { background: rgba(255,150,255,0.16); border-color: #FF96FF; }
+.dark-slide .canvas-box.initiative { background: #FF96FF; color: #1B0070; }
+.dark-slide .canvas-box.options { background: rgba(245,210,250,0.14); border-color: rgba(245,210,250,0.55); }
+.dark-slide .canvas-arrow { background: rgba(255,255,255,0.3); }
+.dark-slide .canvas-opt { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); color: #FFFFFF; }
+.dark-slide .canvas-sibling { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
+.dark-slide .exp-card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
+.dark-slide .exp-name { color: #FFFFFF; }
+.dark-slide .exp-tests { color: rgba(255,255,255,0.7); }
+.dark-slide .exp-meta { border-top-color: rgba(255,255,255,0.2); }
+.dark-slide .exp-cost { color: #FFFFFF; }
+.dark-slide .status-pill.designed { background: rgba(255,255,255,0.14); color: #FFFFFF; }
+.dark-slide .status-pill.queued { background: #FF96FF; color: #1B0070; }
+.dark-slide .confidence-label { color: #FFFFFF; }
+.dark-slide .confidence-bar { background: rgba(255,255,255,0.14); }
+.dark-slide .confidence-fill { background: #FF96FF; }
+.dark-slide .confidence-target { background: #FFFFFF; }
+.dark-slide .confidence-target-label { color: #FFFFFF; }
+
+.gradient-slide { background: linear-gradient(135deg, #FF96FF, #3200BE); color: #FFFFFF; }
+.gradient-slide .lw-eyebrow { color: #1B0070; }
+.gradient-slide .lw-kicker-dot { background: #1B0070; }
+.gradient-slide h2 { color: #FFFFFF; }
+.gradient-slide .stat-tile { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.4); }
+.gradient-slide .stat-tag.assumption { background: #FFFFFF; color: #3200BE; }
+.gradient-slide .stat-tag.guardrail { background: #0B0B0D; color: #FFFFFF; }
+.gradient-slide .stat-label { color: rgba(255,255,255,0.85); }
+.gradient-slide .stat-value { color: #FFFFFF; }
+</style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<!-- 1 - TITLE -->
+<section class="lw-slide" data-label="Title" data-screen-label="01" style="background:#3200BE; color:#FFFFFF; padding:120px 140px; justify-content:center;">
+  <div class="lw-photo-bg"></div>
+  <div class="lw-watermark">ESIM</div>
+  <div style="position:relative; z-index:2;">
+    <div class="lw-kicker-row" style="margin-bottom:44px;">
+      <span class="lw-kicker-dot"></span>
+      <p class="lw-eyebrow" style="color:#FF96FF;">eSIM · 15 July 2026</p>
+    </div>
+    <h1 style="font-size:150px; line-height:1.0; font-weight:800; letter-spacing:-0.03em; margin:0 0 48px;">eSIM Route to Market</h1>
+    <div class="status-chip"><span class="status-dot"></span>Discovery</div>
+  </div>
+  <div style="position:relative; z-index:2;">
+    <div class="deck-logo-word">eSIM</div>
+    <div class="deck-logo-sub">Powered by likewize.</div>
+  </div>
+</section>
+
+<!-- 2 - THE ASK -->
+<section class="lw-slide" data-label="The ask" data-screen-label="02" style="background:#FFFFFF; color:#0B0B0D; padding:96px 140px 70px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">The ask</p>
+  </div>
+  <p class="quote-block" style="margin-bottom:16px;">Bring an eSIM proposition to market under the Traveller pack</p>
+  <p class="quote-attr"><br></p>
+  <div class="why-now-list">
+    <div class="why-now-item"><span class="why-now-mark">1</span><span>Initial conversations have been held with prospective vendors across multiple options: Dragonpass, eSIM Go, 1Global, Vodafone/Three.</span></div>
+    <div class="why-now-item"><span class="why-now-mark">2</span><span>Immediate deliverable: a route-to-market recommendation deck ahead of a decision with Andy Morris.</span></div>
+    <div class="why-now-item"><span class="why-now-mark">3</span><span>Real underlying trigger: Likewize previously lost the NatWest eSIM opportunity via ePay — too expensive, too inflexible — and this initiative exists to find a better route.</span></div>
+  </div>
+  <p class="not-this-band">No live eSIM product exists today. This isn't a green-field idea — it's a second attempt, informed by exactly why the first one (ePay, via NatWest) failed.</p>
+</section>
+
+<!-- 3 - WHERE WE LANDED (bespoke — no single committed solution yet; a route-agnostic customer proposition, with the commercial route left open for Friday's decision) -->
+<section class="lw-slide" data-label="Where we landed" data-screen-label="03" style="background:#FFFFFF; color:#0B0B0D; padding:96px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">Where we landed</p>
+  </div>
+  <h2 style="font-size:50px; font-weight:800; letter-spacing:-0.03em; margin:0 0 32px; max-width:1550px;">We've defined what good looks like for the customer — the commercial route to deliver it is the open decision.</h2>
+
+  <div style="background:#FAFAFB; border:1.5px solid #E7E7EC; border-radius:20px; padding:36px 44px; margin-bottom:36px;">
+    <p style="font-size:13px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#3200BE; margin:0 0 12px;">Product Vision</p>
+    <p style="font-size:24px; line-height:1.5; font-weight:600; color:#232329; margin:0; max-width:1500px;">Likewize eSIM — seamless travel data delivered inside the app a partner's customers already trust, activated automatically or in one step, so travelling abroad never means worrying about connectivity.</p>
+  </div>
+
+  <p style="font-size:15px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#86868F; margin:0 0 16px;">Customer journey backbone — route-agnostic</p>
+  <div style="display:flex; align-items:stretch; gap:0; margin-bottom:40px;">
+    <div style="flex:1; background:#3200BE0D; border:1.5px solid #3200BE33; border-radius:16px 0 0 16px; padding:26px 28px;"><p style="font-size:20px; font-weight:800; margin:0;">Discover</p></div>
+    <div style="flex:1; background:#FF96FF14; border-top:1.5px solid #FF96FF66; border-bottom:1.5px solid #FF96FF66; border-right:1.5px solid #FF96FF66; padding:26px 28px;"><p style="font-size:20px; font-weight:800; margin:0;">Get Set Up</p></div>
+    <div style="flex:1; background:#F5D2FA44; border-top:1.5px solid #C9A6D9; border-bottom:1.5px solid #C9A6D9; border-left:1.5px solid #C9A6D9; padding:26px 28px;"><p style="font-size:20px; font-weight:800; margin:0;">Travel Connected</p></div>
+    <div style="flex:1; background:#3200BE0D; border:1.5px solid #3200BE33; border-radius:0 16px 16px 0; padding:26px 28px;"><p style="font-size:20px; font-weight:800; margin:0;">Top Up / Renew</p></div>
+  </div>
+
+  <p style="font-size:15px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#86868F; margin:0 0 16px;">Still open — which commercial route delivers this</p>
+  <div style="display:flex; gap:20px;">
+    <div style="flex:1; background:#FAFAFB; border:1.5px dashed #C7C7D1; border-radius:16px; padding:22px 26px;">
+      <p style="font-size:12px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#86868F; margin:0 0 8px;">Ruled out</p>
+      <p style="font-size:18px; font-weight:800; margin:0; color:#5C5C65; text-decoration:line-through;">ePay</p>
+    </div>
+    <div style="flex:1; background:#F5D2FA22; border:1.5px solid #E7E7EC; border-radius:16px; padding:22px 26px;">
+      <p style="font-size:12px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#3200BE; margin:0 0 8px;">Buy</p>
+      <p style="font-size:18px; font-weight:800; margin:0;">Dragonpass</p>
+    </div>
+    <div style="flex:1; background:#F5D2FA22; border:1.5px solid #E7E7EC; border-radius:16px; padding:22px 26px;">
+      <p style="font-size:12px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#3200BE; margin:0 0 8px;">Build</p>
+      <p style="font-size:18px; font-weight:800; margin:0;">Wholesale</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 - KNOWN VS ASSUMED -->
+<section class="lw-slide" data-label="Known vs assumed" data-screen-label="04" style="background:#FAFAFB; color:#0B0B0D; padding:96px 140px 70px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">Known vs. assumed</p>
+  </div>
+  <h2 style="font-size:50px; font-weight:800; letter-spacing:-0.03em; margin:0 0 34px;">What's proven, and what the route decision still rests on</h2>
+  <div class="known-assumed">
+    <div class="ka-col know">
+      <p class="ka-title know">What we know</p>
+      <p class="ka-item">NatWest previously approached Likewize directly with this exact ask.</p>
+      <p class="ka-item">Competitor Assurant already delivers travel eSIM via Dragonpass.</p>
+      <p class="ka-item">ePay's failure mode is proven: rigid catalogue reseller, no pricing flexibility, no real support — directly cost the NatWest deal.</p>
+    </div>
+    <div class="ka-col assume">
+      <p class="ka-title assume">What we're assuming, and what is open</p>
+      <p class="ka-item">End-consumer needs (personas Dan and Meera) are hypothetical research — plausible, but not validated against real Likewize/partner customer data.</p>
+      <p class="ka-item">Whether partners would genuinely buy through Likewize + Dragonpass rather than go direct to Dragonpass themselves (disintermediation risk).</p>
+      <p class="ka-item">Whether Likewize can/wants to resource a wholesale build, which will be slower to market.</p>
+    </div>
+  </div>
+  <div class="risk-band">
+    <span class="risk-tag">Riskiest assumption</span>
+    <span class="risk-text">Two live, unresolved assumptions carry the whole route decision — would a partner buy through Likewize rather than go direct to Dragonpass, and can Likewize actually resource a wholesale build. Neither is confident enough to commit to yet — this is a business decision to be made following a recommendation.</span>
+  </div>
+</section>
+
+<!-- 5 - NEXT STEPS -->
+<section class="lw-slide" data-label="Next steps" data-screen-label="05" style="background:#3200BE; color:#1B0A45; padding:110px 140px; justify-content:flex-start;">
+  <div class="lw-photo-bg pink"></div>
+  <div class="lw-watermark">ESIM</div>
+  <div class="lw-kicker-row eyebrow-wrap" style="position:relative; z-index:2;">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">Next steps</p>
+  </div>
+  <h2 style="position:relative; z-index:2; font-size:78px; font-weight:800; letter-spacing:-0.03em; margin:0 0 20px; color:#1B0A45;">Friday, then a decision</h2>
+  <p style="position:relative; z-index:2; font-size:24px; color:#1B0A45; max-width:1200px; margin:0 0 10px;">Route recommendation goes to Andy Morris — three options framed against pricing, margin, and Likewize's operational responsibilities.</p>
+  <div class="next-row" style="position:relative; z-index:2;">
+    <div class="next-card">
+      <div class="next-num">1</div>
+      <p class="next-title">Draft route-comparison deck reviewed with Anis and Ben</p>
+      <p class="next-gate">Due <b>Friday 17 July</b>, with amendments to follow.</p>
+    </div>
+    <div class="next-card">
+      <div class="next-num">2</div>
+      <p class="next-title">Recommendation taken to Andy Morris</p>
+      <p class="next-gate">Frames <b>ePay (ruled out) / Dragonpass / Wholesale</b> against pricing, margin and ops — using the lost NatWest deal as the comparison device.</p>
+    </div>
+    <div class="next-card">
+      <div class="next-num">3</div>
+      <p class="next-title">Confirm vendor white-label capability</p>
+      <p class="next-gate">Open once a route is chosen — <b>Dragonpass's Android flow</b> currently requires its own app, threatening the "seamless, inside a trusted app" proposition.</p>
+    </div>
+    <div class="next-card">
+      <div class="next-num">4</div>
+      <p class="next-title">Ongoing delivery tracking</p>
+      <p class="next-gate">Moves to <b>implementation</b> once the route is decided.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER - NatWest Comparison -->
+<section class="lw-slide" data-label="NatWest Comparison" data-screen-label="05b" style="background:#3200BE; color:#FFFFFF; padding:0 140px; justify-content:center; align-items:flex-start;">
+  <div class="divider-line" style="background:#FF96FF;"></div>
+  <h2 style="font-size:76px; font-weight:800; letter-spacing:-0.03em; margin:0 0 24px; color:#FFFFFF;">NatWest Comparison</h2>
+  <p style="font-size:26px; color:rgba(255,255,255,0.75); max-width:1000px; line-height:1.5; margin:0;">Framing the decision for an eSIM route to market. If NatWest came to us with the same opportunity tomorrow, what would we want to offer? Comparing the original proposal (supported by ePay) with options via Dragonpass, or wholesale.</p>
+</section>
+
+<!-- 5c - WHAT HAPPENED WITH NATWEST -->
+<section class="lw-slide dark-slide" data-label="What happened with NatWest" data-screen-label="05c" style="padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot"></span>
+    <p class="lw-eyebrow">NatWest comparison</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">What happened with NatWest</h2>
+  <div class="ntw-timeline">
+    <div class="ntw-beat"><p class="ntw-beat-date">Feb 2026</p><p class="ntw-beat-text">NatWest asked Likewize for a travel eSIM proposition for Platinum/Black accounts.</p></div>
+    <span class="ntw-arrow">→</span>
+    <div class="ntw-beat"><p class="ntw-beat-date">The offer</p><p class="ntw-beat-text">We offered <b style="color:#FF96FF;">£8.20 per activation</b> (3GB, Europe) — built on ePay's catalogue pricing.</p></div>
+    <span class="ntw-arrow">→</span>
+    <div class="ntw-beat loss"><p class="ntw-beat-date">We lost</p><p class="ntw-beat-text">Too expensive, too inflexible.</p></div>
+    <span class="ntw-arrow">→</span>
+    <div class="ntw-beat"><span class="ntw-beat-badge">Not yet public</span><p class="ntw-beat-date">1 Oct 2026</p><p class="ntw-beat-text">NatWest Platinum relaunches with a <b style="color:#FF96FF;">5GB travel eSIM via DragonPass Premier+</b> (Assurant + Dragonpass).</p></div>
+  </div>
+  <div class="ntw-callout">
+    <p class="ntw-callout-text">If NatWest came back today — what would we offer?</p>
+  </div>
+</section>
+
+<!-- 5d - HOW THE ESIM MARKET WORKS -->
+<section class="lw-slide" data-label="How the eSIM market works" data-screen-label="05d" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 50px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">NatWest comparison</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">How the eSIM market works</h2>
+  <p class="flow-intro">Every link in the chain takes a margin. Our price depends on where we plug in.</p>
+
+  <div class="flow-row">
+    <div class="flow-row-label">ePay <span>what we did</span></div>
+    <div class="flow-chain">
+      <div class="flow-node">Network</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">Aggregator</div>
+      <div class="flow-fee">£</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">ePay</div>
+      <div class="flow-fee">£</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node us">Likewize</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node dest">NatWest</div>
+    </div>
+  </div>
+  <p class="flow-caption">Two mouths to feed — fixed catalogue, no flexibility</p>
+
+  <div class="flow-row">
+    <div class="flow-row-label">Dragonpass <span>buy</span></div>
+    <div class="flow-chain">
+      <div class="flow-node">Network</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">Aggregator</div>
+      <div class="flow-fee">£</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">Dragonpass</div>
+      <div class="flow-fee">£</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node us">Likewize</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node dest">NatWest</div>
+    </div>
+  </div>
+  <p class="flow-caption">Two mouths to feed — bespoke packages, real flexibility</p>
+
+  <div class="flow-row">
+    <div class="flow-row-label">Wholesale <span>build</span></div>
+    <div class="flow-chain">
+      <div class="flow-node">Network</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">Aggregator <span style="display:block; font-weight:600; font-size:11px; color:#86868F;">eSIM Go / 1Global</span></div>
+      <div class="flow-fee">£</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node us">Likewize</div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node dest">NatWest</div>
+    </div>
+  </div>
+  <p class="flow-caption">One mouth to feed — we set pricing, we carry the work</p>
+</section>
+
+<!-- 5e - THE COMPARISON -->
+<section class="lw-slide" data-label="The comparison" data-screen-label="05e" style="background:#FAFAFB; color:#0B0B0D; padding:80px 140px 40px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">NatWest comparison</p>
+  </div>
+  <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">The comparison</h2>
+  <div class="cmp-table">
+    <div class="cmp-header-row">
+      <div class="cmp-row-label"></div>
+      <div class="cmp-col">ePay<span style="display:block; font-size:12px; font-weight:700; color:#86868F; text-transform:none; margin-top:4px;">ruled out</span></div>
+      <div class="cmp-col">Dragonpass</div>
+      <div class="cmp-col wholesale" style="color:#3200BE;">Wholesale<span style="display:block; font-size:12px; font-weight:700; color:#3200BE; opacity:0.7; text-transform:none; margin-top:4px;">eSIM Go / 1Global</span></div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-row-label-cell">Wholesale cost —<br>one 5GB Europe eSIM</div>
+      <div class="cmp-cell"><span class="cmp-figure">~£5.00</span><span class="cmp-sub">($6.60)</span></div>
+      <div class="cmp-cell"><span class="cmp-pill-tbd">TBD</span><span class="cmp-sub">no rate card yet</span></div>
+      <div class="cmp-cell wholesale"><span class="cmp-figure big">~£2.95–3.50</span></div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-row-label-cell">Price to NatWest<br><span style="font-weight:600; text-transform:none; letter-spacing:0; font-size:12px;">20% margin + £0.04 platform fee</span></div>
+      <div class="cmp-cell">
+        <span class="cmp-figure">£8.20</span><span class="cmp-sub">actual final offer (3GB); ~£11.50 5GB-equivalent</span>
+        <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:100%;"></div></div>
+      </div>
+      <div class="cmp-cell">
+        <span class="cmp-pill-tbd">TBD</span><span class="cmp-sub">expected between ePay and wholesale</span>
+        <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:60%; background:#C9A6D9;"></div></div>
+      </div>
+      <div class="cmp-cell wholesale">
+        <span class="cmp-figure big">~£3.60–4.25</span><span class="cmp-sub">a third of the ePay price, at the same Likewize margin</span>
+        <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:33%;"></div></div>
+      </div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-row-label-cell">Our responsibilities</div>
+      <div class="cmp-cell"><ul class="cmp-resp-list"><li>Partner relationship &amp; proposition</li><li>First-line customer support</li></ul></div>
+      <div class="cmp-cell"><ul class="cmp-resp-list"><li>Partner relationship &amp; proposition</li><li>Single API integration</li><li>First-line customer support</li></ul></div>
+      <div class="cmp-cell heavy"><ul class="cmp-resp-list heavy"><li>Partner relationship &amp; proposition</li><li>Full API build &amp; platform integration (IT org)</li><li>Pricing &amp; usage risk</li><li>Regulatory &amp; compliance (per-market due diligence; licences/VAT under full Telco-of-Record)</li><li>First-line customer support</li><li>Prepay funding &amp; spend commitments</li></ul></div>
+    </div>
+  </div>
+  <div class="cmp-strapline">Same formula, same Likewize margin — the price to NatWest drops ~60–70% purely because we cut out a mouth to feed.</div>
+</section>
+
+<!-- 5f - WHAT THE DECISION HINGES ON -->
+<section class="lw-slide" data-label="What the decision hinges on" data-screen-label="05f" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">NatWest comparison</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">What the decision hinges on</h2>
+  <p style="font-size:20px; color:#5C5C65; margin:0; max-width:1400px;">Two questions decide this — neither is answered yet.</p>
+  <div class="decision-cols">
+    <div class="decision-col pink">
+      <div class="decision-icon">?</div>
+      <p class="decision-title">If Dragonpass: what do we add?</p>
+      <p class="decision-item">Assurant already sells this exact route — same platform, same products. No differentiation.</p>
+      <p class="decision-item">Dragonpass sits behind several of our other lifestyle products already. What stops a partner going to them direct?</p>
+      <p class="decision-item">We need pricing (no rate card yet) and a clear answer on white-label depth (Android currently requires the Dragonpass app).</p>
+    </div>
+    <div class="decision-col violet">
+      <div class="decision-icon">?</div>
+      <p class="decision-title">If Wholesale: can we deliver it?</p>
+      <p class="decision-item">Full build: API integration, pricing/usage risk, regulatory, support — with IT organisation involvement.</p>
+      <p class="decision-item">Real financial commitments: guaranteed monthly spend for the best rates; prepay funding.</p>
+      <p class="decision-item">Honest question: do we have the resource to do this properly, and on what timeline?</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5g - APPENDIX: SUPPORTING DETAIL -->
+<section class="lw-slide" data-label="Appendix: Supporting detail" data-screen-label="05g" style="background:#FAFAFB; color:#0B0B0D; padding:80px 140px 50px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">Appendix</p>
+  </div>
+  <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 6px;">Supporting detail</h2>
+  <div class="vendor-grid">
+    <div class="vendor-card">
+      <p class="vendor-name">ePay</p>
+      <p class="vendor-item">Green-only zone product (34 European countries), single-use — no top-ups; customer buys a new eSIM each time.</p>
+      <p class="vendor-item">£8.20 = actual Feb 2026 blended EMEA 3GB offer. 5GB-equivalent (~£11.50) derived from our own "5GB ≈ 140% of 3GB" guidance to NatWest — not a quoted ePay price.</p>
+    </div>
+    <div class="vendor-card">
+      <p class="vendor-name">Dragonpass</p>
+      <p class="vendor-item">No rate card shared yet. Their steer: launch on pre-packaged rates, move to usage-based once real data exists.</p>
+      <p class="vendor-item">Android journey currently requires the Dragonpass app.</p>
+    </div>
+    <div class="vendor-card">
+      <p class="vendor-name">eSIM Go</p>
+      <p class="vendor-item">Spain 5GB/30d: $3.55 (Gold) / $3.72 (Silver) / $4.11 (Standard), + $0.30 assignment + $0.20/mo active-IMSI fee.</p>
+      <p class="vendor-item">Prepay, $1,000 minimum top-up. Best pricing tiers require guaranteed spend: $25k/mo (Silver) / $100k/mo (Gold), reviewed quarterly.</p>
+    </div>
+    <div class="vendor-card">
+      <p class="vendor-name">1Global</p>
+      <p class="vendor-item">~€3.85 for 5GB Europe incl. €0.60 one-time provisioning ("one eSIM for life" — reusable across trips).</p>
+      <p class="vendor-item">Consumption billing: charged on actual usage (~65% observed) — breakage accrues to Likewize.</p>
+      <p class="vendor-item">Deposit ~1 month's traffic, min €20k, refundable. Two models: 1Global as Telco of Record (agent — they hold licences/VAT) vs. Likewize as Telco of Record (full wholesale — we hold telecom licences, multi-country VAT).</p>
+    </div>
+  </div>
+  <p class="vendor-assumptions"><b style="color:#232329;">Assumptions:</b> Currency: $1 = £0.76, €1 = £0.85. Likewize markup held constant across all routes at 20% + £0.04 platform fee (per the original NatWest proposal). 1Global's 65% consumption figure is their number, not independently verified.</p>
+</section>
+
+<!-- 6 - DIVIDER (fixed boilerplate — do not edit) -->
+<section class="lw-slide" data-label="The work behind it" data-screen-label="06" style="background:#F5D2FA; color:#0B0B0D; padding:0 140px; justify-content:center; align-items:flex-start;">
+  <div class="divider-line"></div>
+  <h2 style="font-size:76px; font-weight:800; letter-spacing:-0.03em; margin:0 0 24px;">The work behind it.</h2>
+  <p style="font-size:26px; color:#5C5C65; max-width:1000px; line-height:1.5; margin:0;">This initiative ran through a structured product workflow, start to finish. The following slides evidence each stage.</p>
+</section>
+
+<!-- 7 - HOW WE GOT HERE (stage names/labels/purposes fixed — only replace the Outcome text under each stage) -->
+<section class="lw-slide" data-label="How we got here" data-screen-label="07" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">THE PROCESS</p>
+  </div>
+  <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 18px;">Product lifecycle in action</h2>
+  <div class="pipeline-strip">
+    <div class="pipe-step"><div class="pipe-head"><div class="pipe-num">1</div><div class="pipe-name">Goals and Metrics</div></div><p class="pipe-field"><b>Purpose</b>Set the strategic frame and the target we're chasing.</p><p class="pipe-field"><b>Outcome</b>Skipped — investigating the route, not designing the end product yet.</p></div>
+    <div class="pipe-step accent-pink"><div class="pipe-head"><div class="pipe-num">2</div><div class="pipe-name">Empathising with Users</div></div><p class="pipe-field"><b>Purpose</b>Understand who we're building for and what stands in their way.</p><p class="pipe-field"><b>Outcome</b>Two personas built (Dan, occasional PAYG; Meera, frequent/embedded) — hypothetical, flagged as such.</p></div>
+    <div class="pipe-step accent-lavender"><div class="pipe-head"><div class="pipe-num">3</div><div class="pipe-name">Identifying the Problem</div></div><p class="pipe-field"><b>Purpose</b>Name the real job to be done and check it's worth solving now.</p><p class="pipe-field"><b>Outcome</b>Ask split into a validated partner need and an assumed consumer need; High/High — proceeds cleanly.</p></div>
+    <div class="pipe-step"><div class="pipe-head"><div class="pipe-num">4</div><div class="pipe-name">Problem Exploration</div></div><p class="pipe-field"><b>Purpose</b>Test whether the problem, and our read of it, is actually real.</p><p class="pipe-field"><b>Outcome</b>Skipped — High/High already confirms the problem; a Concierge test is impractical here.</p></div>
+    <div class="pipe-step accent-pink"><div class="pipe-head"><div class="pipe-num">5</div><div class="pipe-name">Solution Exploration</div></div><p class="pipe-field"><b>Purpose</b>Pressure-test the riskiest assumption before committing to build.</p><p class="pipe-field"><b>Outcome</b>One riskiest assumption per live option (Dragonpass disintermediation, wholesale resourcing) — confidence deliberately below the bar.</p></div>
+    <div class="pipe-step accent-lavender"><div class="pipe-head"><div class="pipe-num">6</div><div class="pipe-name">Building the Right Thing</div></div><p class="pipe-field"><b>Purpose</b>Turn the idea into a concrete, buildable design.</p><p class="pipe-field"><b>Outcome</b>Built route-agnostic. Strategy Board, Narrative, Story Map + MFS line done — wireframes skipped, no vendor certainty yet.</p></div>
+    <div class="pipe-step"><div class="pipe-head"><div class="pipe-num">7</div><div class="pipe-name">Prioritisation and Roadmap</div></div><p class="pipe-field"><b>Purpose</b>Decide when and how this actually gets built.</p><p class="pipe-field"><b>Outcome</b>MFS Kano-classified (all Basic except the trusted-app trigger). Status: Discovery, alongside Tickets.</p></div>
+  </div>
+</section>
+
+<!-- 8 - FRAMING (kicker/h2/blurb fixed — only replace the canvas-tree content below) -->
+<section class="lw-slide dark-slide" data-label="Framing" data-screen-label="08" style="padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot"></span>
+    <p class="lw-eyebrow">Framing</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Strategy Canvas</h2>
+  <span class="phase-badge">Phase: Creation</span>
+  <p class="strategy-blurb">A framework connecting company Vision to individual product decisions, narrowing at each layer: <b style="color:#fff;">Vision</b> is the destination the company is ultimately working toward; <b style="color:#fff;">Strategic Intent</b> is one of the 2–3 business goals chosen to get there; <b style="color:#fff;">Product Initiative</b> shows how this product area advances that intent; <b style="color:#fff;">Options</b> are the specific solutions on the table.</p>
+  <!-- Options count and sibling-initiative note below can vary per initiative -->
+  <div class="canvas-tree">
+    <div class="canvas-box vision">
+      <span class="canvas-kicker lavender">Vision</span>
+      <div class="canvas-body">
+        <div>"Every tech problem made painless, with premium customer care as standard." "A world where people have uninterrupted access to the most amazing tech experiences. Where any issue, with any device, is quickly and painlessly resolved."</div>
+      </div>
+    </div>
+    <div class="canvas-arrow"></div>
+    <div class="canvas-box intent">
+      <span class="canvas-kicker pink">Strategic Intent</span>
+      <div class="canvas-body">Grow Likewize's Digital Lifestyle portfolio revenue and relevance, particularly in the Tech Traveller space.</div>
+    </div>
+    <div class="canvas-arrow"></div>
+    <div class="canvas-box initiative">
+      <span class="canvas-kicker white">Product Initiative</span>
+      <div class="canvas-body">Launch a commercially competitive eSIM proposition — a route-to-market Likewize could confidently re-pitch a NatWest-style opportunity with.</div>
+    </div>
+    <div class="canvas-arrow"></div>
+    <div class="canvas-box options">
+      <span class="canvas-kicker lavender">Options</span>
+      <div class="canvas-body">
+        <div>• ePay (ruled out — pure aggregator-catalogue reseller, cost the NatWest deal)</div>
+        <div>• Dragonpass (buy — fast, lowest lift, raises disintermediation risk)</div>
+        <div>• Wholesale (eSIM Go / 1Global / Vodafone Three build — best commercials, heaviest lift)</div>
+      </div>
+    </div>
+    <div class="canvas-sibling">Running alongside Tickets (Screen Protection, Ticket Protection) in the Digital Lifestyle portfolio — not above it in priority.</div>
+  </div>
+</section>
+
+<!-- 9 - GOALS & GUARDRAIL (kicker/h2/blurb fixed — only replace the lens tags and stat-row below) -->
+<section class="lw-slide gradient-slide" data-label="Goals and guardrail" data-screen-label="09" style="padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot"></span>
+    <p class="lw-eyebrow">Goals &amp; guardrail</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Goals &amp; Metrics</h2>
+  <p class="strategy-blurb" style="color:rgba(255,255,255,0.85);">A <b style="color: rgb(255, 255, 255);">Goal</b> states the outcome — what success looks like; a <b style="color: rgb(255, 255, 255);">Metric</b> measures progress toward it. AARRR ("Pirate Metrics" — Acquisition, Activation, Retention, Referral, Revenue) maps a customer journey to the right metric at each stage; HEART is the alternative, for iterating on an existing feature's quality and engagement. The <b>Guardrail </b>is a check on the goal, ensuring that there is no negative impact to improving the metric.</p>
+  <div style="background:rgba(255,255,255,0.16); border:1.5px solid rgba(255,255,255,0.4); border-radius:16px; padding:20px 28px; margin-bottom:28px;">
+    <p style="font-size:19px; line-height:1.5; margin:0; font-weight:600;"></p>
+  </div>
+  <div class="stat-row">
+    <div class="stat-tile">
+      <span class="stat-tag assumption">Success criterion</span>
+      <p class="stat-label">Signed partner deal</p>
+      <p class="stat-value">At least one</p>
+      <p class="stat-detail">A signed partner deal on the back of this proposition.</p>
+    </div>
+    <div class="stat-tile">
+      <span class="stat-tag assumption">Success criterion</span>
+      <p class="stat-label">Activation / attach rate</p>
+      <p class="stat-value" style="font-size:34px;">Not yet set</p>
+      <p class="stat-detail">A defined activation/attach rate among eligible travelling customers — no target number has been set yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 - WHO IT'S FOR (kicker/h2/blurb fixed — persona count can vary, 2 shown as default) -->
+<section class="lw-slide" data-label="Who it's for" data-screen-label="10" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">Who it's for</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Empathising with Users</h2>
+  <p class="strategy-blurb" style="color:#5C5C65; font-size:16px; margin:0 0 12px; max-width:1500px;">Personas and Empathy Maps put a face on who we're building for — not to invent detail for its own sake, but to force real focus on someone's context and concerns before designing a solution. A <b style="color:#3200BE;">Persona</b> captures who the person is; an <b style="color:#3200BE;">Empathy Map</b> digs into what they think, feel, say, and do in the moment that matters, surfacing the <b style="color:#3200BE;">Pain</b> that blocks them and the <b style="color:#3200BE;">Gain</b> that would actually convert them.</p>
+  <p style="font-size:13px; color:#86868F; font-style:italic; margin:0 0 20px;">Both personas are hypothetical/generated research — no real customer interviews behind them yet.</p>
+  <div class="persona-row">
+    <div class="persona-card">
+      <p class="persona-name">Dan</p>
+      <p class="persona-tagline">Mid-30s · NatWest current account holder · UK</p>
+      <p class="persona-field"><b>Arrival</b>Travels abroad once a year for a main holiday (10–14 days, mainstream European destination), plus maybe one short city break every year or two.</p>
+      <p class="persona-field"><b>Think &amp; Feel</b>Values simplicity and reliability over lowest price — trusts his bank more than hunting for the cheapest deal.</p>
+      <p class="persona-field"><b>Pain</b>Bill-shock fear, not knowing what package he needs, fiddly QR/APN setup, no idea how to top up mid-trip.</p>
+      <p class="persona-field"><b>Gain</b>Seamless connectivity from landing, no unexpected costs. Success: "I didn't have to think about it, and it worked."</p>
+    </div>
+    <div class="persona-card">
+      <p class="persona-name">Meera</p>
+      <p class="persona-tagline">Late-30s · premium packaged bank account holder · UK</p>
+      <p class="persona-field"><b>Arrival</b>Travels internationally 6–8 times a year, mixed work and personal, evaluating/holding a bundle with travel insurance, phone insurance and lounge access.</p>
+      <p class="persona-field"><b>Think &amp; Feel</b>Values genuine value-for-money on bundles — does the maths on separate costs vs. one packaged fee, expects what she pays for to work automatically.</p>
+      <p class="persona-field"><b>Pain</b>Doing "sort my data" repeatedly every trip; the bundle breaking its no-thought promise if manual activation is still needed; running out of allowance or hitting an uncovered destination.</p>
+      <p class="persona-field"><b>Gain</b>Connectivity as one less thing to manage. Success: never thinking about data at all, because it's already sorted.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 - THE REAL PROBLEM (kicker/h2/blurb fixed — job-story count can vary, 3 shown as default) -->
+<section class="lw-slide" data-label="The real problem" data-screen-label="11" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">The real problem</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Identifying the Problem</h2>
+  <p class="strategy-blurb" style="color:#5C5C65; font-size:16px; margin:0 0 18px; max-width:1500px;">Job Stories (Jobs to Be Done) reframe a feature ask as the real underlying need — not "add a checkout toggle" but the actual problem it solves. Once problems are named, the Opportunity quadrant scores each one on <b style="color:#3200BE;">Customer Signal</b> (how strong the problem is for users) against <b style="color:#3200BE;">Business Alignment</b> (how much solving it advances the goal) — only the top-right corner is safe to build without question.</p>
+  <div class="problem-row">
+    <div class="problem-col">
+      <p class="js-title">Job stories</p>
+      <p class="job-intro">The ask named a fix (add eSIM), not a problem — one level down, the real needs are:</p>
+      <div class="job-card accent-violet">
+        <span class="js-tag unmet">Unmet · Dan</span>
+        <p class="js-text">When I'm in the final days before a trip abroad, I want a simple, trustworthy way to sort my mobile data without researching options or risking a surprise bill, so I can travel with one less thing to worry about.</p>
+      </div>
+      <div class="job-card accent-pink">
+        <span class="js-tag unrealized">Unrealized · Meera</span>
+        <p class="js-text">When I'm choosing or reviewing my premium bank account, I want to know my everyday travel connectivity is already covered without extra effort, so I can trust the bundle is genuinely paying for itself, trip after trip.</p>
+      </div>
+      <div class="job-card accent-lavender">
+        <span class="js-tag unrealized">Unrealized · Partner-level, kept for context</span>
+        <p class="js-text">When a partner like NatWest is evaluating how to compete on customer travel benefits, they want a flexible, commercially competitive eSIM proposition they can offer under their own brand, so they can differentiate without taking on connectivity operational risk themselves.</p>
+      </div>
+    </div>
+    <div class="problem-col quadrant-wrap">
+      <p class="js-title">Opportunity chart</p>
+      <div class="quadrant-box">
+        <span class="q-axis-label" style="bottom:-30px; right:0;">Business alignment →</span>
+        <span class="q-axis-label" style="top:0; left:-16px; writing-mode:vertical-rl; transform:rotate(180deg);">Customer signal →</span>
+        <div class="q-dot" style="top:24px; right:24px;"></div>
+      </div>
+      <div class="axis-detail low">
+        <p class="axis-detail-title low">Customer Signal — High</p>
+        <p class="axis-detail-text">Real partner-level demand — NatWest asked directly, and competitor Assurant already delivers via Dragonpass.</p>
+      </div>
+      <div class="axis-detail high">
+        <p class="axis-detail-title high">Business Alignment — High</p>
+        <p class="axis-detail-text">Direct fit with the Digital Lifestyle / Tech Traveller Strategic Intent.</p>
+      </div>
+      <p class="q-verdict">Top-right quadrant — proceeds cleanly, no mismatch to raise with Andy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 - DE-RISKING (PROBLEM EXPLORATION) (kicker/h2/blurb fixed — experiment count can vary, 3 shown as default) -->
+<section class="lw-slide dark-slide" data-label="Problem Exploration" data-screen-label="12" style="padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot"></span>
+    <p class="lw-eyebrow">De-risking</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Problem Exploration</h2>
+  <p class="strategy-blurb">Before committing to a solution, Problem-Solution Fit experiments test two questions: do customers actually have this problem, and can it be solved? A <b style="color:#fff;">Concierge experiment</b> delivers the value manually — no real product — to learn fast and cheap before writing code.</p>
+  <p style="font-size:16px; line-height:1.5; color:rgba(255,255,255,0.72); max-width:1450px; margin:0 0 26px;"><b style="color: rgb(255, 150, 255);">Skipped — deliberately.</b>&nbsp;The High/High prioritization already confirms the problem is real and the opportunity exists; a Concierge-style experiment is impractical at this route-to-market decision stage; and this kind of test belongs later, once delivery mechanics are actually being designed.</p>
+  <div class="exp-row">
+    <div class="exp-card" style="flex:none; width:100%;">
+      <p class="exp-name">No experiment run</p>
+      <p class="exp-tests">Gap, not an oversight — Problem-Solution Fit testing returns once a commercial route is chosen and there's an actual delivery mechanism to test against.</p>
+      <div class="exp-meta"><span class="exp-cost">Cost: n/a</span><span class="status-pill proposed">Deferred</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 - DE-RISKING (SOLUTION EXPLORATION) (kicker/h2/blurb fixed — assumption-chip count can vary, 3 shown as default) -->
+<section class="lw-slide dark-slide" data-label="Solution Exploration" data-screen-label="13" style="padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot"></span>
+    <p class="lw-eyebrow">De-risking</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Solution Exploration</h2>
+  <p class="strategy-blurb">Once a solution idea exists, break it into its assumptions and find the <b style="color:#fff;">Riskiest Assumption</b> — the one most essential to success but least understood — then design a cheap experiment to test it before building, rather than assuming it's true.</p>
+  <div class="assumption-row">
+    <div class="assumption-chip">
+      <span class="assumption-tag ruled-out">Ruled out</span>
+      <p class="assumption-name">ePay</p>
+      <p class="assumption-reason">Already proven to fail — rigid, inflexible, cost the NatWest deal. Not a live option to test.</p>
+    </div>
+    <div class="assumption-chip riskiest">
+      <span class="assumption-tag riskiest">Riskiest — Dragonpass</span>
+      <p class="assumption-name">Disintermediation risk</p>
+      <p class="assumption-reason">Would a partner buy this bundle through Likewize rather than go direct to Dragonpass themselves?</p>
+    </div>
+    <div class="assumption-chip riskiest">
+      <span class="assumption-tag riskiest">Riskiest — Wholesale</span>
+      <p class="assumption-name">Resourcing risk</p>
+      <p class="assumption-reason">Can Likewize actually resource and deliver a wholesale build without it becoming a multi-quarter drag?</p>
+    </div>
+  </div>
+  <div class="solution-explore-grid">
+    <div>
+      <div class="riskiest-quote">
+        <span class="riskiest-quote-label">Dragonpass — riskiest assumption</span>
+        "A partner like NatWest would rather buy this bundle through Likewize than go direct to Dragonpass themselves."
+      </div>
+      <div class="riskiest-quote">
+        <span class="riskiest-quote-label">Wholesale — riskiest assumption</span>
+        "Likewize can actually resource and deliver a wholesale build without it becoming a multi-quarter drag"</div>
+    </div>
+    <div>
+      <div class="test-card">
+        <p class="test-name">Test approach — both options</p>
+        <p class="test-field"><b>Not a separate pre-test</b>The whole piece of work (this deck) exists to surface these as explicit open questions, put to Andy/Anis as part of the route decision, rather than resolved beforehand.</p>
+      </div>
+      <div class="confidence-wrap" style="margin-top:0;">
+        <div class="confidence-label"><span>Solution Exploration confidence — both options</span><span>Below threshold</span></div>
+        <div class="confidence-bar">
+          <div class="confidence-fill" style="width:42%;"></div>
+          <div class="confidence-target" style="left:75%;"><span class="confidence-target-label">Build-commit bar (75–90%)</span></div>
+        </div>
+      </div>
+      <p class="risk-note" style="margin-top:14px;">Neither option is at the build-commit bar yet — deliberately. The deck's job is to state the real uncertainty honestly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 - THE SOLUTION (STORY MAP) (kicker/h2/blurb fixed — theme count can vary, 5 shown as default, matching the source deck) -->
+<section class="lw-slide" data-label="The solution - story map" data-screen-label="14" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">The solution — story map</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Story Mapping &amp; Minimum Feature Set</h2>
+  <p class="strategy-blurb" style="color:#5C5C65; font-size:16px; margin:0 0 10px; max-width:1500px;">Story Mapping breaks the user's journey into themes (the backbone) and the tasks under each, ranked by <b style="color:#3200BE;">Cost of Delay</b> — how much value is lost by not shipping something sooner. The <b style="color:#3200BE;">Minimum Feature Set</b> line marks the first release: the smallest genuinely useful slice, not a cut-down or buggy one.</p>
+  <p style="font-size:15px; color:#86868F; margin:0 0 20px; max-width:1500px;"><b style="color:#232329;">User, goal, context:</b> An eSIM traveller (Dan or Meera) sorting mobile data before or during an international trip, so connectivity is one less thing to worry about.</p>
+  <div class="storymap-strip">
+    <div class="theme-box accent-violet">
+      <div class="theme-num">1</div><div class="theme-name">Discover</div>
+      <div class="theme-tasks">
+        <div class="theme-task">Understand what's included/cost (Killer/ASAP)</div>
+        <div class="theme-task">Trigger surfaced inside a trusted app — pre-trip prompt for Dan, account-tier marketing for Meera (Killer/ASAP)</div>
+      </div>
+    </div>
+    <div class="theme-box accent-pink">
+      <div class="theme-num">2</div><div class="theme-name">Get Set Up</div>
+      <div class="theme-tasks">
+        <div class="theme-task">Device eSIM-compatibility check before purchase (Killer/ASAP)</div>
+        <div class="theme-task">Select package/coverage or confirm entitlement (Killer/ASAP)</div>
+        <div class="theme-task">Payment, Dan only (Killer/ASAP)</div>
+        <div class="theme-task">Receive QR/activation instructions (Killer/ASAP)</div>
+        <div class="theme-task">Install eSIM profile (Killer/ASAP)</div>
+      </div>
+    </div>
+    <div class="theme-box accent-lavender">
+      <div class="theme-num">3</div><div class="theme-name">Travel Connected</div>
+      <div class="theme-tasks">
+        <div class="theme-task">Activate connectivity on arrival (Killer/ASAP)</div>
+        <div class="theme-task">Baseline help/support (Killer/Soon)</div>
+        <div class="theme-task bonus">Usage/balance visibility (Bonus/Soon)</div>
+        <div class="theme-task bonus">Proactive low-data alert (Bonus/Soon)</div>
+      </div>
+    </div>
+    <div class="theme-box accent-violet">
+      <div class="theme-num">4</div><div class="theme-name">Top Up / Renew</div>
+      <div class="theme-tasks">
+        <div class="theme-task">Auto-renew for Meera (Killer/ASAP) — the entire embedded value proposition</div>
+        <div class="theme-task bonus">Manual top-up for Dan (Bonus/Soon)</div>
+        <div class="theme-task bonus">Graceful handling of unsupported destinations (Meh/Whenever)</div>
+      </div>
+    </div>
+  </div>
+  <div class="mfs-line-row">
+    <span class="mfs-label">MFS line</span>
+    <div class="mfs-line"></div>
+  </div>
+  <p style="font-size:16px; color:#5C5C65; line-height:1.5; max-width:1400px; margin:0 0 12px;">Above the line: everything in Discover and Get Set Up, plus arrival activation and baseline support, plus Meera's auto-renew. Below the line (v1.1+): usage/balance visibility, low-data alerts, Dan's manual top-up (v1 fallback: buy a fresh package), and edge-case destination handling.</p>
+  <p style="font-size:14px; color:#86868F; font-style:italic; max-width:1400px; margin:0;">Definition of done is the Hypothesis's success metric — a signed partner deal plus a defined activation/attach rate — not "shipped."</p>
+</section>
+
+<!-- 15 - THE SOLUTION (WIREFRAMES) — bespoke per initiative, no fixed content beyond the wf-* CSS classes above -->
+<section class="lw-slide" data-label="The solution - wireframes" data-screen-label="15" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">The solution — wireframes</p>
+  </div>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">Wireframes — deliberately skipped</h2>
+  <div class="variant-row">
+    <div class="variant-card" style="flex:none; width:100%;">
+      <p class="variant-label">No screens to show yet</p>
+      <p class="variant-status wf-only">Gap, not an oversight</p>
+      <p class="variant-note" style="font-size:19px; line-height:1.6; max-width:1500px;">There isn't enough vendor-specific certainty yet to make wireframes meaningful. The open question of whether the chosen route allows full white-label embedding — versus forcing a bounce-out to a vendor-branded app (Dragonpass's current Android flow, for example) — would change what any wireframe should actually show. Wireframes return once a commercial route, and its embedding constraints, are confirmed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 16 - ROADMAP (kicker/h2/blurb fixed — Kano list item counts can vary, matching the source deck's default of 5 Basic / 2 Performance) -->
+<section class="lw-slide" data-label="Roadmap" data-screen-label="16" style="background:#3200BE; color:#FFFFFF; padding:90px 140px 60px;">
+  <div class="lw-photo-bg"></div>
+  <div class="lw-kicker-row eyebrow-wrap" style="position:relative; z-index:2;">
+    <span class="lw-kicker-dot"></span>
+    <p class="lw-eyebrow" style="color:#FF96FF;">Roadmap</p>
+  </div>
+  <h2 style="position:relative; z-index:2; font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px; color:#fff;">Roadmap Entry</h2>
+  <p class="strategy-blurb" style="position:relative; z-index:2; margin:0 0 22px;">A Roadmap Entry is a compact three-field summary — <b style="color:#fff;">Outcomes</b>, <b style="color:#fff;">Status</b>, <b style="color:#fff;">Priority</b> — sitting on top of a Kano classification of the Minimum Feature Set: <b style="color:#fff;">Basic Needs</b> are mandatory, <b style="color:#fff;">Performance Needs</b> get a satisfactory (not maximal) level, and <b style="color:#fff;">Delighters</b> are added only once the basics already work.</p>
+  <div class="roadmap-card" style="position:relative; z-index:2;">
+    <div class="roadmap-top">
+      <div class="roadmap-field">
+        <p class="roadmap-field-label">Status</p>
+        <p class="roadmap-field-value">Discovery</p>
+      </div>
+      <div class="roadmap-field">
+        <p class="roadmap-field-label">Priority</p>
+        <p class="roadmap-field-value" style="font-size:20px;">Pending decision on approach</p>
+      </div>
+    </div>
+    <p class="roadmap-outcomes">A signed partner deal on the back of this proposition, and a defined activation/attach rate among eligible travelling customers (target not yet set). Status is Discovery — Problem-Solution Fit was skipped and Solution Exploration left two live, unresolved assumptions; not yet at Delivery.</p>
+    <div class="gate-list">
+      <div class="gate-chip">Blocked on: route decision with Andy Morris</div>
+      <div class="gate-chip">Blocked on: Dragonpass white-label/embedding confirmation</div>
+    </div>
+    <div class="kano-grid">
+      <div class="kano-col">
+        <p class="kano-col-title basic">Basic Needs <span>(9)</span></p>
+        <ul class="kano-list">
+          <li>Understand what's included/cost</li>
+          <li>Device compatibility check</li>
+          <li>Select package/confirm entitlement</li>
+          <li>Payment</li>
+          <li>QR/activation instructions</li>
+          <li>Install eSIM profile</li>
+          <li>Activate on arrival</li>
+          <li>Baseline help/support</li>
+          <li>Meera's auto-renew — Basic for the embedded segment specifically; it's the value proposition, not a nice-to-have</li>
+        </ul>
+      </div>
+      <div class="kano-col">
+        <p class="kano-col-title performance">Performance Needs <span>(1)</span></p>
+        <ul class="kano-list performance-list">
+          <li>Trigger surfaced inside a trusted app — the actual differentiator vs. standalone apps like Airalo; more effective placement means more conversion.</li>
+        </ul>
+      </div>
+      <div class="kano-col">
+        <p class="kano-col-title none">Delighters <span>— none</span></p>
+        <p class="kano-none-text">Nothing added purely for differentiation's sake.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+<script
+  type="text/x-dc"
+  data-dc-script
+  data-props='{
+  "$preview": { "width": 1920, "height": 1080 }
+}'
+>
+  class Component extends DCLogic {
+    renderVals() {
+      return {};
+    }
+  }
+</script>
+</body>
+</html>
