@@ -114,14 +114,14 @@ body { margin: 0; background: #0B0B0D; }
 
 /* NatWest comparison section */
 .ntw-timeline { display: flex; align-items: stretch; gap: 14px; margin: 44px 0 40px; }
-.ntw-beat { flex: 1; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 32px 26px; position: relative; }
-.ntw-beat-date { font-size: 15px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #FF96FF; margin: 0 0 14px; }
-.ntw-beat-text { font-size: 19px; line-height: 1.45; font-weight: 600; color: #fff; margin: 0; }
+.ntw-beat { flex: 1; background: #FFFFFF; border: 1.5px solid #E0D3F2; border-radius: 20px; padding: 32px 26px; position: relative; }
+.ntw-beat-date { font-size: 15px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #3200BE; margin: 0 0 14px; }
+.ntw-beat-text { font-size: 19px; line-height: 1.45; font-weight: 600; color: #232329; margin: 0; }
 .ntw-beat.loss { background: #FF96FF; border-color: #FF96FF; }
 .ntw-beat.loss .ntw-beat-date { color: #1B0070; }
 .ntw-beat.loss .ntw-beat-text { color: #1B0070; font-weight: 800; font-size: 22px; }
 .ntw-beat-badge { position: absolute; top: -14px; right: 20px; background: #0B0B0D; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.3); }
-.ntw-arrow { align-self: center; font-size: 26px; color: rgba(255,255,255,0.35); flex: none; }
+.ntw-arrow { align-self: center; font-size: 26px; color: #C9A6D9; flex: none; }
 .ntw-callout { margin-top: 8px; background: #FF96FF; border-radius: 24px; padding: 40px 48px; text-align: center; }
 .ntw-callout-text { font-size: 42px; font-weight: 800; color: #1B0070; line-height: 1.3; margin: 0; letter-spacing: -0.02em; }
 
@@ -137,16 +137,25 @@ body { margin: 0; background: #0B0B0D; }
 .flow-arrow::after { content: ''; position: absolute; right: 0; top: -5px; border: 7px solid transparent; border-left-color: #C7C7D1; }
 .flow-fee { width: 38px; height: 38px; border-radius: 999px; background: #0B0B0D; color: #fff; font-size: 17px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; margin: 0 -2px; z-index: 2; position: relative; border: 2px solid #fff; }
 .flow-caption { font-size: 18px; color: #5C5C65; margin: 12px 0 46px 280px; font-style: italic; }
+.flow-complexity-rail { flex: none; width: 220px; align-self: stretch; display: flex; flex-direction: row; align-items: stretch; margin-left: 24px; gap: 20px; }
+.flow-complexity-track { position: relative; flex: none; width: 14px; border-radius: 999px; background: linear-gradient(to bottom, #E7E7EC, #3200BE); }
+.flow-complexity-track::after { content: ''; position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%); border: 10px solid transparent; border-top-color: #3200BE; z-index: 1; }
+.flow-complexity-label { font-size: 18px; font-weight: 800; letter-spacing: 0.02em; color: #3200BE; display: flex; align-items: center; line-height: 1.35; max-width: 160px; }
 
 .cmp-table { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
+.cmp-table * { box-sizing: border-box; }
 .cmp-header-row { display: flex; }
 .cmp-row-label { width: 320px; flex: none; }
 .cmp-col { flex: 1; padding: 16px 24px; font-size: 22px; font-weight: 800; text-align: center; }
 .cmp-col.wholesale { background: #3200BE0D; border-radius: 16px 16px 0 0; }
+.cmp-col.dragonpass { background: #FF96FF1A; border-radius: 16px 16px 0 0; }
 .cmp-row { display: flex; border-top: 1px solid #E7E7EC; align-items: stretch; }
 .cmp-row-label-cell { width: 320px; flex: none; padding: 22px 20px 22px 0; font-size: 14px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #86868F; display: flex; align-items: center; line-height: 1.4; }
 .cmp-cell { flex: 1; padding: 22px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
 .cmp-cell.wholesale { background: #3200BE0D; }
+.cmp-row:last-child .cmp-cell.wholesale { border-radius: 0 0 16px 16px; }
+.cmp-cell.dragonpass { background: #FF96FF1A; }
+.cmp-row:last-child .cmp-cell.dragonpass { border-radius: 0 0 16px 16px; }
 .cmp-figure { font-size: 32px; font-weight: 800; color: #232329; letter-spacing: -0.02em; }
 .cmp-figure.big { font-size: 38px; color: #3200BE; }
 .cmp-sub { font-size: 13px; color: #86868F; line-height: 1.4; max-width: 240px; }
@@ -157,12 +166,18 @@ body { margin: 0; background: #0B0B0D; }
 .cmp-resp-list.heavy { font-weight: 600; }
 .cmp-cell.heavy { background: #3200BE; color: #fff; border-radius: 0 0 16px 16px; }
 .cmp-cell.heavy .cmp-resp-list { color: rgba(255,255,255,0.92); }
+.cmp-cell.heavy-pink { background: #FF96FF; color: #1B0070; border-radius: 0 0 16px 16px; }
+.cmp-cell.heavy-pink .cmp-resp-list { color: #1B0070; }
 .cmp-strapline { margin-top: 30px; background: #0B0B0D; color: #fff; border-radius: 18px; padding: 26px 40px; font-size: 23px; font-weight: 700; line-height: 1.4; text-align: center; }
 
 .decision-cols { display: flex; gap: 36px; flex: 1; margin-top: 30px; }
 .decision-col { flex: 1; border-radius: 24px; padding: 40px 44px; }
 .decision-col.pink { background: #FF96FF14; border: 1.5px solid #FF96FF66; }
 .decision-col.violet { background: #3200BE0D; border: 1.5px solid #3200BE33; }
+.dark-slide .decision-col.pink { background: rgba(255,150,255,0.12); border-color: rgba(255,150,255,0.4); }
+.dark-slide .decision-col.violet { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.25); }
+.dark-slide .decision-title { color: #fff; }
+.dark-slide .decision-item { color: rgba(255,255,255,0.82); }
 .decision-icon { width: 52px; height: 52px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; margin-bottom: 22px; }
 .decision-col.pink .decision-icon { background: #FF96FF; color: #1B0070; }
 .decision-col.violet .decision-icon { background: #3200BE; color: #fff; }
@@ -172,6 +187,7 @@ body { margin: 0; background: #0B0B0D; }
 .decision-item::before { content: ''; position: absolute; left: 0; top: 9px; width: 9px; height: 9px; border-radius: 999px; }
 .decision-col.pink .decision-item::before { background: #FF96FF; border: 1.5px solid #1B0070; }
 .decision-col.violet .decision-item::before { background: #3200BE; }
+.dark-slide .decision-col.violet .decision-item::before { background: #B7A6FF; }
 
 .vendor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 20px; }
 .vendor-card { background: #fff; border: 1.5px solid #E7E7EC; border-radius: 16px; padding: 24px 22px; }
@@ -583,23 +599,25 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 5c - WHAT HAPPENED WITH NATWEST -->
-<section class="lw-slide dark-slide" data-label="What happened with NatWest" data-screen-label="05c" style="padding:90px 140px 60px;">
+<section class="lw-slide" data-label="What happened with NatWest" data-screen-label="05c" style="background:#EDE7F9; color:#0B0B0D; padding:90px 140px 60px;">
   <div class="lw-kicker-row eyebrow-wrap">
-    <span class="lw-kicker-dot"></span>
-    <p class="lw-eyebrow">NatWest comparison</p>
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">NatWest comparison</p>
   </div>
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">What happened with NatWest</h2>
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
   <div class="ntw-timeline">
     <div class="ntw-beat"><p class="ntw-beat-date">Feb 2026</p><p class="ntw-beat-text">NatWest asked Likewize for a travel eSIM proposition for Platinum/Black accounts.</p></div>
     <span class="ntw-arrow">→</span>
-    <div class="ntw-beat"><p class="ntw-beat-date">The offer</p><p class="ntw-beat-text">We offered <b style="color:#FF96FF;">£8.20 per activation</b> (3GB, Europe) — built on ePay's catalogue pricing.</p></div>
+    <div class="ntw-beat"><p class="ntw-beat-date">The offer</p><p class="ntw-beat-text">We offered <b style="color:#3200BE;">£8.20 per activation</b> (3GB, Europe) — built on ePay's catalogue pricing.</p></div>
     <span class="ntw-arrow">→</span>
     <div class="ntw-beat loss"><p class="ntw-beat-date">We lost</p><p class="ntw-beat-text">Too expensive, too inflexible.</p></div>
     <span class="ntw-arrow">→</span>
-    <div class="ntw-beat"><span class="ntw-beat-badge">Not yet public</span><p class="ntw-beat-date">1 Oct 2026</p><p class="ntw-beat-text">NatWest Platinum relaunches with a <b style="color:#FF96FF;">5GB travel eSIM via DragonPass Premier+</b> (Assurant + Dragonpass).</p></div>
+    <div class="ntw-beat"><span class="ntw-beat-badge">Not yet public</span><p class="ntw-beat-date">1 Oct 2026</p><p class="ntw-beat-text">NatWest Platinum relaunches with a <b style="color:#3200BE;">5GB travel eSIM via DragonPass Premier+</b> (Assurant + Dragonpass).</p></div>
   </div>
   <div class="ntw-callout">
     <p class="ntw-callout-text">If NatWest came back today — what would we offer?</p>
+  </div>
   </div>
 </section>
 
@@ -612,6 +630,8 @@ body { margin: 0; background: #0B0B0D; }
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">How the eSIM market works</h2>
   <p class="flow-intro">Every link in the chain takes a margin. Our price depends on where we plug in.</p>
 
+  <div style="display:flex; flex:1; align-items:center;">
+  <div style="flex:1; min-width:0;">
   <div class="flow-row">
     <div class="flow-row-label">ePay <span>what we did</span></div>
     <div class="flow-chain">
@@ -662,6 +682,12 @@ body { margin: 0; background: #0B0B0D; }
     </div>
   </div>
   <p class="flow-caption">One mouth to feed — we set pricing, we carry the work</p>
+  </div>
+  <div class="flow-complexity-rail">
+    <div class="flow-complexity-track"></div>
+    <p class="flow-complexity-label">Complexity<br>increases</p>
+  </div>
+  </div>
 </section>
 
 <!-- 5e - THE COMPARISON -->
@@ -675,62 +701,64 @@ body { margin: 0; background: #0B0B0D; }
     <div class="cmp-header-row">
       <div class="cmp-row-label"></div>
       <div class="cmp-col">ePay<span style="display:block; font-size:12px; font-weight:700; color:#86868F; text-transform:none; margin-top:4px;">ruled out</span></div>
-      <div class="cmp-col">Dragonpass</div>
+      <div class="cmp-col dragonpass" style="color:#C9188A;">Dragonpass</div>
       <div class="cmp-col wholesale" style="color:#3200BE;">Wholesale<span style="display:block; font-size:12px; font-weight:700; color:#3200BE; opacity:0.7; text-transform:none; margin-top:4px;">eSIM Go / 1Global</span></div>
     </div>
     <div class="cmp-row">
-      <div class="cmp-row-label-cell">Wholesale cost —<br>one 5GB Europe eSIM</div>
-      <div class="cmp-cell"><span class="cmp-figure">~£5.00</span><span class="cmp-sub">($6.60)</span></div>
-      <div class="cmp-cell"><span class="cmp-pill-tbd">TBD</span><span class="cmp-sub">no rate card yet</span></div>
+      <div class="cmp-row-label-cell">Wholesale cost —<br>one 5GB Spain eSIM</div>
+      <div class="cmp-cell"><span class="cmp-figure">~£6.63</span></div>
+      <div class="cmp-cell dragonpass"><span class="cmp-figure" style="color:#C9188A;">~£5.55</span></div>
       <div class="cmp-cell wholesale"><span class="cmp-figure big">~£2.95–3.50</span></div>
     </div>
     <div class="cmp-row">
       <div class="cmp-row-label-cell">Price to NatWest<br><span style="font-weight:600; text-transform:none; letter-spacing:0; font-size:12px;">20% margin + £0.04 platform fee</span></div>
       <div class="cmp-cell">
-        <span class="cmp-figure">£8.20</span><span class="cmp-sub">actual final offer (3GB); ~£11.50 5GB-equivalent</span>
+        <span class="cmp-figure">£8.00</span><span class="cmp-sub">Spain 5GB, from e-Pay's retail catalogue</span>
         <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:100%;"></div></div>
       </div>
-      <div class="cmp-cell">
-        <span class="cmp-pill-tbd">TBD</span><span class="cmp-sub">expected between ePay and wholesale</span>
-        <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:60%; background:#C9A6D9;"></div></div>
+      <div class="cmp-cell dragonpass">
+        <span class="cmp-figure" style="color:#C9188A;">£6.70</span><span class="cmp-sub">Spain 5GB, from Dragonpass D2C rate card</span>
+        <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:84%; background:#FF96FF;"></div></div>
       </div>
       <div class="cmp-cell wholesale">
-        <span class="cmp-figure big">~£3.60–4.25</span><span class="cmp-sub">a third of the ePay price, at the same Likewize margin</span>
-        <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:33%;"></div></div>
+        <span class="cmp-figure big">~£3.60–4.25</span><span class="cmp-sub">roughly half the ePay price, at the same Likewize margin</span>
+        <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:49%;"></div></div>
       </div>
     </div>
     <div class="cmp-row">
       <div class="cmp-row-label-cell">Our responsibilities</div>
-      <div class="cmp-cell"><ul class="cmp-resp-list"><li>Partner relationship &amp; proposition</li><li>First-line customer support</li></ul></div>
-      <div class="cmp-cell"><ul class="cmp-resp-list"><li>Partner relationship &amp; proposition</li><li>Single API integration</li><li>First-line customer support</li></ul></div>
-      <div class="cmp-cell heavy"><ul class="cmp-resp-list heavy"><li>Partner relationship &amp; proposition</li><li>Full API build &amp; platform integration (IT org)</li><li>Pricing &amp; usage risk</li><li>Regulatory &amp; compliance (per-market due diligence; licences/VAT under full Telco-of-Record)</li><li>First-line customer support</li><li>Prepay funding &amp; spend commitments</li></ul></div>
+      <div class="cmp-cell"><ul class="cmp-resp-list" style="font-size:12.5px; line-height:1.5;"><li>Partner relationship &amp; proposition</li><li>First-line customer support</li><li>Pricing &amp; usage risk</li></ul></div>
+      <div class="cmp-cell heavy-pink"><ul class="cmp-resp-list" style="font-size:11.5px; line-height:1.45;"><li>Partner relationship &amp; proposition</li><li>Single API integration</li><li>First-line customer support</li><li>Pricing &amp; usage risk (bundles provide onramp)</li><li>Telco of Record status — unconfirmed; live terms don't name who holds it</li><li>Funding/commercial commitment terms — unconfirmed</li><li>Provide brand assets/config for whitelabel setup (SPN name, QR styling, sender-ID copy)</li></ul></div>
+      <div class="cmp-cell heavy"><ul class="cmp-resp-list heavy" style="font-size:11px; line-height:1.4;"><li>Partner relationship &amp; proposition</li><li>Telco of Record: telecom licences, ongoing regulatory reporting, multi-country VAT registration &amp; remittance</li><li>Own end-customer payment collection, reconciliation &amp; chargebacks</li><li>Full API build (Management + CallBack APIs) &amp; platform integration (IT org)</li><li>Customer-facing delivery: portal/app, QR distribution, self-service (usage, top-up, support)</li><li>Entitlement/redemption engine and multi-supplier orchestration</li><li>Whitelabel branding depth (network name, SMS sender ID — not confirmed on eSIM Go)</li><li>Operational support: device checks, refunds/revocation, notifications, first-line support</li><li>Pricing &amp; usage risk</li><li>Prepay funding &amp; spend commitments</li></ul></div>
     </div>
   </div>
-  <div class="cmp-strapline">Same formula, same Likewize margin — the price to NatWest drops ~60–70% purely because we cut out a mouth to feed.</div>
+  <div class="cmp-strapline">Same formula, same Likewize margin — the price to NatWest roughly halves purely because we cut out a mouth to feed. The "too far from the source" diagnosis from the NatWest loss, made with real numbers.</div>
 </section>
 
 <!-- 5f - WHAT THE DECISION HINGES ON -->
-<section class="lw-slide" data-label="What the decision hinges on" data-screen-label="05f" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+<section class="lw-slide dark-slide" data-label="What the decision hinges on" data-screen-label="05f" style="padding:90px 140px 60px;">
   <div class="lw-kicker-row eyebrow-wrap">
-    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
-    <p class="lw-eyebrow" style="color:#3200BE;">NatWest comparison</p>
+    <span class="lw-kicker-dot"></span>
+    <p class="lw-eyebrow">NatWest comparison</p>
   </div>
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">What the decision hinges on</h2>
-  <p style="font-size:20px; color:#5C5C65; margin:0; max-width:1400px;">Two questions decide this — neither is answered yet.</p>
+  <p style="font-size:20px; color:rgba(255,255,255,0.65); margin:0; max-width:1400px;">Two questions decide this — neither is answered yet.</p>
   <div class="decision-cols">
     <div class="decision-col pink">
       <div class="decision-icon">?</div>
       <p class="decision-title">If Dragonpass: what do we add?</p>
-      <p class="decision-item">Assurant already sells this exact route — same platform, same products. No differentiation.</p>
-      <p class="decision-item">Dragonpass sits behind several of our other lifestyle products already. What stops a partner going to them direct?</p>
-      <p class="decision-item">We need pricing (no rate card yet) and a clear answer on white-label depth (Android currently requires the Dragonpass app).</p>
+      <p class="decision-item">Real differentiation exists, contrary to the original "same platform, same products" assumption: Dragonpass runs its own multi-supplier orchestration (blends eSIM Go with direct MNO deals and other suppliers per market), an entitlement/redemption engine, and confirmed live whitelabel branding (network name, SMS sender ID, install name, QR code — see the Wise case study). Assurant gets the same underlying supply, not the same integration depth, for free.</p>
+      <p class="decision-item">Dragonpass sits behind several of our other lifestyle products already. What stops a partner going to them direct? Still open — their orchestration/whitelabel layer is the answer if we can articulate it; if a partner could self-serve the same thing directly, we're not adding anything.</p>
+      <p class="decision-item">Pricing: we now have their D2C rate (£6.70, Spain 5GB), not a wholesale/reseller rate. Dragonpass is itself powered by eSIM Go for at least some markets — their D2C rate implies a ~90–120% markup on eSIM Go's own wholesale cost, meaning there's real room to negotiate a wholesale/B2B rate well below £6.70.</p>
+      <p class="decision-item">Android journey still currently requires the Dragonpass app — unresolved.</p>
     </div>
     <div class="decision-col violet">
       <div class="decision-icon">?</div>
       <p class="decision-title">If Wholesale: can we deliver it?</p>
-      <p class="decision-item">Full build: API integration, pricing/usage risk, regulatory, support — with IT organisation involvement.</p>
-      <p class="decision-item">Real financial commitments: guaranteed monthly spend for the best rates; prepay funding.</p>
-      <p class="decision-item">Honest question: do we have the resource to do this properly, and on what timeline?</p>
+      <p class="decision-item">Full build, not just an integration: Telco of Record (licences, ongoing regulatory reporting, multi-country VAT registration), our own end-customer payment collection and reconciliation, and the entire customer-facing product (portal/app, QR distribution, self-service) — eSIM Go gives us the API, not the UI.</p>
+      <p class="decision-item">To reach Dragonpass-equivalent depth, not just eSIM Go's raw feed: an entitlement/redemption engine and multi-supplier orchestration are genuine product builds, not integration work — and whitelabel branding isn't confirmed as available on eSIM Go at all.</p>
+      <p class="decision-item">Real financial commitments: guaranteed monthly spend for the best rates ($25k/mo Silver, $100k/mo Gold); prepay funding.</p>
+      <p class="decision-item">Honest question: do we have the resource to do this properly, and on what timeline? Full detail is on the new Appendix 2 slide.</p>
     </div>
   </div>
 </section>
@@ -746,12 +774,18 @@ body { margin: 0; background: #0B0B0D; }
     <div class="vendor-card">
       <p class="vendor-name">ePay</p>
       <p class="vendor-item">Green-only zone product (34 European countries), single-use — no top-ups; customer buys a new eSIM each time.</p>
-      <p class="vendor-item">£8.20 = actual Feb 2026 blended EMEA 3GB offer. 5GB-equivalent (~£11.50) derived from our own "5GB ≈ 140% of 3GB" guidance to NatWest — not a quoted ePay price.</p>
+      <p class="vendor-item">Slide 4 figure (£8.00, Spain 5GB) comes from a different e-Pay commercial structure than the wholesale table: e-Pay's per-country retail/face-value catalogue (Likewize Xesim.xlsx), where Likewize earns a 10–17.5% volume-tiered commission on the retail price directly, rather than buying wholesale and marking up. Implied wholesale (£6.63) is back-derived via the standard 20%+£0.04 formula purely for comparability — not a quoted wholesale cost.</p>
+      <p class="vendor-item">The real quoted price actually sent to NatWest was £8.20 for 3GB, blended EMEA (a ~34–40 country zone, not Spain alone) — kept as the real-world reference on Slide 2, but not used in the Slide 4 benchmark since it's a different product. 5GB-equivalent (~£11.50) is a further derived approximation, also blended-EMEA, also not Spain-specific.</p>
     </div>
     <div class="vendor-card">
       <p class="vendor-name">Dragonpass</p>
-      <p class="vendor-item">No rate card shared yet. Their steer: launch on pre-packaged rates, move to usage-based once real data exists.</p>
-      <p class="vendor-item">Android journey currently requires the Dragonpass app.</p>
+      <p class="vendor-item" style="font-size:11px; line-height:1.4;">D2C (consumer-facing) rate card now received. Still no wholesale/reseller rate.</p>
+      <p class="vendor-item" style="font-size:11px; line-height:1.4;">Slide 4 figure (£6.70) is Dragonpass's own Spain 5GB/30-day D2C rate, used directly as the "price to NatWest" figure on the assumption Dragonpass would sell to us at retail parity. Implied wholesale (£5.55) is back-derived via the same formula — one assumption, clearly flagged, not a quoted wholesale cost.</p>
+      <p class="vendor-item" style="font-size:11px; line-height:1.4;">Dragonpass is itself powered by eSIM Go for at least some markets — meaning the real chain there may be Network → eSIM Go → Dragonpass → Likewize → NatWest, three intermediaries not two (complicates the Slide 3 "two mouths" framing).</p>
+      <p class="vendor-item" style="font-size:11px; line-height:1.4;">Implied Dragonpass margin over eSIM Go: eSIM Go's Spain 5GB/30-day landed cost runs £3.08 (Gold) to £3.50 (Standard). Dragonpass's D2C rate (£6.70) implies a ~90–120% markup (~48–54% gross margin) on that cost — roughly double. Likely conservative given their blended volume. Suggests real room to negotiate a wholesale/B2B rate below £6.70.</p>
+      <p class="vendor-item" style="font-size:11px; line-height:1.4;">What Dragonpass actually delivers beyond raw eSIM Go supply: multi-supplier sourcing/management (blends eSIM Go with direct MNO deals per market); an Entitlement Service (funded/subsidised redemption logic); an Orchestration Layer API (single integration regardless of supplier); a front-end delivery layer (H5 microsite/SDK/whitelabelled app); and whitelabel branding (SPN, SMS sender ID, install name, QR code — confirmed live via Wise).</p>
+      <p class="vendor-item" style="font-size:11px; line-height:1.4;">Telco of Record confirmed unresolvable, not just undocumented: the live NatWest DragonPass Premier+ consumer terms explicitly disclaim it — "Third Party Organisations" (incl. travel eSIMs) are stated to be "not representatives of Royal Bank of Scotland, Dragonpass or Assurant," and Assurant states it is "in no way responsible for the management and supply of eSIMs." Unlike the booklet's insurance sections (which name Aviva/AA with FCA/FSCS references), the eSIM carries no named telecom entity anywhere — a deliberate structural choice, not a research gap.</p>
+      <p class="vendor-item" style="font-size:11px; line-height:1.4;">Their steer (June call): launch on pre-packaged rates, move to usage-based once real data exists. Android journey currently requires the Dragonpass app.</p>
     </div>
     <div class="vendor-card">
       <p class="vendor-name">eSIM Go</p>
@@ -766,6 +800,63 @@ body { margin: 0; background: #0B0B0D; }
     </div>
   </div>
   <p class="vendor-assumptions"><b style="color:#232329;">Assumptions:</b> Currency: $1 = £0.76, €1 = £0.85. Likewize markup held constant across all routes at 20% + £0.04 platform fee (per the original NatWest proposal). 1Global's 65% consumption figure is their number, not independently verified.</p>
+</section>
+
+<!-- 5h - APPENDIX 2: WHOLESALE RESPONSIBILITIES -->
+<section class="lw-slide" data-label="Appendix 2: Wholesale responsibilities" data-screen-label="05h" style="background:#FAFAFB; color:#0B0B0D; padding:80px 140px 50px;">
+  <div class="lw-kicker-row eyebrow-wrap">
+    <span class="lw-kicker-dot" style="background:#3200BE;"></span>
+    <p class="lw-eyebrow" style="color:#3200BE;">Appendix 2</p>
+  </div>
+  <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 18px;">Wholesale responsibilities in full</h2>
+  <div class="vendor-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 16px; flex:1;">
+    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Commercial &amp; Regulatory Foundation</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Telco of Record: licences, ongoing regulatory reporting, multi-country VAT registration &amp; remittance</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Own end-customer payment collection, reconciliation &amp; chargebacks</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Prepay account credit &amp; spend-tier commitments ($25k/mo Silver, $100k/mo Gold)</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Own pricing &amp; usage risk directly</p>
+    </div>
+    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Core Technical Integration</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">eSIM Go Management API + CallBack API (usage-threshold events: 1/50/80/100%)</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">API token/auth management, SDK integration</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Real-time bundle ordering &amp; eSIM lifecycle management (create, assign, top-up, revoke)</p>
+    </div>
+    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Customer-Facing Delivery</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Build the purchase/management surface ourselves — eSIM Go gives the API, not the UI</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">QR code distribution (email, WhatsApp, Messenger, Facebook)</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Self-service: usage tracking, top-up, status, support tickets</p>
+    </div>
+    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Operational Support</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Device compatibility checks pre-purchase</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Refund policy &amp; automated bundle revocation</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Multi-channel notifications (email, push, SMS)</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">First-line support: installation, compatibility, refunds</p>
+    </div>
+    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Finance, Inventory &amp; Data Ops</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Bundle procurement &amp; inventory management (12-month shelf life, no pre-stock required)</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Catalogue/pricing management, kept current as eSIM Go updates rates</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Multi-user org admin, order/install history</p>
+    </div>
+    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Business / Go-to-Market</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Define segments &amp; messaging (leisure/business/enterprise)</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Time acquisition to the 7–10 day pre-departure conversion window</p>
+      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Build our own retention strategy — no rolling-top-up model comes with the platform</p>
+    </div>
+  </div>
+  <div style="margin-top:18px; background:#3200BE; color:#fff; border-radius:18px; padding:20px 34px;">
+    <p style="font-size:16px; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:#FF96FF; margin:0 0 10px;">Added scope, not baseline — the Dragonpass-parity gap</p>
+    <div style="display:flex; gap:32px; flex-wrap:wrap;">
+      <p style="font-size:15px; line-height:1.45; margin:0; flex:1; min-width:280px;"><b>Entitlement/redemption engine</b> — funded/subsidised allocation logic</p>
+      <p style="font-size:15px; line-height:1.45; margin:0; flex:1; min-width:280px;"><b>Multi-supplier orchestration</b> — the resilience and edge-market coverage eSIM Go alone doesn't give us</p>
+      <p style="font-size:15px; line-height:1.45; margin:0; flex:1; min-width:280px;"><b>Whitelabel branding depth</b> (network name, SMS sender ID) — not confirmed as available on eSIM Go at all</p>
+    </div>
+  </div>
 </section>
 
 <!-- 6 - DIVIDER (fixed boilerplate — do not edit) -->
