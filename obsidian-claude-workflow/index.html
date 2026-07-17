@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#16121F; --card:#1F1930; --border:rgba(124,58,237,0.35);
+      --cream:#F0EEE6; --muted:#8A7F9E;
+      --terracotta:#D97757; --purple:#7C3AED;
+      --serif:'Fraunces', serif; --mono:'JetBrains Mono', monospace; --sans:'Inter', sans-serif;
+      --type-title:64px; --type-subtitle:30px; --type-body:26px; --type-small:24px;
+      --pad-x:100px; --pad-top:90px; --pad-bottom:70px; --gap-title:44px; --gap-item:26px;
+    }
+    body{ margin:0; background:var(--ink); }
+    .node{ position:absolute; border-radius:50%; background:var(--purple); opacity:0.55; }
+    .node.glow{ background:var(--terracotta); box-shadow:0 0 22px 6px rgba(217,119,87,0.55); opacity:1; }
+    .edge{ position:absolute; background:rgba(124,58,237,0.25); height:1px; transform-origin:left center; }
+    @keyframes typeOut{ from{ width:0; } to{ width:45ch; } }
+    @keyframes blinkCursor{ 0%,49%{ opacity:1; } 50%,100%{ opacity:0; } }
+    @keyframes driftA{ from{ transform:translate(0,0); } to{ transform:translate(16px,-12px); } }
+    @keyframes driftB{ from{ transform:translate(0,0); } to{ transform:translate(-14px,14px); } }
+    @keyframes driftC{ from{ transform:translate(0,0); } to{ transform:translate(12px,16px); } }
+    @keyframes pulseGlow{ 0%{ opacity:0.7; filter:drop-shadow(0 0 4px var(--terracotta)); } 100%{ opacity:1; filter:drop-shadow(0 0 20px var(--terracotta)); } }
+    @keyframes drawIn{ to{ stroke-dashoffset:0; } }
+  </style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<section data-label="Title" data-speaker-notes="Opening slide — let the title breathe, then move into the vault." style="background:var(--ink); position:relative; overflow:hidden; font-family:var(--sans); color:var(--cream);">
+
+  <svg key="{{ titleKey }}" viewBox="0 0 1920 1080" style="position:absolute; inset:0; width:100%; height:100%;">
+    <line x1="150" y1="120" x2="300" y2="220" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="180" stroke-dashoffset="180" style="animation:drawIn 1.6s ease-out 0.1s forwards;"></line>
+    <line x1="80" y1="400" x2="200" y2="650" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="277" stroke-dashoffset="277" style="animation:drawIn 1.6s ease-out 0.25s forwards;"></line>
+    <line x1="200" y1="650" x2="120" y2="900" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="263" stroke-dashoffset="263" style="animation:drawIn 1.6s ease-out 0.4s forwards;"></line>
+    <line x1="120" y1="900" x2="350" y2="950" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="235" stroke-dashoffset="235" style="animation:drawIn 1.6s ease-out 0.55s forwards;"></line>
+    <line x1="1800" y1="150" x2="1650" y2="280" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="199" stroke-dashoffset="199" style="animation:drawIn 1.6s ease-out 0.1s forwards;"></line>
+    <line x1="1650" y1="280" x2="1850" y2="450" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="263" stroke-dashoffset="263" style="animation:drawIn 1.6s ease-out 0.25s forwards;"></line>
+    <line x1="1850" y1="450" x2="1700" y2="700" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="292" stroke-dashoffset="292" style="animation:drawIn 1.6s ease-out 0.4s forwards;"></line>
+    <line x1="1700" y1="700" x2="1820" y2="900" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="233" stroke-dashoffset="233" style="animation:drawIn 1.6s ease-out 0.55s forwards;"></line>
+    <line x1="1820" y1="900" x2="1600" y2="980" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="234" stroke-dashoffset="234" style="animation:drawIn 1.6s ease-out 0.7s forwards;"></line>
+    <line x1="500" y1="150" x2="960" y2="80" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="465" stroke-dashoffset="465" style="animation:drawIn 1.8s ease-out 0.2s forwards;"></line>
+    <line x1="960" y1="80" x2="1400" y2="150" stroke="rgba(124,58,237,0.35)" stroke-width="1.5" stroke-dasharray="446" stroke-dashoffset="446" style="animation:drawIn 1.8s ease-out 0.35s forwards;"></line>
+
+    <circle cx="150" cy="120" r="4" fill="var(--purple)" opacity="0.55" style="animation:driftA 9s ease-in-out infinite alternate;"></circle>
+    <circle cx="300" cy="220" r="3" fill="var(--purple)" opacity="0.55" style="animation:driftB 11s ease-in-out infinite alternate;"></circle>
+    <circle cx="80" cy="400" r="4" fill="var(--purple)" opacity="0.55" style="animation:driftC 10s ease-in-out infinite alternate;"></circle>
+    <circle cx="200" cy="650" r="3" fill="var(--purple)" opacity="0.55" style="animation:driftA 12s ease-in-out infinite alternate;"></circle>
+    <circle cx="120" cy="900" r="4" fill="var(--purple)" opacity="0.55" style="animation:driftB 8s ease-in-out infinite alternate;"></circle>
+    <circle cx="350" cy="950" r="3" fill="var(--purple)" opacity="0.55" style="animation:driftC 13s ease-in-out infinite alternate;"></circle>
+    <circle cx="1800" cy="150" r="4" fill="var(--purple)" opacity="0.55" style="animation:driftB 10s ease-in-out infinite alternate;"></circle>
+    <circle cx="1650" cy="280" r="3" fill="var(--purple)" opacity="0.55" style="animation:driftA 9s ease-in-out infinite alternate;"></circle>
+    <circle cx="1850" cy="450" r="4" fill="var(--purple)" opacity="0.55" style="animation:driftC 11s ease-in-out infinite alternate;"></circle>
+    <circle cx="1700" cy="700" r="3" fill="var(--purple)" opacity="0.55" style="animation:driftB 12s ease-in-out infinite alternate;"></circle>
+    <circle cx="1820" cy="900" r="4" fill="var(--purple)" opacity="0.55" style="animation:driftA 8s ease-in-out infinite alternate;"></circle>
+    <circle cx="1600" cy="980" r="3" fill="var(--purple)" opacity="0.55" style="animation:driftC 10s ease-in-out infinite alternate;"></circle>
+    <circle cx="500" cy="150" r="3" fill="var(--purple)" opacity="0.55" style="animation:driftB 11s ease-in-out infinite alternate;"></circle>
+    <circle cx="1400" cy="150" r="3" fill="var(--purple)" opacity="0.55" style="animation:driftC 9s ease-in-out infinite alternate;"></circle>
+    <circle cx="960" cy="1000" r="4" fill="var(--purple)" opacity="0.55" style="animation:driftA 12s ease-in-out infinite alternate;"></circle>
+    <circle cx="960" cy="80" r="6" fill="var(--terracotta)" style="animation:pulseGlow 3.2s ease-in-out infinite alternate;"></circle>
+  </svg>
+
+  <div key="{{ titleKey }}" style="position:relative; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:44px;">
+    <h1 style="font-family:var(--serif); font-weight:600; font-size:148px; line-height:1.05; margin:0; color:var(--cream); text-align:center;">Notes that <span style="color:var(--terracotta);">work back</span></h1>
+    <div style="display:flex; align-items:baseline; gap:14px; font-family:var(--mono); font-size:34px; color:var(--cream);">
+      <span style="color:var(--terracotta);">&gt;</span>
+      <span style="display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation:typeOut 1.8s steps(45,end) 0.3s forwards;">how I run my work with Obsidian + Claude Code</span>
+      <span style="display:inline-block; width:16px; height:34px; background:var(--cream); animation:blinkCursor 1s step-end infinite 2.1s;"></span>
+    </div>
+  </div>
+
+</section>
+
+<section data-label="Vault + Assistant" data-speaker-notes="Set up the mental model: Obsidian is the memory, Claude Code is the assistant, CLAUDE.md is the rulebook." style="background:var(--ink); position:relative; overflow:hidden; font-family:var(--sans); color:var(--cream);">
+
+  <div class="node" style="width:6px;height:6px; top:120px; left:180px;"></div>
+  <div class="node" style="width:4px;height:4px; top:260px; left:340px;"></div>
+  <div class="node" style="width:5px;height:5px; top:180px; left:1650px;"></div>
+  <div class="node" style="width:4px;height:4px; top:400px; left:1780px;"></div>
+  <div class="node glow" style="width:9px;height:9px; top:90px; left:900px;"></div>
+  <div class="node" style="width:5px;height:5px; top:70px; left:1100px;"></div>
+  <div class="node" style="width:4px;height:4px; top:940px; left:220px;"></div>
+  <div class="node glow" style="width:8px;height:8px; top:960px; left:1500px;"></div>
+  <div class="node" style="width:5px;height:5px; top:850px; left:1750px;"></div>
+  <div class="node" style="width:4px;height:4px; top:920px; left:900px;"></div>
+  <div class="edge" style="top:120px; left:180px; width:180px; transform:rotate(18deg);"></div>
+  <div class="edge" style="top:90px; left:900px; width:200px; transform:rotate(-8deg);"></div>
+  <div class="edge" style="top:180px; left:1650px; width:170px; transform:rotate(35deg);"></div>
+  <div class="edge" style="top:940px; left:220px; width:220px; transform:rotate(-12deg);"></div>
+  <div class="edge" style="top:960px; left:1500px; width:200px; transform:rotate(20deg);"></div>
+  <div class="node" style="width:4px;height:4px; top:40px; left:520px;"></div>
+  <div class="node" style="width:5px;height:5px; top:60px; left:1400px;"></div>
+  <div class="node" style="width:4px;height:4px; top:300px; left:1500px;"></div>
+  <div class="node" style="width:5px;height:5px; top:520px; left:60px;"></div>
+  <div class="node" style="width:4px;height:4px; top:600px; left:1850px;"></div>
+  <div class="node" style="width:4px;height:4px; top:1000px; left:1100px;"></div>
+  <div class="node" style="width:5px;height:5px; top:1020px; left:600px;"></div>
+  <div class="node" style="width:4px;height:4px; top:30px; left:1850px;"></div>
+  <div class="node" style="width:4px;height:4px; top:700px; left:40px;"></div>
+  <div class="edge" style="top:40px; left:520px; width:160px; transform:rotate(24deg);"></div>
+  <div class="edge" style="top:300px; left:1500px; width:150px; transform:rotate(-30deg);"></div>
+  <div class="edge" style="top:520px; left:60px; width:190px; transform:rotate(14deg);"></div>
+  <div class="edge" style="top:1000px; left:1100px; width:170px; transform:rotate(-16deg);"></div>
+
+  <div style="position:relative; height:100%; display:flex; flex-direction:column; padding:var(--pad-top) var(--pad-x) var(--pad-bottom); box-sizing:border-box;">
+
+    <h1 style="font-family:var(--serif); font-weight:600; font-size:var(--type-title); line-height:1.15; margin:0; max-width:1500px;">A plain-text second brain, with an <span style="color:var(--terracotta);">AI that lives in it</span></h1>
+
+    <p style="font-family:var(--sans); font-size:var(--type-subtitle); color:var(--muted); max-width:1350px; margin:24px 0 0; line-height:1.5;">My work notes are an Obsidian vault — just markdown files in folders. Claude Code runs directly on that folder, reading and writing the same files I do.</p>
+
+    <div style="display:flex; gap:60px; margin-top:56px; flex:1; min-height:0;">
+
+      <div style="flex:1; display:flex; flex-direction:column; gap:18px;">
+        <div style="font-family:var(--mono); font-size:34px; font-weight:600; color:var(--purple);">Tickets/</div>
+        <div style="font-family:var(--sans); font-size:var(--type-body); font-weight:700; color:var(--cream);">Obsidian (the memory).</div>
+        <div style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted); line-height:1.55;">One folder per project. Every project has a map-of-content page, numbered action files with status and due-date metadata, and its meeting notes. Daily notes tie it together.</div>
+      </div>
+
+      <div style="flex:1; display:flex; flex-direction:column; gap:18px;">
+        <div style="font-family:var(--mono); font-size:34px; font-weight:600; color:var(--terracotta);">claude</div>
+        <div style="font-family:var(--sans); font-size:var(--type-body); font-weight:700; color:var(--cream);">Claude Code (the assistant).</div>
+        <div style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted); line-height:1.55;">An AI agent that works on files, not chat history. Pointed at the vault, it can read any note, update any action, draft any document — with full context of everything that came before.</div>
+      </div>
+
+      <div style="flex:1; display:flex; flex-direction:column; gap:18px;">
+        <div style="font-family:var(--mono); font-size:34px; font-weight:600; color:var(--cream);">CLAUDE.md</div>
+        <div style="font-family:var(--sans); font-size:var(--type-body); font-weight:700; color:var(--cream);">The rulebook.</div>
+        <div style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted); line-height:1.55;">A standing instructions file teaches Claude my conventions: how action files are structured, how I write to different audiences, even brand standards for documents. Fifteen custom skills package repeatable workflows so one phrase triggers a whole process.</div>
+      </div>
+
+    </div>
+
+    <div style="display:flex; align-items:baseline; gap:70px; padding:36px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-top:8px;">
+      <div style="display:flex; align-items:baseline; gap:16px;">
+        <span style="font-family:var(--mono); font-size:56px; font-weight:700; color:var(--terracotta);">15</span>
+        <span style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted);">projects</span>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:16px;">
+        <span style="font-family:var(--mono); font-size:56px; font-weight:700; color:var(--terracotta);">96</span>
+        <span style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted);">tracked actions</span>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:16px;">
+        <span style="font-family:var(--mono); font-size:56px; font-weight:700; color:var(--terracotta);">191</span>
+        <span style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted);">daily notes</span>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:16px;">
+        <span style="font-family:var(--mono); font-size:56px; font-weight:700; color:var(--terracotta);">1,789</span>
+        <span style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted);">total notes</span>
+      </div>
+    </div>
+
+    <p style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted); margin:28px 0 0; max-width:1500px; line-height:1.55;">No app lock-in, no copy-pasting context into a chatbot. The assistant and I share one source of truth, and it gets smarter about my work every day.</p>
+
+  </div>
+</section>
+
+<section data-label="Vault Anatomy" data-speaker-notes="Trace one real day through the vault visually — a daily note, a call note, the project hub, and two actions, connected by wikilinks and one automatic task roll-up." style="background:var(--ink); position:relative; overflow:hidden; font-family:var(--sans); color:var(--cream);">
+
+  <div class="node" style="width:5px;height:5px; top:110px; left:150px;"></div>
+  <div class="node" style="width:4px;height:4px; top:960px; left:1780px;"></div>
+  <div class="node" style="width:4px;height:4px; top:950px; left:130px;"></div>
+  <div class="node" style="width:4px;height:4px; top:60px; left:1850px;"></div>
+  <div class="node" style="width:5px;height:5px; top:1000px; left:900px;"></div>
+  <div class="node" style="width:4px;height:4px; top:70px; left:700px;"></div>
+  <div class="node" style="width:4px;height:4px; top:1010px; left:1650px;"></div>
+  <div class="edge" style="top:110px; left:150px; width:150px; transform:rotate(20deg);"></div>
+  <div class="edge" style="top:1000px; left:900px; width:160px; transform:rotate(-14deg);"></div>
+
+  <div style="position:relative; height:100%; display:flex; flex-direction:column; padding:var(--pad-top) var(--pad-x) var(--pad-bottom); box-sizing:border-box;">
+
+    <h1 style="font-family:var(--serif); font-weight:600; font-size:var(--type-title); line-height:1.15; margin:0;">Anatomy of the vault: <span style="color:var(--terracotta);">one day, connected</span></h1>
+
+    <div style="position:relative; flex:1; min-height:0; margin-top:40px;">
+
+      <svg viewBox="0 0 1720 660" style="position:absolute; top:0; left:0; width:1720px; height:660px; overflow:visible;">
+        <path d="M 400 180 C 460 180, 460 231, 602 231" stroke="var(--purple)" stroke-width="3" fill="none"></path>
+        <path d="M 1012 160 C 1060 160, 1060 74, 1119 74" stroke="var(--purple)" stroke-width="3" fill="none"></path>
+        <path d="M 1400 109 C 1450 160, 1450 190, 1400 224" stroke="var(--purple)" stroke-width="3" fill="none"></path>
+        <path d="M 807 331 L 809 376" stroke="var(--purple)" stroke-width="3" fill="none"></path>
+        <path d="M 1208 340 C 1000 540, 700 550, 230 320" stroke="var(--terracotta)" stroke-width="3" stroke-dasharray="9 8" fill="none"></path>
+      </svg>
+
+      <div style="position:absolute; top:475px; left:230px; font-family:var(--sans); font-style:italic; font-size:24px; color:var(--terracotta); max-width:260px;">tasks roll up automatically</div>
+
+      <div style="position:absolute; top:30px; left:0; width:400px; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 30px; display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:var(--mono); font-size:26px; font-weight:700; color:var(--cream);">Daily Notes/2026-07-17</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--muted);">09:30 <span style="color:var(--purple);">[[Zurich Weekly]]</span></div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--muted);">14:00 <span style="color:var(--purple);">[[Kanopi Catch-up]]</span></div>
+        <div style="border-top:1px solid var(--border); margin:8px 0;"></div>
+        <div style="font-family:var(--sans); font-size:24px; font-weight:700; color:var(--terracotta);">Today</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--cream);">[ ] chase Zurich terms</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--cream);">[ ] Kanopi feedback</div>
+      </div>
+
+      <div style="position: absolute; top: 15px; left: 513px; width: 1200px; height: 640px; border: 2px dashed var(--border); border-radius: 14px"><div style="position: absolute; top: 209px; left: 603px; width: 575px; height: 420px; border: 2px dashed var(--border); border-radius: 14px"><div style="position: absolute; top: 66px; left: 92px; width: 400px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; display: flex; flex-direction: column; gap: 8px; height: 111px">
+        <div style="font-family:var(--sans); font-size:26px; font-weight:700; color:var(--cream);">[049] Zurich partnership</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted);">status: open · due 07-24</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--terracotta);">[ ] chase Zurich terms</div>
+      </div><div style="position: absolute; top: 250px; left: 89px; width: 401px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; display: flex; flex-direction: column; gap: 8px; height: 68px">
+        <div style="font-family:var(--sans); font-size:26px; font-weight:700; color:var(--cream);">[096] Screen protection</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted);">status: open · initiative</div>
+      </div><div style="position: absolute; top: 18px; left: 14px; background: var(--ink); padding: 0 14px; font-family: var(--mono); font-size: 26px; font-weight: 600; color: var(--muted)">Actions/</div></div><div style="position: absolute; top: 116px; left: 89px; width: 410px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px 28px; display: flex; flex-direction: column; gap: 12px">
+        <div style="font-family:var(--mono); font-size:26px; font-weight:700; color:var(--cream);">Zurich Weekly 17.07.26</div>
+        <div style="display:flex; gap:10px;">
+          <span style="font-family:var(--mono); font-size:24px; color:#E8A9C6; background:rgba(232,169,198,0.12); border-radius:20px; padding:4px 16px;">#callnotes</span>
+          <span style="font-family:var(--mono); font-size:24px; color:#E8A9C6; background:rgba(232,169,198,0.12); border-radius:20px; padding:4px 16px;">#tickets</span>
+        </div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--purple);">[[Tickets MOC]]</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--muted);">Prev: [[10.07.26]]</div>
+      </div><div style="position: absolute; top: 361px; left: 148px; width: 300px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 26px; opacity: 0.45">
+        <div style="font-family:var(--mono); font-size:24px; color:var(--cream);">Zurich Weekly 10.07.26</div>
+      </div><div style="position: absolute; top: 166px; left: -23px; font-family: var(--sans); font-style: italic; font-size: 24px; color: var(--purple); z-index: 2; white-space: nowrap">wikilink</div></div>
+
+      <div style="position:absolute; top:-20px; left:530px; background:var(--ink); padding:0 14px; font-family:var(--mono); font-size:26px; font-weight:600; color:var(--muted);">Tickets/</div>
+
+      <div style="position: absolute; top: 40px; left: 1119px; width: 536px; background: var(--purple); border-radius: 10px; padding: 22px 26px; display: flex; flex-direction: column; gap: 6px; height: 69px">
+        <div style="font-family:var(--mono); font-size:26px; font-weight:700; color:var(--cream);">Tickets MOC</div>
+        <div style="font-family:var(--sans); font-size:24px; color:rgba(240,238,230,0.85);">hub — links everything</div>
+      </div>
+
+    </div>
+
+    <div style="display:flex; align-items:center; gap:44px; padding-top:24px;">
+      <div style="display:flex; align-items:center; gap:12px;"><span style="width:34px; height:3px; background:var(--purple); display:inline-block;"></span><span style="font-family:var(--sans); font-size:24px; color:var(--muted);">wikilink</span></div>
+      <div style="display:flex; align-items:center; gap:12px;"><span style="width:34px; height:0; border-top:3px dashed var(--terracotta); display:inline-block;"></span><span style="font-family:var(--sans); font-size:24px; color:var(--muted);">task query</span></div>
+      <div style="display:flex; align-items:center; gap:12px;"><span style="width:26px; height:20px; border:2px dashed var(--border); border-radius:4px; display:inline-block;"></span><span style="font-family:var(--sans); font-size:24px; color:var(--muted);">folder</span></div>
+      <div style="display:flex; align-items:center; gap:12px;"><span style="font-family:var(--mono); font-size:24px; color:#E8A9C6; background:rgba(232,169,198,0.12); border-radius:20px; padding:3px 14px;">#tag</span><span style="font-family:var(--sans); font-size:24px; color:var(--muted);">cross-cutting layer</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section data-label="Day to Day" data-speaker-notes="Walk through four concrete examples of what this looks like day to day, from quick admin to a full structured product workflow." style="background:var(--ink); position:relative; overflow:hidden; font-family:var(--sans); color:var(--cream);">
+
+  <div class="node" style="width:4px;height:4px; top:50px; left:1400px;"></div>
+  <div class="node" style="width:5px;height:5px; top:60px; left:250px;"></div>
+  <div class="node" style="width:4px;height:4px; top:1010px; left:1750px;"></div>
+  <div class="node" style="width:4px;height:4px; top:1000px; left:400px;"></div>
+  <div class="node" style="width:4px;height:4px; top:150px; left:1780px;"></div>
+  <div class="node" style="width:5px;height:5px; top:900px; left:120px;"></div>
+  <div class="node" style="width:4px;height:4px; top:40px; left:900px;"></div>
+  <div class="node" style="width:4px;height:4px; top:1030px; left:1100px;"></div>
+  <div class="node glow" style="width:8px;height:8px; top:100px; left:60px;"></div>
+  <div class="node glow" style="width:7px;height:7px; top:1000px; left:1500px;"></div>
+  <div class="edge" style="top:60px; left:250px; width:140px; transform:rotate(-18deg);"></div>
+  <div class="edge" style="top:1000px; left:400px; width:150px; transform:rotate(16deg);"></div>
+  <div class="edge" style="top:150px; left:1780px; width:120px; transform:rotate(25deg);"></div>
+  <div class="edge" style="top:900px; left:120px; width:150px; transform:rotate(-20deg);"></div>
+  <div class="edge" style="top:100px; left:60px; width:130px; transform:rotate(12deg);"></div>
+
+  <div style="position:relative; height:100%; display:flex; flex-direction:column; padding:var(--pad-top) var(--pad-x) var(--pad-bottom); box-sizing:border-box;">
+
+    <h1 style="font-family:var(--serif); font-weight:600; font-size:var(--type-title); line-height:1.15; margin:0;">Day-to-day: what it actually does <span style="color:var(--terracotta);">for me</span></h1>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:24px; flex:1; min-height:0; margin-top:36px;">
+
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:32px 36px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; gap:8px;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#D97757;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#7C3AED;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#8A7F9E;display:inline-block;"></span>
+        </div>
+        <div style="font-family:var(--sans); font-size:24px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em;">Morning admin</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--cream); line-height:1.5;"><span style="color:var(--terracotta);">&gt;</span> Here's my diary — set up today.</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.55;">Claude reads the calendar screenshot, creates the daily note, creates a prepped note for every meeting, links each to prior calls of the same series, and drafts an agenda from what's in the vault.</div>
+      </div>
+
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:32px 36px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; gap:8px;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#D97757;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#7C3AED;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#8A7F9E;display:inline-block;"></span>
+        </div>
+        <div style="font-family:var(--sans); font-size:24px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em;">Action tracking</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--cream); line-height:1.5;"><span style="color:var(--terracotta);">&gt;</span> Zurich came back — they're holding until Q4. Update the action.</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.55;">Claude finds the right action file, appends the update, rewrites the status summary, adjusts the due date. 96 actions stay current without me maintaining a tracker.</div>
+      </div>
+
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:32px 36px; display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; gap:8px;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#D97757;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#7C3AED;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#8A7F9E;display:inline-block;"></span>
+        </div>
+        <div style="font-family:var(--sans); font-size:24px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em;">Comms in my voice</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--cream); line-height:1.5;"><span style="color: var(--terracotta);">&gt;</span> Draft the weekly update for eSIM.</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.55;">Claude pulls the week's progress from action files and call notes, and drafts to the house rules it's been taught — short, punchy, non-technical, max three bullets. Every edit I make feeds back into the rulebook, so drafts keep converging on what I'd actually send.</div>
+      </div>
+
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 36px; display:flex; flex-direction:column; gap:12px; overflow:hidden;">
+        <div style="display:flex; gap:8px;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#D97757;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#7C3AED;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#8A7F9E;display:inline-block;"></span>
+        </div>
+        <div style="font-family:var(--sans); font-size:24px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em;">Structured product thinking</div>
+        <div style="font-family:var(--mono); font-size:24px; color:var(--cream); line-height:1.4;"><span style="color: var(--terracotta);">&gt;</span>&nbsp;We want to add screen protection to tickets — walk me through this properly.</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.4;">A skill runs the vague ask through a full product workflow — intake, framing, goals, personas, JTBD, prioritisation, solution definition, roadmap — pausing for my input at each stage. Ends with a branded stakeholder deck, published to a link I can send round.</div>
+      </div>
+
+    </div>
+
+    <p style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted); margin:24px 0 0; line-height:1.55;">I supply judgement and decisions; Claude supplies memory, structure, and first drafts. Everything it produces lands back in my system, in my format, ready for the next conversation to build on.</p>
+
+  </div>
+</section>
+
+<section data-label="Initiative Process" data-speaker-notes="Show the structured product-discovery process a stakeholder ask triggers, and how much it produces along the way." style="background:var(--ink); position:relative; overflow:hidden; font-family:var(--sans); color:var(--cream);">
+
+  <div class="node" style="width:5px;height:5px; top:130px; left:220px;"></div>
+  <div class="node" style="width:4px;height:4px; top:280px; left:120px;"></div>
+  <div class="node" style="width:5px;height:5px; top:150px; left:1700px;"></div>
+  <div class="node" style="width:4px;height:4px; top:950px; left:1780px;"></div>
+  <div class="node" style="width:4px;height:4px; top:900px; left:150px;"></div>
+  <div class="node" style="width:5px;height:5px; top:60px; left:1500px;"></div>
+  <div class="node" style="width:4px;height:4px; top:1020px; left:900px;"></div>
+  <div class="node" style="width:4px;height:4px; top:1030px; left:500px;"></div>
+  <div class="edge" style="top:130px; left:220px; width:140px; transform:rotate(20deg);"></div>
+  <div class="edge" style="top:1020px; left:900px; width:150px; transform:rotate(-15deg);"></div>
+
+  <div style="position:relative; height:100%; display:flex; flex-direction:column; padding:var(--pad-top) var(--pad-x) var(--pad-bottom); box-sizing:border-box;">
+
+    <h1 style="font-family:var(--serif); font-weight:600; font-size:var(--type-title); line-height:1.15; margin:0; max-width:1600px;">From vague ask to roadmap: <span style="color:var(--terracotta);">the initiative process</span></h1>
+
+    <p style="font-family:var(--sans); font-size:var(--type-subtitle); color:var(--muted); max-width:1500px; margin:22px 0 0; line-height:1.5;">One sentence from a stakeholder can trigger a full product discovery process — eleven stages, based on the Product Institute's methodology, each pausing for my judgement before moving on.</p>
+
+    <div style="font-family:var(--mono); font-size:24px; color:var(--cream); margin-top:28px;"><span style="color:var(--terracotta);">&gt;</span> We want to add screen protection to tickets — walk me through this properly.</div>
+
+    <div style="position:relative; margin-top:56px; height:22px;">
+      <div style="position:absolute; top:50%; left:6%; width:88%; height:2px; background:rgba(124,58,237,0.4);"></div>
+      <div style="position:absolute; top:50%; left:6%; width:15px; height:15px; border-radius:50%; background:var(--purple); transform:translate(-50%,-50%);"></div>
+      <div style="position:absolute; top:50%; left:35%; width:15px; height:15px; border-radius:50%; background:var(--purple); transform:translate(-50%,-50%);"></div>
+      <div style="position:absolute; top:50%; left:64%; width:15px; height:15px; border-radius:50%; background:var(--purple); transform:translate(-50%,-50%);"></div>
+      <div style="position:absolute; top:50%; left:93%; width:15px; height:15px; border-radius:50%; background:var(--purple); transform:translate(-50%,-50%);"></div>
+      <div style="position:absolute; top:50%; left:100%; width:22px; height:22px; border-radius:50%; background:var(--terracotta); box-shadow:0 0 22px 6px rgba(217,119,87,0.55); transform:translate(-50%,-50%);"></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 0.85fr; gap:28px; margin-top:26px;">
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:var(--mono); font-size:24px; font-weight:600; color:var(--purple); letter-spacing:0.03em;">01 · INTAKE</div>
+        <div style="font-family:var(--sans); font-size:26px; font-weight:700; color:var(--cream);">Understand the ask</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.4;">Claude grills <em>me</em> for the tacit context a one-line ask never carries — why now, what success looks like, sensitivities. Framed against strategy, given a measurable goal.</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:var(--mono); font-size:24px; font-weight:600; color:var(--purple); letter-spacing:0.03em;">02 · DISCOVERY</div>
+        <div style="font-family:var(--sans); font-size:26px; font-weight:700; color:var(--cream);">Understand the people</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.4;">Stakeholder mapping, then personas and empathy maps for affected customers, then Jobs-to-be-Done to diagnose the real problem — asks are often a solution in disguise.</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:var(--mono); font-size:24px; font-weight:600; color:var(--purple); letter-spacing:0.03em;">03 · VALIDATION</div>
+        <div style="font-family:var(--sans); font-size:26px; font-weight:700; color:var(--cream);">Check it's worth it</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.4;">Scored against customer signal and business alignment, then the riskiest assumptions get lightweight tests — before anything gets built.</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:var(--mono); font-size:24px; font-weight:600; color:var(--purple); letter-spacing:0.03em;">04 · DEFINITION</div>
+        <div style="font-family:var(--sans); font-size:26px; font-weight:700; color:var(--cream);">Define and commit</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.4;">Solution exploration, a story map, the minimum feature set, and a roadmap entry with outcomes and priority.</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="font-family:var(--mono); font-size:24px; font-weight:600; color:var(--terracotta); letter-spacing:0.03em;">FINALE</div>
+        <div style="font-family:var(--sans); font-size:26px; font-weight:700; color:var(--cream);">Stakeholder deck</div>
+        <div style="font-family:var(--sans); font-size:24px; color:var(--muted); line-height:1.4;">Generated from the artifacts, published to a link I can send round.</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:auto; padding-top:34px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:14px;">
+      <p style="font-family:var(--sans); font-size:var(--type-small); color:var(--muted); margin:0; max-width:1600px; line-height:1.5;">Every stage saves its artifact into the vault — the Screen Protection initiative alone produced <span style="color:var(--terracotta); font-family:var(--mono); font-weight:700;">15</span>: strategy canvas, personas, job stories, prioritisation, story map, roadmap. Personas reuse across initiatives, so the process compounds.</p>
+      <p style="font-family:var(--sans); font-size:var(--type-small); color:var(--cream); margin:0; max-width:1650px; line-height:1.5;">Discovery discipline I'd struggle to sustain solo, applied in hours instead of weeks — and none of it lives in my head or a chat window. It's all on file for the next initiative to build on.</p>
+    </div>
+
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { titleKey: 0 };
+  componentDidMount() {
+    this._onChange = (e) => {
+      if (e.detail && e.detail.index === 0) {
+        this.setState(s => ({ titleKey: s.titleKey + 1 }));
+      }
+    };
+    this._deck = document.querySelector('deck-stage');
+    if (this._deck) this._deck.addEventListener('slidechange', this._onChange);
+  }
+  componentWillUnmount() {
+    if (this._deck && this._onChange) this._deck.removeEventListener('slidechange', this._onChange);
+  }
+  renderVals() {
+    return { titleKey: this.state.titleKey };
+  }
+}
+</script>
+</body>
+</html>
