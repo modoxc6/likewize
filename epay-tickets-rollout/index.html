@@ -1,0 +1,244 @@
+<title>Likewize x ePay — Tickets Rollout</title>
+<style>
+  :root{
+    --blue:#3200BE;
+    --pink:#FF96FF;
+    --blush:#F5D2FA;
+    --frost:#C8FAFA;
+    --ink:#1C1024;
+    --sub:#5B4A63;
+    --card:#FFFFFF;
+    --line:#EAE0F0;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{
+    background:linear-gradient(180deg,var(--blush) 0%,#FFFFFF 260px);
+    color:var(--ink);
+    font-family:"Likewize Sans",Arial,"Helvetica Neue",Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
+  }
+  .page{
+    width:920px;
+    max-width:100%;
+    background:var(--card);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(50,0,190,0.08);
+  }
+  header{
+    background:var(--blue);
+    color:#fff;
+    padding:40px 48px 34px;
+  }
+  .kicker{
+    margin:0 0 8px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--pink);
+  }
+  h1{
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  main{padding:40px 48px 12px;}
+  h2{
+    font-size:18px;
+    margin:0 0 4px;
+    font-weight:700;
+  }
+  .section-sub{
+    margin:0 0 20px;
+    font-size:13px;
+    color:var(--sub);
+  }
+  .cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-bottom:40px;
+  }
+  .card{
+    background:#FBF7FD;
+    border:1px solid var(--line);
+    border-top:4px solid var(--pink);
+    border-radius:8px;
+    padding:20px 22px;
+  }
+  .card:nth-child(2){border-top-color:var(--blue);}
+  .card h3{
+    margin:0 0 8px;
+    font-size:15px;
+    font-weight:700;
+  }
+  .card p{
+    margin:0;
+    font-size:13.5px;
+    line-height:1.55;
+    color:var(--sub);
+  }
+  .rollout{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    margin-bottom:36px;
+    position:relative;
+  }
+  .rollout::before{
+    content:"";
+    position:absolute;
+    top:19px;
+    left:12.5%;
+    right:12.5%;
+    height:2px;
+    background:var(--line);
+    z-index:0;
+  }
+  .stage{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    padding:0 10px;
+  }
+  .stage .dot{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    margin:0 auto 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:15px;
+    background:#fff;
+    border:2px solid var(--blue);
+    color:var(--blue);
+  }
+  .stage:first-child .dot{
+    background:var(--pink);
+    border-color:var(--pink);
+    color:var(--ink);
+  }
+  .stage h3{
+    margin:0 0 6px;
+    font-size:13.5px;
+    font-weight:700;
+  }
+  .stage p{
+    margin:0;
+    font-size:12px;
+    color:var(--sub);
+    line-height:1.5;
+  }
+  .next-steps{
+    background:var(--pink);
+    color:var(--ink);
+    padding:32px 48px;
+    margin-top:8px;
+  }
+  .next-steps h2{
+    margin:0 0 18px;
+    font-size:20px;
+  }
+  .next-steps ol{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .next-steps li{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    font-size:15px;
+    font-weight:700;
+  }
+  .next-steps li .num{
+    flex-shrink:0;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--pink);
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  footer{
+    padding:18px 48px 26px;
+    border-top:1px solid var(--line);
+  }
+  footer p{
+    margin:0;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#9A8FA3;
+  }
+</style>
+
+<div class="page">
+  <header>
+    <p class="kicker">Likewize x ePay</p>
+    <h1>Tickets Recommended Rollout</h1>
+  </header>
+  <main>
+    <h2>Tracking &amp; Reporting</h2>
+    <p class="section-sub">How performance and commission will be attributed as brands come online.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Unique URL per Brand</h3>
+        <p>Each brand is given its own dedicated tracking link, so traffic and sales can be attributed individually.</p>
+      </div>
+      <div class="card">
+        <h3>Brand-Level Reporting</h3>
+        <p>All reporting, including the data driving commission payments, is split out by brand.</p>
+      </div>
+    </div>
+
+    <h2>Recommended Rollout</h2>
+    <p class="section-sub">Phased, to validate performance before scaling further.</p>
+    <div class="rollout">
+      <div class="stage">
+        <div class="dot">1</div>
+        <h3>Launch</h3>
+        <p>One brand, UK, for two weeks</p>
+      </div>
+      <div class="stage">
+        <div class="dot">2</div>
+        <h3>Expand</h3>
+        <p>Roll out to further internal brands</p>
+      </div>
+      <div class="stage">
+        <div class="dot">3</div>
+        <h3>Affiliates</h3>
+        <p>Extend to affiliate partners</p>
+      </div>
+      <div class="stage">
+        <div class="dot">4</div>
+        <h3>Scale</h3>
+        <p>Expand beyond the UK, and into gift cards</p>
+      </div>
+    </div>
+  </main>
+  <div class="next-steps">
+    <h2>Next Steps</h2>
+    <ol>
+      <li><span class="num">1</span>Identify the launch brand</li>
+      <li><span class="num">2</span>Confirm the GTM plan</li>
+      <li><span class="num">3</span>Agree a target launch date</li>
+    </ol>
+  </div>
+  <footer>
+    <p>Likewize Moments · Tickets</p>
+  </footer>
+</div>
