@@ -5,65 +5,193 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Likewize Decks</title>
 <style>
-  :root { color-scheme: light; }
-  html {
-    min-height: 100%;
-    background: linear-gradient(180deg, #FFFFFF 0%, #FBF3FD 100%);
+  :root{
+    --ink:#1a1424;
+    --grey:#6b6478;
+    --blue:#3200BE;
+    --pink:#FF96FF;
+    --blush:#F5D2FA;
+    --frost:#C8FAFA;
+    --paper:#ffffff;
+    --paper-2:#FBF3FD;
+    --hair:rgba(50,0,190,0.14);
   }
-  body {
-    font-family: -apple-system, "Segoe UI", Aptos, Arial, sans-serif;
-    max-width: 720px;
-    margin: 4rem auto;
-    padding: 0 1.5rem;
-    color: #1a1a1a;
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    font-family:Arial, "Segoe UI", -apple-system, sans-serif;
+    color:var(--ink);
+    background:var(--paper);
   }
-  h1 {
-    color: #3200BE;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
+  a{ color:inherit; text-decoration:none; }
+
+  .hero{
+    position:relative;
+    background:linear-gradient(160deg, var(--pink) 0%, #FFC2FA 45%, var(--paper-2) 82%, var(--paper) 100%);
+    padding:64px 32px 96px;
   }
-  ul { list-style: none; padding: 0; margin-top: 2rem; }
-  li {
-    padding: 0.9rem 0;
-    border-bottom: 1px solid rgba(50,0,190,0.12);
+  .hero::after{
+    content:""; position:absolute; top:28px; right:32px; width:34px; height:6px;
+    border-radius:3px; background:var(--blue);
   }
-  ul ul {
-    list-style: none;
-    padding: 0.6rem 0 0 1.5rem;
-    margin-top: 0;
+  .hero .wrap{ max-width:1040px; margin:0 auto; position:relative; }
+  .hero .eyebrow{
+    color:var(--ink); opacity:.6; font-size:12px; text-transform:uppercase;
+    letter-spacing:.08em; font-weight:700; margin-bottom:10px;
   }
-  ul ul li {
-    padding: 0.4rem 0;
-    border-bottom: none;
-    font-size: 0.9rem;
+  .hero h1{ font-size:40px; margin:0; font-weight:800; letter-spacing:-.01em; text-wrap:balance; }
+
+  .content{ max-width:1040px; margin:-40px auto 0; padding:0 32px 100px; position:relative; }
+  .filters{
+    display:flex; gap:8px; flex-wrap:wrap; background:var(--paper);
+    border:1px solid var(--hair); border-radius:10px; box-shadow:0 8px 24px rgba(50,0,190,0.08);
+    padding:16px; margin-bottom:36px;
   }
-  ul ul li a { font-weight: 500; }
-  a {
-    text-decoration: none;
-    font-weight: 600;
-    color: #3200BE;
+  .filters button{
+    font-family:inherit; cursor:pointer; appearance:none;
+    font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+    padding:8px 14px; border-radius:5px; border:1px solid var(--hair); background:var(--paper); color:var(--ink);
   }
-  a:hover { text-decoration: underline; }
-  .date { color: #6b6b6b; font-weight: 400; font-size: 0.9rem; margin-left: 0.5rem; }
+  .filters button.on{ background:var(--blue); border-color:var(--blue); color:#fff; }
+
+  .category{ margin-bottom:44px; }
+  .cat-head{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .cat-head .swatch{ width:16px; height:4px; border-radius:2px; }
+  .cat-head h2{ font-size:13px; margin:0; text-transform:uppercase; letter-spacing:.06em; font-weight:700; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; }
+
+  .card{ border-radius:8px; background:var(--paper-2); padding:3px; }
+  .card-inner{
+    background:var(--paper); border-radius:6px; padding:16px 16px 14px;
+    border-top:3px solid var(--accent,var(--blue));
+    display:flex; flex-direction:column; gap:8px; height:100%;
+  }
+  .card-link{ display:flex; flex-direction:column; gap:8px; flex:1; }
+  .card h3{ margin:0; font-size:15px; line-height:1.35; font-weight:700; }
+  .card .desc{ margin:0; font-size:12.5px; line-height:1.5; color:var(--grey); }
+  .card .meta{ margin-top:6px; display:flex; flex-direction:column; gap:6px; }
+  .card .progress-row{ display:flex; align-items:center; gap:8px; }
+  .card .progress-track{ flex:1; height:4px; border-radius:2px; background:var(--hair); overflow:hidden; }
+  .card .progress-fill{ height:100%; border-radius:2px; background:var(--accent,var(--blue)); }
+  .card .progress-pct{
+    font-size:11px; font-weight:700; color:var(--accent,var(--blue));
+    font-variant-numeric:tabular-nums; white-space:nowrap;
+  }
+  .card .updated{
+    font-size:10px; color:var(--grey); text-transform:uppercase; letter-spacing:.06em;
+    font-variant-numeric:tabular-nums;
+  }
+  .card .go{ margin-top:auto; padding-top:8px; font-size:12px; font-weight:700; color:var(--accent,var(--blue)); }
+  .card .variant{ font-size:11.5px; color:var(--grey); border-top:1px dashed var(--hair); padding-top:7px; }
+  .card .variant a{ color:var(--accent,var(--blue)); font-weight:600; }
+
+  footer{ text-transform:uppercase; letter-spacing:.12em; font-size:10.5px; color:var(--grey); text-align:center; padding-top:8px; }
 </style>
 </head>
 <body>
-  <h1>Decks</h1>
-  <ul>
-    <li>
-      <a href="partner-proposition/">Likewize Moments — Partner Proposition</a>
-      <ul>
-        <li><a href="tickets-pdf-export/">Tickets PDF Export (variant)</a></li>
-      </ul>
-    </li>
-    <li><a href="protection-slide/">Ticket Protection — How It Works</a></li>
-    <li><a href="tickets-partner-portal/">Likewize Moments — Tickets Partner Portal</a></li>
-    <li><a href="embedded-checkout-mockup/">Embedded Checkout Mockup</a></li>
-    <li><a href="screen-protection-deck/">Screen Protection — Stakeholder Deck</a></li>
-    <li><a href="ticket-protection-deck/">Ticket Protection — Stakeholder Deck</a></li>
-    <li><a href="esim-initiative-deck/">eSIM — Route to Market</a></li>
-    <li><a href="obsidian-claude-workflow/">Notes That Work Back — Obsidian + Claude Code</a></li>
-    <!-- New decks are added here as they're published -->
-  </ul>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Likewize</div>
+      <h1>Decks &amp; interactive docs</h1>
+    </div>
+  </header>
+  <main class="content" id="content"></main>
+
+<script>
+/*
+  New deck? Add an entry to the matching category's `items` array below
+  (or a new category object if none fits) with: title, href, desc,
+  pct (0-100 completion), updated (YYYY-MM-DD). See publish-deck skill.
+*/
+const DATA = [
+  { key:"tickets", name:"Tickets", color:"var(--blue)", items:[
+    { title:"Likewize Moments — Partner Proposition", href:"partner-proposition/",
+      desc:"Partner-facing pitch for bringing ticket protection to your platform.",
+      pct:90, updated:"2026-07-07",
+      variants:[{title:"Tickets PDF Export (variant)", href:"tickets-pdf-export/"}] },
+    { title:"Likewize Moments — Tickets Partner Portal", href:"tickets-partner-portal/",
+      desc:"Partner config document, for taking a client through required intake details.",
+      pct:50, updated:"2026-07-07" },
+  ]},
+  { key:"ticket-protection", name:"Ticket Protection", color:"#C23B93", items:[
+    { title:"Ticket Protection — How It Works", href:"protection-slide/",
+      desc:"Single-slide summary of cover type, regulatory, and delivery for ticket protection.",
+      pct:100, updated:"2026-07-07" },
+    { title:"Ticket Protection — Stakeholder Deck", href:"ticket-protection-deck/",
+      desc:"Internal stakeholder deck covering the ticket protection proposition.",
+      pct:100, updated:"2026-07-15" },
+  ]},
+  { key:"screen", name:"Screen Protection", color:"var(--pink)", items:[
+    { title:"Screen Protection — Stakeholder Deck", href:"screen-protection-deck/",
+      desc:"Internal stakeholder deck covering the screen protection proposition.",
+      pct:100, updated:"2026-07-10" },
+    { title:"Embedded Checkout Mockup", href:"embedded-checkout-mockup/",
+      desc:"Mockup of screen protection embedded directly into the checkout process.",
+      pct:100, updated:"2026-07-09" },
+  ]},
+  { key:"esim", name:"eSIM", color:"#1fb8b8", items:[
+    { title:"eSIM — Route to Market", href:"esim-initiative-deck/",
+      desc:"Internal stakeholder deck covering the eSIM proposition.",
+      pct:80, updated:"2026-07-16" },
+  ]},
+  { key:"process", name:"Process", color:"#b166c9", items:[
+    { title:"Notes That Work Back — Obsidian + Claude Code", href:"obsidian-claude-workflow/",
+      desc:"How the Obsidian + Claude Code note-taking workflow fits together.",
+      pct:100, updated:"2026-07-17" },
+  ]},
+];
+
+const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+function formatDate(iso){
+  const [y,m,d] = iso.split('-');
+  return `${d} ${MONTHS[parseInt(m,10)-1]} ${y}`;
+}
+
+function render(){
+  const el = document.getElementById('content');
+  let html = `<div class="filters"><button class="on" data-filter="all">All</button>`;
+  DATA.forEach(cat=>{ html += `<button data-filter="${cat.key}">${cat.name}</button>`; });
+  html += `</div>`;
+  DATA.forEach(cat=>{
+    html += `<div class="category" data-cat="${cat.key}">
+      <div class="cat-head"><span class="swatch" style="background:${cat.color}"></span><h2>${cat.name}</h2></div>
+      <div class="grid">`;
+    cat.items.forEach(it=>{
+      html += `<div class="card" style="--accent:${cat.color}">
+        <div class="card-inner">
+          <a class="card-link" href="${it.href}">
+            <h3>${it.title}</h3>
+            ${it.desc ? `<p class="desc">${it.desc}</p>` : ''}
+            <div class="meta">
+              <div class="progress-row">
+                <div class="progress-track"><div class="progress-fill" style="width:${it.pct}%"></div></div>
+                <span class="progress-pct">${it.pct}%</span>
+              </div>
+              <span class="updated">Updated ${formatDate(it.updated)}</span>
+            </div>
+            <span class="go">Open deck →</span>
+          </a>
+          ${it.variants ? it.variants.map(v=>`<div class="variant">Variant: <a href="${v.href}">${v.title}</a></div>`).join('') : ''}
+        </div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  html += `<footer>Likewize · internal</footer>`;
+  el.innerHTML = html;
+
+  document.querySelectorAll('.filters button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.category').forEach(c=>{
+        c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
+      });
+    });
+  });
+}
+render();
+</script>
 </body>
 </html>
