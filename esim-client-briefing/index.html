@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/likewize-design-system-c61cfa7f-40bf-490b-8ed0-d2142c899562/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/likewize-design-system-c61cfa7f-40bf-490b-8ed0-d2142c899562/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/likewize-design-system-c61cfa7f-40bf-490b-8ed0-d2142c899562/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/likewize-design-system-c61cfa7f-40bf-490b-8ed0-d2142c899562/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/likewize-design-system-c61cfa7f-40bf-490b-8ed0-d2142c899562/styles.css">
+  <script src="_ds/likewize-design-system-c61cfa7f-40bf-490b-8ed0-d2142c899562/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; background: #0B0B0D; }
+    .lw-slide { width:1920px; height:1080px; box-sizing:border-box; font-family:"Likewize Sans", Arial, sans-serif; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+    .lw-badge-label { font-size:24px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; }
+    .lw-badge-circle { width:60px; height:60px; border-radius:999px; display:flex; align-items:center; justify-content:center; flex:none; }
+    .lw-th { font-size:24px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; margin:0; }
+  </style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+  <!-- 0 · DIVIDER: BOTH MODELS -->
+  <section class="lw-slide" data-label="Divider: Both Models" data-speaker-notes="Section divider, both models (Always-On and Funded Entitlement)." style="background:#3200BE; color:#FFFFFF; align-items:center; justify-content:center;">
+    <p style="font-size:28px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#FF96FF; margin:0 0 28px;">Travel eSIM</p>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0; text-align:center;">eSIM Spec<br>(Both Models)</h1>
+  </section>
+
+  <!-- 3 · PRODUCT INFORMATION -->
+  <section class="lw-slide" data-label="Product Information" data-speaker-notes="Lead with speed to live and the no-reinstall renewal, that's what customers actually feel trip to trip." style="background:#1B0070; color:#FFFFFF; padding:100px 130px;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:40px;">
+      <span class="lw-badge-label" style="color:#FF96FF;">Travel Connectivity</span>
+      <div class="lw-badge-circle" style="background:#FF96FF; color:#0B0B0D;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="smart-devices" size="30" hint-size="30px,30px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0 0 48px; color:#FFFFFF;">Product Information</h1>
+
+    <div style="flex:1; display:flex; gap:56px; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.24); padding:52px 56px; align-items:center; min-height:0;">
+      <div style="flex:1.3; display:flex; flex-direction:column; gap:28px;">
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#FF96FF; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">Quick QR-code activation, live in minutes</p>
+        </div>
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#3200BE; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">No reinstall trip-to-trip, top up the existing eSIM instead</p>
+        </div>
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#FF96FF; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">Single-country or regional bundle options</p>
+        </div>
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#3200BE; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">Fully partner-branded: network name, install name, SMS sender ID, custom QR</p>
+        </div>
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#FF96FF; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">190+ countries, 90 networks with 5G, Tier-1 MNOs only</p>
+        </div>
+      </div>
+      <div style="flex:1; display:flex; justify-content:center;">
+        <div style="width:320px; height:640px; border-radius:40px; border:9px solid #0B0B0D; overflow:hidden; box-shadow:0 20px 40px rgba(11,11,13,0.2); flex:none; display:flex; flex-direction:column; background:#FFFFFF;">
+          <div style="height:44px; flex:none; display:flex; align-items:center; justify-content:space-between; padding:0 22px; font-size:15px; font-weight:700; color:#0B0B0D;">
+            <span>9:41</span>
+            <div style="display:flex; align-items:center; gap:5px;">
+              <div style="display:flex; align-items:flex-end; gap:2px; height:10px;">
+                <span style="width:3px; height:4px; background:#0B0B0D; border-radius:1px;"></span>
+                <span style="width:3px; height:6px; background:#0B0B0D; border-radius:1px;"></span>
+                <span style="width:3px; height:8px; background:#0B0B0D; border-radius:1px;"></span>
+                <span style="width:3px; height:10px; background:#0B0B0D; border-radius:1px;"></span>
+              </div>
+              <div style="width:16px; height:11px; border:1.5px solid #0B0B0D; border-radius:3px; position:relative;">
+                <span style="position:absolute; inset:1.5px; width:10px; background:#0B0B0D; border-radius:1px;"></span>
+              </div>
+            </div>
+          </div>
+          <div style="flex:1; display:flex; flex-direction:column; min-height:0;">
+            <div style="flex:none; display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-bottom:1px solid #E7E7EC;">
+              <span style="font-size:20px; font-weight:800; color:#3200BE; letter-spacing:-0.01em;">likewize.</span>
+              <span style="font-size:11px; font-weight:800; letter-spacing:0.08em; color:#0B0B0D; background:#FF96FF; padding:5px 10px; border-radius:999px;">TRAVEL ESIM</span>
+            </div>
+            <div style="flex:none; background:#FF96FF; padding:22px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+              <p style="margin:0; font-size:17px; font-weight:800; color:#0B0B0D; text-align:center;">Install your eSIM</p>
+              <p style="margin:0; font-size:13px; font-weight:600; color:#0B0B0D; text-align:center; opacity:0.75;">Tap below to activate instantly</p>
+              <div style="background:#FFFFFF; border-radius:999px; padding:14px 32px; text-align:center;">
+                <span style="font-size:16px; font-weight:800; color:#3200BE;">Install Now</span>
+              </div>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:14px; padding:20px 22px; min-height:0;">
+              <p style="margin:0; font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:#8A8A94;">Data Remaining</p>
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:64px; height:64px; border-radius:999px; flex:none; background:conic-gradient(#3200BE 0turn 0.8turn, #E7E7EC 0.8turn 1turn); display:flex; align-items:center; justify-content:center;">
+                  <div style="width:46px; height:46px; border-radius:999px; background:#FFFFFF; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:#3200BE;">80%</div>
+                </div>
+                <p style="margin:0; font-size:16px; font-weight:700; color:#0B0B0D; line-height:1.3;">2.4GB / 3GB<br><span style="font-weight:500; color:#5C5C65; font-size:13px;">this month</span></p>
+              </div>
+              <div style="background:#FF96FF; border-radius:999px; padding:12px; text-align:center; font-size:15px; font-weight:800; color:#0B0B0D; margin-top:auto;">Top Up</div>
+            </div>
+            <div style="flex:none; padding:12px 22px; border-top:1px solid #E7E7EC; text-align:center;">
+              <span style="font-size:11px; font-weight:600; color:#8A8A94;">Valid in 190+ countries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · PRODUCT SPECIFICATION -->
+  <section class="lw-slide" data-label="Product Specification" data-speaker-notes="Two ways to package the same underlying eSIM product: a rolling always-on allowance, or a fixed annual entitlement redeemed per trip." style="background:linear-gradient(135deg, #FF96FF, #3200BE); color:#FFFFFF; padding:100px 130px;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:40px;">
+      <span class="lw-badge-label" style="color:#FFFFFF;">Travel eSIM</span>
+      <div class="lw-badge-circle" style="background:#FFFFFF; color:#3200BE;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="connectivity" size="32" hint-size="32px,32px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0 0 48px;">Product Specification</h1>
+
+    <div style="flex:1; display:flex; flex-direction:column; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.24); overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.3fr 1fr 1fr; background:#FF96FF;">
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 40px;">Coverage + Features</p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 40px;">Always-On</p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 40px;">Funded Entitlement</p>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column;">
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Data Allowance</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Rolling monthly (e.g. 1–3GB)</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Fixed number of eSIMs per year</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Best Suited To</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Frequent/everyday travellers</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Premium tier or seasonal perk</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Renewal</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Top-up existing eSIM, no reinstall</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Redeemed per trip</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Coverage</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px; grid-column:2 / 4; text-align:center;">190+ countries, 90 networks, 5G, Tier-1 MNOs only</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Branding</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px; grid-column:2 / 4; text-align:center;">Custom network name, install name, SMS sender ID, branded QR</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr 1fr; align-items:center;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Activation</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px; grid-column:2 / 4; text-align:center;">Scan QR code, live in minutes</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:24px; color:rgba(255,255,255,0.82); margin:28px 0 0; text-align:center;">Product specification is for illustration and fully configurable.</p>
+  </section>
+
+  <!-- COMMERCIAL STRUCTURE -->
+  <section class="lw-slide" data-label="Commercial Structure" data-speaker-notes="Explains the shape of the deal, not the economics. No wholesale or margin figures here, those stay off this slide." style="background:#FFFFFF; color:#0B0B0D; padding:100px 130px; align-items:center;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:40px; width:100%;">
+      <span class="lw-badge-label" style="color:#3200BE;">How It Works</span>
+      <div class="lw-badge-circle" style="background:#3200BE; color:#FFFFFF;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="finance" size="30" hint-size="30px,30px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0 0 96px; width:100%;">Commercial Structure</h1>
+
+    <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:56px; width:100%;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:32px; max-width:340px;">
+        <div style="width:160px; height:160px; border-radius:999px; background:#F5D2FA; display:flex; align-items:center; justify-content:center;">
+          <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="benefits" size="76" style="color:#3200BE;" hint-size="76px,76px"></x-import>
+        </div>
+        <p style="font-size:30px; font-weight:700; line-height:1.35; text-align:center; margin:0;">You offer eSIM as an embedded customer benefit</p>
+      </div>
+      <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="chevron-right" size="44" style="color:#B2B2BC; flex:none;" hint-size="44px,44px"></x-import>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:32px; max-width:340px;">
+        <div style="width:160px; height:160px; border-radius:999px; background:#F5D2FA; display:flex; align-items:center; justify-content:center;">
+          <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="connectivity" size="76" style="color:#3200BE;" hint-size="76px,76px"></x-import>
+        </div>
+        <p style="font-size:30px; font-weight:700; line-height:1.35; text-align:center; margin:0;">Likewize sources, delivers and manages it behind the scenes</p>
+      </div>
+      <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="chevron-right" size="44" style="color:#B2B2BC; flex:none;" hint-size="44px,44px"></x-import>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:32px; max-width:340px;">
+        <div style="width:160px; height:160px; border-radius:999px; background:#F5D2FA; display:flex; align-items:center; justify-content:center;">
+          <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="cash-pounds" size="76" style="color:#3200BE;" hint-size="76px,76px"></x-import>
+        </div>
+        <p style="font-size:30px; font-weight:700; line-height:1.35; text-align:center; margin:0;">You're charged a simple, predictable cost per activation</p>
+      </div>
+    </div>
+    <p style="font-size:26px; font-weight:600; color:#5C5C65; margin:0 0 40px; text-align:center; width:100%;">No hidden fees. No operational lift on your side.</p>
+  </section>
+
+  <!-- USAGE & PRICING MODEL -->
+  <section class="lw-slide" data-label="Usage & Pricing Model" data-speaker-notes="Usage mechanics only, no wholesale cost or margin percentage shown, that stays internal." style="background:#F5D2FA; color:#0B0B0D; padding:90px 130px;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:36px;">
+      <span class="lw-badge-label" style="color:#3200BE;">Usage-Based Pricing</span>
+      <div class="lw-badge-circle" style="background:#3200BE; color:#FFFFFF;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="data-increase" size="30" hint-size="30px,30px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:80px; font-weight:800; letter-spacing:-0.03em; margin:0 0 44px;">How the Model Works</h1>
+
+    <div style="display:flex; align-items:center; gap:28px; margin-bottom:44px;">
+      <div style="flex:1; background:#FFFFFF; border-radius:14px; padding:24px 30px; display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:24px; font-weight:700; color:#0B0B0D;">Eligible Customer Base</span>
+        <span style="font-size:22px; font-weight:600; color:#5C5C65;">500,000 account holders (illustrative)</span>
+      </div>
+      <span style="font-size:36px; font-weight:800; color:#3200BE; flex:none;">×</span>
+      <div style="flex:0.9; background:#FFFFFF; border-radius:14px; padding:24px 30px; display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:24px; font-weight:700; color:#0B0B0D;">Travel Abroad Rate</span>
+        <span style="font-size:22px; font-weight:600; color:#5C5C65;">~60% travel internationally</span>
+      </div>
+      <span style="font-size:36px; font-weight:800; color:#3200BE; flex:none;">×</span>
+      <div style="flex:0.85; background:#FFFFFF; border-radius:14px; padding:24px 30px; display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:24px; font-weight:700; color:#0B0B0D;">Avg. Trips Abroad/Year</span>
+        <span style="font-size:22px; font-weight:600; color:#5C5C65;">~1.2 trips</span>
+      </div>
+      <span style="font-size:36px; font-weight:800; color:#3200BE; flex:none;">−</span>
+      <div style="flex:0.85; background:#FFFFFF; border-radius:14px; padding:24px 30px; display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:24px; font-weight:700; color:#0B0B0D;">Already Have Roaming</span>
+        <span style="font-size:22px; font-weight:600; color:#5C5C65;">~15% already covered</span>
+      </div>
+      <span style="font-size:36px; font-weight:800; color:#3200BE; flex:none;">=</span>
+      <div style="flex:0.8; background:#3200BE; border-radius:14px; padding:24px 26px; display:flex; flex-direction:column; gap:4px; align-items:center;">
+        <span style="font-size:22px; font-weight:700; color:#FF96FF; text-align:center;">Effective Usage Rate</span>
+        <span style="font-size:34px; font-weight:800; color:#FFFFFF;">≈ 50%</span>
+      </div>
+    </div>
+
+    <div style="flex:1; display:flex; gap:36px; min-height:0;">
+      <div style="flex:1; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.16); padding:44px; display:flex; flex-direction:column; gap:16px; justify-content:center;">
+        <p style="font-size:26px; font-weight:700; color:#5C5C65; margin:0; text-transform:uppercase; letter-spacing:0.03em;">Cost Per Activation</p>
+        <p style="font-size:64px; font-weight:800; color:#3200BE; margin:0;">£6.70</p>
+        <p style="font-size:22px; font-weight:600; color:#5C5C65; margin:0; line-height:1.4;">Example: Spain, 5GB, only charged when a customer actually uses an eSIM</p>
+      </div>
+      <div style="flex:1; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.16); padding:44px; display:flex; flex-direction:column; gap:16px; justify-content:center;">
+        <p style="font-size:26px; font-weight:700; color:#5C5C65; margin:0; text-transform:uppercase; letter-spacing:0.03em;">Blended Cost Per Account/Year</p>
+        <p style="font-size:64px; font-weight:800; color:#CC3FCC; margin:0;">~£3.35</p>
+        <p style="font-size:22px; font-weight:600; color:#5C5C65; margin:0; line-height:1.4;">What it actually costs spread across your whole customer base, once usage is applied</p>
+      </div>
+    </div>
+    <p style="font-size:22px; color:#5C5C65; margin:28px 0 0; text-align:center;">Illustrative example, real assumptions are modeled against your actual customer base.</p>
+  </section>
+
+  <!-- 4 · PRICING -->
+  <section class="lw-slide" data-label="Pricing" data-speaker-notes="Illustrative only, final pricing is set per partner and per market, but the ~15% discount to Dragonpass D2C is a reasonable anchor." style="background:#F5D2FA; color:#0B0B0D; padding:100px 130px;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:40px;">
+      <span class="lw-badge-label" style="color:#3200BE;">Pricing</span>
+      <div class="lw-badge-circle" style="background:#3200BE; color:#FFFFFF;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="cash-pounds" size="30" hint-size="30px,30px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0 0 64px;">Pricing example</h1>
+
+    <div style="display:flex; flex-direction:column; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.16); overflow:hidden; max-width:1780px; align-self:center;">
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; background:#FF96FF;">
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 28px;">Pricing Summary</p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 28px;">Single-Country<br><span style="font-weight:600; font-size:20px;">Spain, 5GB/30-day</span></p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 28px;">Regional Bundle<br><span style="font-weight:600; font-size:20px;">EU+, 5GB/30-day</span></p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 28px;">Global<br><span style="font-weight:600; font-size:20px;">5GB/30-day</span></p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+        <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:28px;">Standard Retail Price</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£6.70</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£11.60</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£26.60</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+        <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:28px;">Example Premium Customer Price</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£5.70</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£9.85</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£22.60</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; align-items:center;">
+        <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:28px;">Premium Customer Discount</p>
+        <p style="font-size:40px; font-weight:800; color:#CC3FCC; margin:0; padding:28px;">~15%</p>
+        <p style="font-size:40px; font-weight:800; color:#CC3FCC; margin:0; padding:28px;">~15%</p>
+        <p style="font-size:40px; font-weight:800; color:#CC3FCC; margin:0; padding:28px;">~15%</p>
+      </div>
+    </div>
+    <p style="font-size:24px; color:#5C5C65; margin:36px 0 0; text-align:center;">Figures shown are single-purchase bundle pricing. Always-On is typically priced as a monthly subscription embedded within a partner tier.</p>
+    <p style="font-size:24px; color:#5C5C65; margin:12px 0 0; text-align:center;">Pricing is nonbinding and indicative.</p>
+  </section>
+
+  <!-- DIVIDER: FUNDED ENTITLEMENT ONLY -->
+  <section class="lw-slide" data-label="Divider: Funded Entitlement Only" data-speaker-notes="Section divider, Funded Entitlement only variant." style="background:#3200BE; color:#FFFFFF; align-items:center; justify-content:center;">
+    <p style="font-size:28px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#FF96FF; margin:0 0 28px;">Travel eSIM</p>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0; text-align:center;">eSIM Spec<br>(Funded Entitlement Only)</h1>
+  </section>
+
+  <!-- 5 · PRODUCT INFORMATION (FE ONLY) -->
+  <section class="lw-slide" data-label="Product Information (Funded Entitlement)" data-speaker-notes="Funded Entitlement only variant, redeemed per trip, no rolling data model in the conversation." style="background:#1B0070; color:#FFFFFF; padding:100px 130px;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:40px;">
+      <span class="lw-badge-label" style="color:#FF96FF;">Travel Connectivity</span>
+      <div class="lw-badge-circle" style="background:#FF96FF; color:#0B0B0D;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="smart-devices" size="30" hint-size="30px,30px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0 0 48px; color:#FFFFFF;">Product Information</h1>
+
+    <div style="flex:1; display:flex; gap:56px; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.24); padding:52px 56px; align-items:center; min-height:0;">
+      <div style="flex:1.3; display:flex; flex-direction:column; gap:28px;">
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#FF96FF; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">Quick QR-code activation, live in minutes</p>
+        </div>
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#3200BE; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">New eSIM ready each trip, redeemed in seconds</p>
+        </div>
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#FF96FF; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">Single-country or regional bundle options</p>
+        </div>
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#3200BE; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">Fully partner-branded: network name, install name, SMS sender ID, custom QR</p>
+        </div>
+        <div style="display:flex; gap:22px; align-items:flex-start;">
+          <span style="width:14px; height:14px; border-radius:999px; background:#FF96FF; margin-top:12px; flex:none;"></span>
+          <p style="font-size:32px; line-height:1.4; color:#0B0B0D; margin:0;">190+ countries, 90 networks with 5G, Tier-1 MNOs only</p>
+        </div>
+      </div>
+      <div style="flex:1; display:flex; justify-content:center;">
+        <div style="width:320px; height:640px; border-radius:40px; border:9px solid #0B0B0D; overflow:hidden; box-shadow:0 20px 40px rgba(11,11,13,0.2); flex:none; display:flex; flex-direction:column; background:#FFFFFF;">
+          <div style="height:44px; flex:none; display:flex; align-items:center; justify-content:space-between; padding:0 22px; font-size:15px; font-weight:700; color:#0B0B0D;">
+            <span>9:41</span>
+            <div style="display:flex; align-items:center; gap:5px;">
+              <div style="display:flex; align-items:flex-end; gap:2px; height:10px;">
+                <span style="width:3px; height:4px; background:#0B0B0D; border-radius:1px;"></span>
+                <span style="width:3px; height:6px; background:#0B0B0D; border-radius:1px;"></span>
+                <span style="width:3px; height:8px; background:#0B0B0D; border-radius:1px;"></span>
+                <span style="width:3px; height:10px; background:#0B0B0D; border-radius:1px;"></span>
+              </div>
+              <div style="width:16px; height:11px; border:1.5px solid #0B0B0D; border-radius:3px; position:relative;">
+                <span style="position:absolute; inset:1.5px; width:10px; background:#0B0B0D; border-radius:1px;"></span>
+              </div>
+            </div>
+          </div>
+          <div style="flex:1; display:flex; flex-direction:column; min-height:0;">
+            <div style="flex:none; display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-bottom:1px solid #E7E7EC;">
+              <span style="font-size:20px; font-weight:800; color:#3200BE; letter-spacing:-0.01em;">likewize.</span>
+              <span style="font-size:11px; font-weight:800; letter-spacing:0.08em; color:#0B0B0D; background:#FF96FF; padding:5px 10px; border-radius:999px;">TRAVEL ESIM</span>
+            </div>
+            <div style="flex:none; background:#FF96FF; padding:22px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+              <p style="margin:0; font-size:17px; font-weight:800; color:#0B0B0D; text-align:center;">Install your eSIM</p>
+              <p style="margin:0; font-size:13px; font-weight:600; color:#0B0B0D; text-align:center; opacity:0.75;">Tap below to activate instantly</p>
+              <div style="background:#FFFFFF; border-radius:999px; padding:14px 32px; text-align:center;">
+                <span style="font-size:16px; font-weight:800; color:#3200BE;">Install Now</span>
+              </div>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:14px; padding:20px 22px; min-height:0;">
+              <p style="margin:0; font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:#8A8A94;">Entitlements Remaining</p>
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:64px; height:64px; border-radius:999px; flex:none; background:conic-gradient(#3200BE 0turn 0.75turn, #E7E7EC 0.75turn 1turn); display:flex; align-items:center; justify-content:center;">
+                  <div style="width:46px; height:46px; border-radius:999px; background:#FFFFFF; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; color:#3200BE;">3/4</div>
+                </div>
+                <p style="margin:0; font-size:16px; font-weight:700; color:#0B0B0D; line-height:1.3;">3 of 4<br><span style="font-weight:500; color:#5C5C65; font-size:13px;">this year</span></p>
+              </div>
+              <div style="background:#FF96FF; border-radius:999px; padding:12px; text-align:center; font-size:15px; font-weight:800; color:#0B0B0D; margin-top:auto;">Redeem for This Trip</div>
+            </div>
+            <div style="flex:none; padding:12px 22px; border-top:1px solid #E7E7EC; text-align:center;">
+              <span style="font-size:11px; font-weight:600; color:#8A8A94;">Valid in 190+ countries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · PRODUCT SPECIFICATION (FE ONLY) -->
+  <section class="lw-slide" data-label="Product Specification (Funded Entitlement)" data-speaker-notes="Single model shown, Funded Entitlement, a fixed annual entitlement redeemed per trip." style="background:linear-gradient(135deg, #FF96FF, #3200BE); color:#FFFFFF; padding:100px 130px;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:40px;">
+      <span class="lw-badge-label" style="color:#FFFFFF;">Travel eSIM</span>
+      <div class="lw-badge-circle" style="background:#FFFFFF; color:#3200BE;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="connectivity" size="32" hint-size="32px,32px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0 0 48px;">Product Specification</h1>
+
+    <div style="flex:1; display:flex; flex-direction:column; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.24); overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.3fr 1fr; background:#FF96FF;">
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 40px;">Coverage + Features</p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 40px;">Details</p>
+      </div>
+      <div style="flex:1; display:flex; flex-direction:column;">
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Data Allowance</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Fixed number of eSIMs per year</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Best Suited To</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Premium tier or seasonal perk</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Renewal</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Redeemed per trip</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Coverage</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">190+ countries, 90 networks, 5G, Tier-1 MNOs only</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Branding</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Custom network name, install name, SMS sender ID, branded QR</p>
+        </div>
+        <div style="flex:1; display:grid; grid-template-columns:1.3fr 1fr; align-items:center;">
+          <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:0 40px;">Activation</p>
+          <p style="font-size:25px; color:#3C3C44; margin:0; padding:0 40px;">Tap to install, live in minutes</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:24px; color:rgba(255,255,255,0.82); margin:28px 0 0; text-align:center;">Product specification is for illustration and fully configurable.</p>
+  </section>
+
+  <!-- COMMERCIAL STRUCTURE (FE ONLY) -->
+  <section class="lw-slide" data-label="Commercial Structure (Funded Entitlement)" data-speaker-notes="Explains the shape of the deal, not the economics. No wholesale or margin figures here, those stay off this slide." style="background:#FFFFFF; color:#0B0B0D; padding:100px 130px; align-items:center;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:40px; width:100%;">
+      <span class="lw-badge-label" style="color:#3200BE;">How It Works</span>
+      <div class="lw-badge-circle" style="background:#3200BE; color:#FFFFFF;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="finance" size="30" hint-size="30px,30px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0 0 96px; width:100%;">Commercial Structure</h1>
+
+    <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:56px; width:100%;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:32px; max-width:340px;">
+        <div style="width:160px; height:160px; border-radius:999px; background:#F5D2FA; display:flex; align-items:center; justify-content:center;">
+          <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="benefits" size="76" style="color:#3200BE;" hint-size="76px,76px"></x-import>
+        </div>
+        <p style="font-size:30px; font-weight:700; line-height:1.35; text-align:center; margin:0;">You offer eSIM as an embedded customer benefit</p>
+      </div>
+      <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="chevron-right" size="44" style="color:#B2B2BC; flex:none;" hint-size="44px,44px"></x-import>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:32px; max-width:340px;">
+        <div style="width:160px; height:160px; border-radius:999px; background:#F5D2FA; display:flex; align-items:center; justify-content:center;">
+          <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="connectivity" size="76" style="color:#3200BE;" hint-size="76px,76px"></x-import>
+        </div>
+        <p style="font-size:30px; font-weight:700; line-height:1.35; text-align:center; margin:0;">Likewize sources, delivers and manages it behind the scenes</p>
+      </div>
+      <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="chevron-right" size="44" style="color:#B2B2BC; flex:none;" hint-size="44px,44px"></x-import>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:32px; max-width:340px;">
+        <div style="width:160px; height:160px; border-radius:999px; background:#F5D2FA; display:flex; align-items:center; justify-content:center;">
+          <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="cash-pounds" size="76" style="color:#3200BE;" hint-size="76px,76px"></x-import>
+        </div>
+        <p style="font-size:30px; font-weight:700; line-height:1.35; text-align:center; margin:0;">You're charged a simple, predictable cost per activation</p>
+      </div>
+    </div>
+    <p style="font-size:26px; font-weight:600; color:#5C5C65; margin:0 0 40px; text-align:center; width:100%;">No hidden fees. No operational lift on your side.</p>
+  </section>
+
+  <!-- USAGE & PRICING MODEL (FE ONLY) -->
+  <section class="lw-slide" data-label="Usage & Pricing Model (Funded Entitlement)" data-speaker-notes="Usage mechanics only, no wholesale cost or margin percentage shown, that stays internal." style="background:#F5D2FA; color:#0B0B0D; padding:90px 130px;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:36px;">
+      <span class="lw-badge-label" style="color:#3200BE;">Usage-Based Pricing</span>
+      <div class="lw-badge-circle" style="background:#3200BE; color:#FFFFFF;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="data-increase" size="30" hint-size="30px,30px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:80px; font-weight:800; letter-spacing:-0.03em; margin:0 0 44px;">How the Model Works</h1>
+
+    <div style="display:flex; align-items:center; gap:28px; margin-bottom:44px;">
+      <div style="flex:1; background:#FFFFFF; border-radius:14px; padding:24px 30px; display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:24px; font-weight:700; color:#0B0B0D;">Eligible Customer Base</span>
+        <span style="font-size:22px; font-weight:600; color:#5C5C65;">500,000 account holders (illustrative)</span>
+      </div>
+      <span style="font-size:36px; font-weight:800; color:#3200BE; flex:none;">×</span>
+      <div style="flex:0.9; background:#FFFFFF; border-radius:14px; padding:24px 30px; display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:24px; font-weight:700; color:#0B0B0D;">Travel Abroad Rate</span>
+        <span style="font-size:22px; font-weight:600; color:#5C5C65;">~60% travel internationally</span>
+      </div>
+      <span style="font-size:36px; font-weight:800; color:#3200BE; flex:none;">×</span>
+      <div style="flex:0.85; background:#FFFFFF; border-radius:14px; padding:24px 30px; display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:24px; font-weight:700; color:#0B0B0D;">Avg. Trips Abroad/Year</span>
+        <span style="font-size:22px; font-weight:600; color:#5C5C65;">~1.2 trips</span>
+      </div>
+      <span style="font-size:36px; font-weight:800; color:#3200BE; flex:none;">−</span>
+      <div style="flex:0.85; background:#FFFFFF; border-radius:14px; padding:24px 30px; display:flex; flex-direction:column; gap:4px;">
+        <span style="font-size:24px; font-weight:700; color:#0B0B0D;">Already Have Roaming</span>
+        <span style="font-size:22px; font-weight:600; color:#5C5C65;">~15% already covered</span>
+      </div>
+      <span style="font-size:36px; font-weight:800; color:#3200BE; flex:none;">=</span>
+      <div style="flex:0.8; background:#3200BE; border-radius:14px; padding:24px 26px; display:flex; flex-direction:column; gap:4px; align-items:center;">
+        <span style="font-size:22px; font-weight:700; color:#FF96FF; text-align:center;">Effective Usage Rate</span>
+        <span style="font-size:34px; font-weight:800; color:#FFFFFF;">≈ 50%</span>
+      </div>
+    </div>
+
+    <div style="flex:1; display:flex; gap:36px; min-height:0;">
+      <div style="flex:1; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.16); padding:44px; display:flex; flex-direction:column; gap:16px; justify-content:center;">
+        <p style="font-size:26px; font-weight:700; color:#5C5C65; margin:0; text-transform:uppercase; letter-spacing:0.03em;">Cost Per Activation</p>
+        <p style="font-size:64px; font-weight:800; color:#3200BE; margin:0;">£6.70</p>
+        <p style="font-size:22px; font-weight:600; color:#5C5C65; margin:0; line-height:1.4;">Example: Spain, 5GB, only charged when a customer actually redeems an eSIM</p>
+      </div>
+      <div style="flex:1; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.16); padding:44px; display:flex; flex-direction:column; gap:16px; justify-content:center;">
+        <p style="font-size:26px; font-weight:700; color:#5C5C65; margin:0; text-transform:uppercase; letter-spacing:0.03em;">Blended Cost Per Account/Year</p>
+        <p style="font-size:64px; font-weight:800; color:#CC3FCC; margin:0;">~£3.35</p>
+        <p style="font-size:22px; font-weight:600; color:#5C5C65; margin:0; line-height:1.4;">What it actually costs spread across your whole customer base, once usage is applied</p>
+      </div>
+    </div>
+    <p style="font-size:22px; color:#5C5C65; margin:28px 0 0; text-align:center;">Illustrative example, real assumptions are modeled against your actual customer base.</p>
+  </section>
+
+  <!-- 7 · PRICING (FE ONLY) -->
+  <section class="lw-slide" data-label="Pricing (Funded Entitlement)" data-speaker-notes="Illustrative only, final pricing is set per partner and per market, but the ~15% discount to Dragonpass D2C is a reasonable anchor." style="background:#F5D2FA; color:#0B0B0D; padding:100px 130px;">
+    <div style="display:flex; justify-content:flex-end; align-items:center; gap:18px; margin-bottom:40px;">
+      <span class="lw-badge-label" style="color:#3200BE;">Pricing</span>
+      <div class="lw-badge-circle" style="background:#3200BE; color:#FFFFFF;">
+        <x-import component-from-global-scope="LikewizeDesignSystem_c61cfa.Icon" name="cash-pounds" size="30" hint-size="30px,30px"></x-import>
+      </div>
+    </div>
+    <h1 style="font-size:88px; font-weight:800; letter-spacing:-0.03em; margin:0 0 64px;">Pricing example</h1>
+
+    <div style="display:flex; flex-direction:column; background:#FFFFFF; border-radius:18px; box-shadow:0 24px 60px rgba(11,11,13,0.16); overflow:hidden; max-width:1780px; align-self:center;">
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; background:#FF96FF;">
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 28px;">Pricing Summary</p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 28px;">Single-Country<br><span style="font-weight:600; font-size:20px;">Spain, 5GB/30-day</span></p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 28px;">Regional Bundle<br><span style="font-weight:600; font-size:20px;">EU+, 5GB/30-day</span></p>
+        <p style="font-size:26px; font-weight:800; color:#0B0B0D; margin:0; padding:30px 28px;">Global<br><span style="font-weight:600; font-size:20px;">5GB/30-day</span></p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+        <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:28px;">Standard Retail Price</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£6.70</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£11.60</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£26.60</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; align-items:center; border-bottom:1px solid #E7E7EC;">
+        <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:28px;">Example Premium Customer Price</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£5.70</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£9.85</p>
+        <p style="font-size:40px; font-weight:800; color:#3200BE; margin:0; padding:28px;">£22.60</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; align-items:center;">
+        <p style="font-size:26px; font-weight:700; color:#0B0B0D; margin:0; padding:28px;">Premium Customer Discount</p>
+        <p style="font-size:40px; font-weight:800; color:#CC3FCC; margin:0; padding:28px;">~15%</p>
+        <p style="font-size:40px; font-weight:800; color:#CC3FCC; margin:0; padding:28px;">~15%</p>
+        <p style="font-size:40px; font-weight:800; color:#CC3FCC; margin:0; padding:28px;">~15%</p>
+      </div>
+    </div>
+    <p style="font-size:24px; color:#5C5C65; margin:36px 0 0; text-align:center;">Pricing is nonbinding and indicative.</p>
+  </section>
+
+</x-import>
+
+</x-dc>
+</body>
+</html>

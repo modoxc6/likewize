@@ -1,0 +1,96 @@
+:root {
+  /* ===== Brand core (from Likewize Style Guide 2024) ===== */
+  --lw-pink:   #FF96FF; /* PMS 251/252 — primary */
+  --lw-blue:   #3200BE; /* PMS Blue 072 — primary pair */
+  --lw-blush:  #F5D2FA; /* PMS 7436 — secondary */
+  --lw-frost:  #C8FAFA; /* PMS 290 — secondary */
+  --lw-white:  #FFFFFF;
+  --lw-black:  #000000;
+
+  /* ===== Pink scale ===== */
+  --lw-pink-50:  #FFF0FF;
+  --lw-pink-100: #FFDBFF;
+  --lw-pink-200: #FFB8FF;
+  --lw-pink-300: #FF96FF; /* base */
+  --lw-pink-400: #F778F7;
+  --lw-pink-500: #E95CE9;
+  --lw-pink-600: #CC3FCC;
+
+  /* ===== Blue / indigo scale ===== */
+  --lw-blue-50:  #ECE6FF;
+  --lw-blue-100: #D4C6FF;
+  --lw-blue-200: #AE94FF;
+  --lw-blue-400: #5A2EE0;
+  --lw-blue-500: #4313CE;
+  --lw-blue-600: #3200BE; /* base */
+  --lw-blue-700: #270098;
+  --lw-blue-800: #1B0070;
+
+  /* ===== Secondary tints ===== */
+  --lw-blush-50:  #FCF2FE;
+  --lw-blush-100: #F5D2FA; /* base */
+  --lw-frost-50:  #EFFEFE;
+  --lw-frost-100: #C8FAFA; /* base */
+
+  /* ===== Neutral / ink scale (cool clean grays) ===== */
+  --lw-gray-50:  #FAFAFB;
+  --lw-gray-100: #F3F3F6;
+  --lw-gray-200: #E7E7EC;
+  --lw-gray-300: #D6D6DD;
+  --lw-gray-400: #B2B2BC;
+  --lw-gray-500: #86868F;
+  --lw-gray-600: #5C5C65;
+  --lw-gray-700: #3C3C44;
+  --lw-gray-800: #232329;
+  --lw-gray-900: #0B0B0D;
+
+  /* ===== Functional (UI-only — NOT brand colors; used for states) ===== */
+  --lw-success: #1E8A5A;
+  --lw-success-bg: #E4F4EC;
+  --lw-warning: #B5760A;
+  --lw-warning-bg: #FBF0DA;
+  --lw-danger:  #D23B43;
+  --lw-danger-bg: #FBE7E8;
+  --lw-info:    var(--lw-blue-600);
+  --lw-info-bg: var(--lw-blue-50);
+
+  /* ===== Semantic aliases ===== */
+  --color-bg:            var(--lw-white);
+  --color-bg-subtle:     var(--lw-gray-50);
+  --surface-card:        var(--lw-white);
+  --surface-raised:      var(--lw-white);
+  --surface-sunken:      var(--lw-gray-100);
+  --surface-brand:       var(--lw-pink-300);
+  --surface-brand-soft:  var(--lw-blush-100);
+  --surface-frost:       var(--lw-frost-100);
+  --surface-ink:         var(--lw-blue-600);
+  --surface-dark:        var(--lw-blue-800);
+
+  /* ===== Gradients (Pink/Blue duotone — for hero/banner surfaces) ===== */
+  --gradient-brand: linear-gradient(135deg, var(--lw-pink-300), var(--lw-blue-600));
+  --gradient-ink:   linear-gradient(135deg, var(--lw-blue-600), var(--lw-blush-100));
+
+  --text-strong:   var(--lw-gray-900);
+  --text-body:     var(--lw-gray-800);
+  --text-muted:    var(--lw-gray-600);
+  --text-faint:    var(--lw-gray-500);
+  --text-on-brand: var(--lw-black);   /* on pink */
+  --text-on-ink:   var(--lw-white);   /* on blue */
+  --text-on-dark:  var(--lw-white);   /* on --surface-dark / gradients */
+  --text-link:     var(--lw-blue-600);
+
+  --border:        var(--lw-gray-200);
+  --border-strong: var(--lw-gray-300);
+  --border-brand:  var(--lw-pink-300);
+  --ring:          var(--lw-blue-600);
+
+  --accent:          var(--lw-blue-600); /* primary action */
+  --accent-hover:    var(--lw-blue-700);
+  --accent-press:    var(--lw-blue-800);
+  --accent-contrast: var(--lw-white);
+
+  --highlight:        var(--lw-pink-300); /* brand highlight fill */
+  --highlight-hover:  var(--lw-pink-400);
+  --highlight-press:  var(--lw-pink-500);
+  --highlight-contrast: var(--lw-black);
+}

@@ -1,0 +1,54 @@
+:root {
+  /* ===== Family ===== */
+  --lw-font-sans: "Likewize Sans", "Helvetica Neue", Arial, "Liberation Sans", system-ui, sans-serif;
+  --lw-font-display: "Likewize Sans", "Helvetica Neue", Arial, sans-serif;
+  --lw-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Semantic aliases */
+  --font-body:    var(--lw-font-sans);
+  --font-display: var(--lw-font-display);
+  --font-mono:    var(--lw-font-mono);
+
+  /* ===== Weights ===== */
+  --lw-fw-regular:  400; /* @kind other */
+  --lw-fw-medium:   500; /* @kind other */
+  --lw-fw-semibold: 600; /* @kind other */
+  --lw-fw-bold:     700; /* @kind other */
+  --lw-fw-extra:    800; /* @kind other */
+  --lw-fw-black:    900; /* @kind other */
+
+  /* ===== Type scale (1.250 major-third-ish, tuned) ===== */
+  --lw-text-xs:   0.75rem;   /* 12 */
+  --lw-text-sm:   0.875rem;  /* 14 */
+  --lw-text-base: 1rem;      /* 16 */
+  --lw-text-md:   1.125rem;  /* 18 */
+  --lw-text-lg:   1.375rem;  /* 22 */
+  --lw-text-xl:   1.75rem;   /* 28 */
+  --lw-text-2xl:  2.25rem;   /* 36 */
+  --lw-text-3xl:  3rem;      /* 48 */
+  --lw-text-4xl:  4rem;      /* 64 */
+  --lw-text-5xl:  5.5rem;    /* 88 */
+
+  /* ===== Line heights ===== */
+  --lw-leading-tight:   1.04;
+  --lw-leading-snug:    1.18;
+  --lw-leading-normal:  1.5;
+  --lw-leading-relaxed: 1.65;
+
+  /* ===== Letter spacing (grotesque: tighten display, open small caps) ===== */
+  --lw-tracking-tight:  -0.02em;
+  --lw-tracking-snug:   -0.01em;
+  --lw-tracking-normal: 0em;
+  --lw-tracking-wide:   0.04em;
+  --lw-tracking-caps:   0.08em;
+
+  /* Semantic roles */
+  --text-display:  var(--lw-text-4xl);
+  --text-h1:       var(--lw-text-3xl);
+  --text-h2:       var(--lw-text-2xl);
+  --text-h3:       var(--lw-text-xl);
+  --text-h4:       var(--lw-text-lg);
+  --text-body-lg:  var(--lw-text-md);
+  --text-body-sz:  var(--lw-text-base);
+  --text-caption:  var(--lw-text-sm);
+}
