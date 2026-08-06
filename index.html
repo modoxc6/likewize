@@ -140,6 +140,11 @@ const DATA = [
       desc:"Client briefing on the eSIM product and commercial spec for both the funded-entitlement and full models.",
       pct:90, updated:"2026-07-23" },
   ]},
+  { key:"propositions", name:"Propositions", color:"#5A5A6E", items:[
+    { title:"Market Overview", href:"https://market-overview.mdxc6.workers.dev",
+      desc:"Internal market reference. Likewize sign-in required.",
+      cta:"Open site", pct:75, updated:"2026-08-06" },
+  ]},
   { key:"process", name:"Process", color:"#b166c9", items:[
     { title:"Notes That Work Back — Obsidian + Claude Code", href:"obsidian-claude-workflow/",
       desc:"How the Obsidian + Claude Code note-taking workflow fits together.",
@@ -168,7 +173,7 @@ function render(){
     cat.items.forEach(it=>{
       html += `<div class="card" style="--accent:${cat.color}">
         <div class="card-inner">
-          <a class="card-link" href="${it.href}">
+          <a class="card-link" href="${it.href}"${/^https?:/.test(it.href) ? ' target="_blank" rel="noopener"' : ''}>
             <h3>${it.title}</h3>
             ${it.desc ? `<p class="desc">${it.desc}</p>` : ''}
             <div class="meta">
@@ -178,7 +183,7 @@ function render(){
               </div>
               <span class="updated">Updated ${formatDate(it.updated)}</span>
             </div>
-            <span class="go">Open deck →</span>
+            <span class="go">${it.cta || 'Open deck'} →</span>
           </a>
           ${it.variants ? it.variants.map(v=>`<div class="variant">Variant: <a href="${v.href}">${v.title}</a></div>`).join('') : ''}
         </div>
