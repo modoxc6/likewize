@@ -3,89 +3,123 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>Likewize Decks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1a1424;
-    --grey:#6b6478;
-    --blue:#3200BE;
+    --bg:#23202B;
+    --surface:#2C2836;
+    --frame:#35303F;
+    --ink:#DCD6E4;
+    --grey:#A9A2B8;
     --pink:#FF96FF;
-    --blush:#F5D2FA;
-    --frost:#C8FAFA;
-    --paper:#ffffff;
-    --paper-2:#FBF3FD;
-    --hair:rgba(50,0,190,0.14);
+    --hair:rgba(255,150,255,0.15);
+    --track:rgba(255,255,255,0.12);
   }
   *{ box-sizing:border-box; }
   body{
     margin:0;
-    font-family:Arial, "Segoe UI", -apple-system, sans-serif;
+    font-family:Manrope, Arial, sans-serif;
     color:var(--ink);
-    background:var(--paper);
+    background:var(--bg);
   }
   a{ color:inherit; text-decoration:none; }
 
-  .hero{
-    position:relative;
-    background:linear-gradient(160deg, var(--pink) 0%, #FFC2FA 45%, var(--paper-2) 82%, var(--paper) 100%);
-    padding:64px 32px 96px;
-  }
-  .hero::after{
-    content:""; position:absolute; top:28px; right:32px; width:34px; height:6px;
-    border-radius:3px; background:var(--blue);
+  .hero{ position:relative; overflow:hidden; padding:60px 32px 74px; }
+  .hero::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(680px 300px at 12% -30%, rgba(255,150,255,0.22), transparent 70%),
+      radial-gradient(560px 320px at 88% 120%, rgba(50,0,190,0.40), transparent 70%);
   }
   .hero .wrap{ max-width:1040px; margin:0 auto; position:relative; }
   .hero .eyebrow{
-    color:var(--ink); opacity:.6; font-size:12px; text-transform:uppercase;
-    letter-spacing:.08em; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:10px;
+    color:var(--pink); font-size:11px; text-transform:uppercase;
+    letter-spacing:.16em; font-weight:800; margin-bottom:14px;
   }
-  .hero h1{ font-size:40px; margin:0; font-weight:800; letter-spacing:-.01em; text-wrap:balance; }
+  .hero .eyebrow::after{ content:""; height:1px; flex:1; background:linear-gradient(90deg,var(--hair),transparent); }
+  .hero h1{
+    margin:0; font-family:"Bricolage Grotesque", Arial, sans-serif; font-weight:800;
+    font-size:clamp(34px,5vw,56px); line-height:1.02; letter-spacing:-.03em; text-wrap:balance;
+  }
+  .hero .count{ margin:16px 0 0; font-size:13px; color:var(--grey); }
 
-  .content{ max-width:1040px; margin:-40px auto 0; padding:0 32px 100px; position:relative; }
+  .content{ max-width:1040px; margin:-38px auto 0; padding:0 32px 100px; position:relative; }
   .filters{
-    display:flex; gap:8px; flex-wrap:wrap; background:var(--paper);
-    border:1px solid var(--hair); border-radius:10px; box-shadow:0 8px 24px rgba(50,0,190,0.08);
-    padding:16px; margin-bottom:36px;
+    position:sticky; top:10px; z-index:5;
+    display:flex; gap:8px; flex-wrap:wrap;
+    background:rgba(44,40,54,0.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--hair); border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.30);
+    padding:14px; margin-bottom:32px;
   }
   .filters button{
     font-family:inherit; cursor:pointer; appearance:none;
-    font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
-    padding:8px 14px; border-radius:5px; border:1px solid var(--hair); background:var(--paper); color:var(--ink);
+    font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em;
+    padding:8px 13px; border-radius:5px; border:1px solid var(--hair);
+    background:transparent; color:var(--ink);
+    transition:background-color .15s ease, border-color .15s ease, color .15s ease;
   }
-  .filters button.on{ background:var(--blue); border-color:var(--blue); color:#fff; }
+  .filters button:hover{ background:var(--frame); border-color:var(--pink); }
+  .filters button.on,
+  .filters button.on:hover{ background:var(--pink); border-color:var(--pink); color:var(--bg); }
+  .filters button:focus-visible,
+  .card-link:focus-visible,
+  .variant a:focus-visible{ outline:2px solid var(--pink); outline-offset:2px; border-radius:3px; }
 
-  .category{ margin-bottom:44px; }
-  .cat-head{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .category{ margin-bottom:40px; }
+  .cat-head{ display:flex; align-items:center; gap:10px; margin-bottom:16px; }
   .cat-head .swatch{ width:16px; height:4px; border-radius:2px; }
-  .cat-head h2{ font-size:13px; margin:0; text-transform:uppercase; letter-spacing:.06em; font-weight:700; }
+  .cat-head h2{
+    font-size:12px; margin:0; text-transform:uppercase; letter-spacing:.09em;
+    font-weight:800; color:var(--grey);
+  }
   .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; }
 
-  .card{ border-radius:8px; background:var(--paper-2); padding:3px; }
+  .card{
+    border-radius:8px; background:var(--frame); padding:3px;
+    transition:transform .18s cubic-bezier(.2,.7,.3,1), box-shadow .18s cubic-bezier(.2,.7,.3,1);
+  }
+  .card:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,0.38); }
   .card-inner{
-    background:var(--paper); border-radius:6px; padding:16px 16px 14px;
-    border-top:3px solid var(--accent,var(--blue));
+    background:var(--surface); border-radius:6px; padding:16px 16px 14px;
+    border-top:3px solid var(--accent,var(--pink));
     display:flex; flex-direction:column; gap:8px; height:100%;
   }
   .card-link{ display:flex; flex-direction:column; gap:8px; flex:1; }
-  .card h3{ margin:0; font-size:15px; line-height:1.35; font-weight:700; }
+  .card h3{
+    margin:0; font-family:"Bricolage Grotesque", Arial, sans-serif; font-weight:600;
+    font-size:15px; line-height:1.35; letter-spacing:-.01em;
+  }
   .card .desc{ margin:0; font-size:12.5px; line-height:1.5; color:var(--grey); }
   .card .meta{ margin-top:6px; display:flex; flex-direction:column; gap:6px; }
   .card .progress-row{ display:flex; align-items:center; gap:8px; }
-  .card .progress-track{ flex:1; height:4px; border-radius:2px; background:var(--hair); overflow:hidden; }
-  .card .progress-fill{ height:100%; border-radius:2px; background:var(--accent,var(--blue)); }
+  .card .progress-track{ flex:1; height:4px; border-radius:2px; background:var(--track); overflow:hidden; }
+  .card .progress-fill{ height:100%; border-radius:2px; background:var(--accent,var(--pink)); }
   .card .progress-pct{
-    font-size:11px; font-weight:700; color:var(--accent,var(--blue));
+    font-size:11px; font-weight:800; color:var(--accent,var(--pink));
     font-variant-numeric:tabular-nums; white-space:nowrap;
   }
   .card .updated{
-    font-size:10px; color:var(--grey); text-transform:uppercase; letter-spacing:.06em;
+    font-size:11px; color:var(--grey); text-transform:uppercase; letter-spacing:.06em;
     font-variant-numeric:tabular-nums;
   }
-  .card .go{ margin-top:auto; padding-top:8px; font-size:12px; font-weight:700; color:var(--accent,var(--blue)); }
+  .card .go{ margin-top:auto; padding-top:8px; font-size:12px; font-weight:800; color:var(--accent,var(--pink)); }
   .card .variant{ font-size:11.5px; color:var(--grey); border-top:1px dashed var(--hair); padding-top:7px; }
-  .card .variant a{ color:var(--accent,var(--blue)); font-weight:600; }
+  .card .variant a{ color:var(--accent,var(--pink)); font-weight:600; }
 
-  footer{ text-transform:uppercase; letter-spacing:.12em; font-size:10.5px; color:var(--grey); text-align:center; padding-top:8px; }
+  @media (prefers-reduced-motion:reduce){
+    .card, .filters button{ transition:none; }
+    .card:hover{ transform:none; }
+  }
+
+  footer{
+    text-transform:uppercase; letter-spacing:.12em; font-size:11px;
+    color:var(--grey); text-align:center; padding-top:8px;
+  }
 </style>
 </head>
 <body>
@@ -93,6 +127,7 @@
     <div class="wrap">
       <div class="eyebrow">Likewize</div>
       <h1>Decks &amp; interactive docs</h1>
+      <p class="count" id="count"></p>
     </div>
   </header>
   <main class="content" id="content"></main>
@@ -102,14 +137,16 @@
   New deck? Add an entry to the matching category's `items` array below
   (or a new category object if none fits) with: title, href, desc,
   pct (0-100 completion), updated (YYYY-MM-DD). See publish-deck skill.
+  Category `color` must stay legible on the dark canvas — it is used for
+  the swatch, the card border, the progress fill AND small accent text.
 */
 const DATA = [
-  { key:"propositions", name:"Propositions", color:"#5A5A6E", items:[
+  { key:"propositions", name:"Propositions", color:"#FFD166", items:[
     { title:"Market Overview", href:"https://market-overview.mdxc6.workers.dev",
       desc:"Internal market reference. Likewize sign-in required.",
       cta:"Open site", pct:75, updated:"2026-08-06" },
   ]},
-  { key:"process", name:"Process", color:"#b166c9", items:[
+  { key:"process", name:"Process", color:"#A78BFF", items:[
     { title:"Notes That Work Back — Obsidian + Claude Code", href:"obsidian-claude-workflow/",
       desc:"How the Obsidian + Claude Code note-taking workflow fits together.",
       pct:100, updated:"2026-07-17" },
@@ -117,7 +154,7 @@ const DATA = [
       desc:"Blank 16-slide template for product-initiative stakeholder decks, covering the ask through to roadmap.",
       pct:100, updated:"2026-07-23" },
   ]},
-  { key:"esim", name:"eSIM", color:"#1fb8b8", items:[
+  { key:"esim", name:"eSIM", color:"#5EE6E0", items:[
     { title:"eSIM — Route to Market", href:"esim-initiative-deck/",
       desc:"Internal stakeholder deck covering the eSIM proposition.",
       pct:90, updated:"2026-07-20" },
@@ -125,7 +162,7 @@ const DATA = [
       desc:"Client briefing on the eSIM product and commercial spec for both the funded-entitlement and full models.",
       pct:90, updated:"2026-07-23" },
   ]},
-  { key:"tickets", name:"Tickets", color:"var(--blue)", items:[
+  { key:"tickets", name:"Tickets", color:"#FF96FF", items:[
     { title:"Likewize Moments — Partner Proposition", href:"partner-proposition/",
       desc:"Partner-facing pitch for bringing ticket protection to your platform.",
       pct:90, updated:"2026-07-07",
@@ -157,17 +194,26 @@ function formatDate(iso){
   return `${d} ${MONTHS[parseInt(m,10)-1]} ${y}`;
 }
 
+function renderCount(){
+  const items = DATA.flatMap(c=>c.items);
+  const wip = items.filter(i=>i.pct < 100).length;
+  document.getElementById('count').textContent =
+    `${items.length} docs across ${DATA.length} categories · ${wip} still in progress`;
+}
+
 function render(){
   const el = document.getElementById('content');
-  let html = `<div class="filters"><button class="on" data-filter="all">All</button>`;
-  DATA.forEach(cat=>{ html += `<button data-filter="${cat.key}">${cat.name}</button>`; });
+  let html = `<div class="filters">
+    <button class="on" aria-pressed="true" data-filter="all">All</button>
+    <button aria-pressed="false" data-filter="incomplete">Incomplete</button>`;
+  DATA.forEach(cat=>{ html += `<button aria-pressed="false" data-filter="${cat.key}">${cat.name}</button>`; });
   html += `</div>`;
   DATA.forEach(cat=>{
     html += `<div class="category" data-cat="${cat.key}">
       <div class="cat-head"><span class="swatch" style="background:${cat.color}"></span><h2>${cat.name}</h2></div>
       <div class="grid">`;
     cat.items.forEach(it=>{
-      html += `<div class="card" style="--accent:${cat.color}">
+      html += `<div class="card" data-done="${it.pct >= 100}" style="--accent:${cat.color}">
         <div class="card-inner">
           <a class="card-link" href="${it.href}"${/^https?:/.test(it.href) ? ' target="_blank" rel="noopener"' : ''}>
             <h3>${it.title}</h3>
@@ -192,15 +238,26 @@ function render(){
 
   document.querySelectorAll('.filters button').forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));
-      btn.classList.add('on');
+      document.querySelectorAll('.filters button').forEach(b=>{
+        b.classList.toggle('on', b===btn);
+        b.setAttribute('aria-pressed', String(b===btn));
+      });
       const f = btn.dataset.filter;
       document.querySelectorAll('.category').forEach(c=>{
-        c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
+        // 'incomplete' filters individual cards, so a category can end up empty
+        let shown = 0;
+        c.querySelectorAll('.card').forEach(card=>{
+          const hide = (f==='incomplete' && card.dataset.done==='true');
+          card.style.display = hide ? 'none' : '';
+          if(!hide) shown++;
+        });
+        const match = (f==='all' || f==='incomplete' || c.dataset.cat===f);
+        c.style.display = (match && shown) ? '' : 'none';
       });
     });
   });
 }
+renderCount();
 render();
 </script>
 </body>
