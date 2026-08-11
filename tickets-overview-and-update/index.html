@@ -84,8 +84,43 @@
       z-index: 2;
     }
 
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--u) * 0.78);
+      margin-bottom: calc(var(--u) * 2.15);
+    }
+
+    .proposition-mark {
+      position: relative;
+      flex: 0 0 auto;
+      aspect-ratio: 1;
+    }
+
+    .proposition-mark svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .tickets-position {
+      position: absolute;
+      top: 27.5%;
+      left: 65%;
+      width: 9.5%;
+      aspect-ratio: 1;
+      border: calc(var(--u) * 0.1) solid #FFFFFF;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 calc(var(--u) * 0.14) calc(var(--u) * 0.3) rgba(23, 19, 28, 0.18);
+    }
+
+    .hero-proposition-mark {
+      width: calc(var(--u) * 3.05);
+    }
+
     .brand-line {
-      margin: 0 0 calc(var(--u) * 3.1);
+      margin: 0;
       color: var(--blue);
       font-size: calc(var(--u) * 0.88);
       font-weight: 700;
@@ -311,7 +346,7 @@
       width: 89%;
       height: 36%;
       display: grid;
-      grid-template-columns: 1.02fr 0.17fr 1.24fr 0.17fr 1.34fr 0.17fr 1.08fr 0.17fr 0.88fr;
+      grid-template-columns: 0.95fr 0.15fr 1.15fr 0.15fr 1.25fr 0.15fr 1.45fr 0.15fr 0.8fr;
       align-items: center;
     }
 
@@ -379,7 +414,36 @@
     }
 
     .flow-node-partners {
+      justify-content: space-between;
+      padding: calc(var(--u) * 1.45);
       background: var(--frost);
+    }
+
+    .flow-node-partners ul {
+      gap: calc(var(--u) * 0.3);
+      margin-top: calc(var(--u) * 0.78);
+    }
+
+    .flow-node-partners li {
+      padding-top: calc(var(--u) * 0.38);
+    }
+
+    .flow-node-partners li strong,
+    .flow-node-partners li span {
+      display: block;
+    }
+
+    .flow-node-partners li strong {
+      color: var(--blue);
+      font-size: calc(var(--u) * 0.8);
+      line-height: 1.08;
+    }
+
+    .flow-node-partners li span {
+      margin-top: calc(var(--u) * 0.16);
+      color: #43364A;
+      font-size: calc(var(--u) * 0.7);
+      line-height: 1.12;
     }
 
     .flow-node-customers {
@@ -566,6 +630,11 @@
       white-space: nowrap;
     }
 
+    .status-core .status-panel-copy {
+      max-width: 31em;
+      font-size: calc(var(--u) * 0.9);
+    }
+
     .status-blocker-primary {
       background: var(--pink);
     }
@@ -689,17 +758,55 @@
       line-height: 1.42;
     }
 
+    .decision-evidence {
+      display: grid;
+      grid-template-columns: calc(var(--u) * 10.2) minmax(0, 1fr);
+      align-items: start;
+      gap: calc(var(--u) * 1.25);
+      margin-top: calc(var(--u) * 2.05);
+    }
+
+    .decision-proposition-mark {
+      width: calc(var(--u) * 10.2);
+      margin-top: calc(var(--u) * 0.2);
+    }
+
     .decision-facts {
-      margin-top: calc(var(--u) * 2.5);
+      margin: 0;
     }
 
     .decision-fact {
+      display: grid;
+      grid-template-columns: calc(var(--u) * 1.18) minmax(0, 1fr);
+      align-items: start;
+      gap: calc(var(--u) * 0.58);
       margin: 0;
-      padding: calc(var(--u) * 0.78) 0;
+      padding: calc(var(--u) * 0.44) 0;
       border-top: 1px solid rgba(255, 255, 255, 0.25);
       color: #FFFFFF;
-      font-size: calc(var(--u) * 0.9);
-      line-height: 1.3;
+      font-size: calc(var(--u) * 0.82);
+      line-height: 1.22;
+    }
+
+    .decision-marker {
+      width: calc(var(--u) * 1.18);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: calc(var(--u) * 0.72);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .decision-marker-positive {
+      background: var(--pink);
+      color: var(--blue);
+    }
+
+    .decision-marker-neutral {
+      border: 1px solid rgba(200, 250, 250, 0.72);
+      color: var(--frost);
     }
 
     .decision-ask {
@@ -728,12 +835,12 @@
 
     .decision-options {
       position: absolute;
-      top: 6.5%;
+      top: 10.5%;
       right: 5.5%;
       width: 50.5%;
-      height: 87%;
+      height: 79%;
       display: grid;
-      grid-template-rows: 0.36fr repeat(3, 1fr);
+      grid-template-rows: 0.28fr repeat(2, 1fr);
       overflow: hidden;
       border-radius: calc(var(--u) * 1.05);
       background: #FFFFFF;
@@ -927,7 +1034,17 @@
     <div class="deck" id="deck">
       <section class="slide slide-hero is-active" aria-labelledby="slide-1-title">
         <div class="hero-copy">
-          <p class="brand-line">Likewize Moments | Tickets</p>
+          <div class="hero-kicker">
+            <div class="proposition-mark hero-proposition-mark" aria-label="Tickets sits adjacent to the core proposition">
+              <svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false">
+                <circle cx="500" cy="500" r="480" fill="#ECE6FF"></circle>
+                <circle cx="500" cy="500" r="325" fill="#F5D2FA"></circle>
+                <circle cx="500" cy="500" r="200" fill="#3200BE"></circle>
+              </svg>
+              <span class="tickets-position" aria-hidden="true"></span>
+            </div>
+            <p class="brand-line">Likewize Moments | Tickets</p>
+          </div>
           <h1 class="hero-title" id="slide-1-title">Tickets extends the partner proposition into live events</h1>
           <p class="hero-subtitle">A fully managed secondary ticket marketplace, distributed through partner brands and delivered through Likewize Moments.</p>
         </div>
@@ -1015,8 +1132,10 @@
           <article class="flow-node flow-node-partners">
             <h3>Distribution partners</h3>
             <ul>
-              <li>ePay and direct brands</li>
-              <li>Customer access and promotion</li>
+              <li><strong>ePay</strong><span>Ready to launch</span></li>
+              <li><strong>Santander</strong><span>Active discussions</span></li>
+              <li><strong>Revolut via ePay</strong><span>Active discussions</span></li>
+              <li><strong>Additional partners</strong><span>Current and potential pipeline</span></li>
             </ul>
           </article>
 
@@ -1047,7 +1166,7 @@
       <section class="slide slide-progress" aria-labelledby="slide-3-title">
         <div class="progress-copy">
           <h2 class="progress-title" id="slide-3-title">Most of the build is behind us. Two blockers remain.</h2>
-          <p class="progress-subtitle">The core marketplace works. Closing now depends on seller disclosure and the ePay login flow.</p>
+          <p class="progress-subtitle">The core marketplace works. Legal and Compliance have been closely involved, and external DLA review is complete. Closing now depends on seller disclosure and the ePay login flow.</p>
         </div>
 
         <div class="current-state-grid" aria-label="Current delivery status">
@@ -1056,7 +1175,7 @@
               <p class="status-panel-label">Core build</p>
               <h3>Core marketplace built</h3>
             </div>
-            <p class="status-panel-copy">The marketplace works and the main proposition is in place.</p>
+            <p class="status-panel-copy">The ask was a live, demonstrable product that proved the proposition beyond slideware. Immediate volume was secondary. This has been delivered.</p>
           </article>
 
           <article class="status-panel status-blocker-primary">
@@ -1113,12 +1232,24 @@
           <h2 class="decision-title" id="slide-4-title">How far do we want to take this?</h2>
           <p class="decision-subtitle">The remaining decision is the level of ambition and ongoing investment.</p>
 
-          <div class="decision-facts" aria-label="Strategic context">
-            <p class="decision-fact">Tickets sits further from the core proposition.</p>
-            <p class="decision-fact">Tixstock reduces the infrastructure burden. Delivery still needs meaningful work.</p>
-            <p class="decision-fact">Most build work is complete.</p>
-            <p class="decision-fact">Partners have shown interest.</p>
-            <p class="decision-fact">Further investment has an opportunity cost.</p>
+          <div class="decision-evidence">
+            <div class="proposition-mark decision-proposition-mark" aria-label="Tickets sits adjacent to the core proposition">
+              <svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false">
+                <circle cx="500" cy="500" r="480" fill="#ECE6FF"></circle>
+                <circle cx="500" cy="500" r="325" fill="#F5D2FA"></circle>
+                <circle cx="500" cy="500" r="200" fill="#3200BE"></circle>
+              </svg>
+              <span class="tickets-position" aria-hidden="true"></span>
+            </div>
+
+            <div class="decision-facts" aria-label="Strategic context">
+              <p class="decision-fact"><span class="decision-marker decision-marker-neutral" aria-hidden="true">?</span><span>Tickets is an adjacent proposition.</span></p>
+              <p class="decision-fact"><span class="decision-marker decision-marker-positive" aria-hidden="true">✓</span><span>Tixstock reduces the infrastructure burden.</span></p>
+              <p class="decision-fact"><span class="decision-marker decision-marker-neutral" aria-hidden="true">?</span><span>Execution still involves meaningful work.</span></p>
+              <p class="decision-fact"><span class="decision-marker decision-marker-positive" aria-hidden="true">✓</span><span>Most build work is complete.</span></p>
+              <p class="decision-fact"><span class="decision-marker decision-marker-positive" aria-hidden="true">✓</span><span>Partners have shown interest.</span></p>
+              <p class="decision-fact"><span class="decision-marker decision-marker-neutral" aria-hidden="true">?</span><span>Further investment has an opportunity cost.</span></p>
+            </div>
           </div>
         </div>
 
@@ -1128,25 +1259,19 @@
 
         <section class="decision-options" aria-labelledby="decision-options-title">
           <div class="options-header">
-            <h3 id="decision-options-title">Three viable positions</h3>
+            <h3 id="decision-options-title">Two viable positions</h3>
             <span>Ongoing investment</span>
           </div>
 
-          <article class="option-row option-close">
-            <h4>Close</h4>
-            <p>End the project and redirect capacity.</p>
-            <span class="option-investment">None</span>
-          </article>
-
           <article class="option-row option-baseline">
             <h4>Baseline capability</h4>
-            <p>Resolve the two blockers and keep tickets available as a partner option.</p>
+            <p>Resolve the two blockers and retain tickets as a partner option.</p>
             <span class="option-investment">Limited</span>
           </article>
 
           <article class="option-row option-moments">
             <h4>Build Moments</h4>
-            <p>Follow the roadmap and expand the proposition beyond tickets.</p>
+            <p>Follow the planned roadmap and expand the proposition beyond tickets.</p>
             <span class="option-investment">Ongoing</span>
           </article>
         </section>
