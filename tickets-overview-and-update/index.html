@@ -928,6 +928,246 @@
       color: var(--pink);
     }
 
+    .slide-appendix-divider {
+      background: var(--blue);
+      color: #FFFFFF;
+      isolation: isolate;
+    }
+
+    .appendix-divider-accent {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 31%;
+      height: 100%;
+      background: var(--pink);
+    }
+
+    .appendix-divider-accent::before,
+    .appendix-divider-accent::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .appendix-divider-accent::before {
+      width: 56%;
+      aspect-ratio: 1;
+      right: 20%;
+      top: 18%;
+      border: calc(var(--u) * 1.35) solid var(--blue);
+    }
+
+    .appendix-divider-accent::after {
+      width: 19%;
+      aspect-ratio: 1;
+      right: 38.5%;
+      top: 36.5%;
+      background: var(--blue);
+    }
+
+    .appendix-divider-copy {
+      position: absolute;
+      left: 6%;
+      top: 21%;
+      width: 59%;
+      z-index: 2;
+    }
+
+    .appendix-divider-kicker {
+      margin: 0 0 calc(var(--u) * 1.8);
+      color: var(--pink);
+      font-size: calc(var(--u) * 0.92);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .appendix-divider-title {
+      max-width: 10em;
+      margin: 0;
+      color: #FFFFFF;
+      font-size: calc(var(--u) * 4.2);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.98;
+      text-wrap: balance;
+    }
+
+    .appendix-divider-subtitle {
+      max-width: 31em;
+      margin: calc(var(--u) * 1.9) 0 0;
+      color: var(--frost);
+      font-size: calc(var(--u) * 1.18);
+      line-height: 1.42;
+    }
+
+    .slide-margin-opportunity {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .margin-header {
+      position: absolute;
+      left: 5.5%;
+      top: 5.2%;
+      width: 89%;
+    }
+
+    .margin-title {
+      margin: 0;
+      color: var(--blue);
+      font-size: calc(var(--u) * 2.78);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+      white-space: nowrap;
+    }
+
+    .margin-subtitle {
+      margin: calc(var(--u) * 0.75) 0 0;
+      color: var(--muted);
+      font-size: calc(var(--u) * 1.02);
+      line-height: 1.3;
+    }
+
+    .margin-calculation {
+      position: absolute;
+      left: 5.5%;
+      top: 22.5%;
+      width: 89%;
+      height: 51.5%;
+      display: grid;
+      grid-template-rows: 0.72fr repeat(4, 1fr) 1.14fr;
+      overflow: hidden;
+      border-radius: calc(var(--u) * 1.05);
+      background: #FFFFFF;
+      box-shadow: 0 calc(var(--u) * 1.15) calc(var(--u) * 3.2) rgba(50, 0, 190, 0.14);
+    }
+
+    .margin-row {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 2fr 0.72fr 1.18fr 1.18fr;
+      align-items: center;
+      gap: calc(var(--u) * 1.2);
+      padding: 0 calc(var(--u) * 1.55);
+      border-top: 1px solid rgba(50, 0, 190, 0.13);
+    }
+
+    .margin-row:first-child {
+      border-top: 0;
+    }
+
+    .margin-row span {
+      min-width: 0;
+    }
+
+    .margin-table-head {
+      background: var(--blue);
+      color: #FFFFFF;
+      font-size: calc(var(--u) * 0.82);
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    .margin-table-head span:not(:first-child),
+    .margin-data-row span:not(:first-child),
+    .margin-total-row span:not(:first-child) {
+      text-align: right;
+    }
+
+    .margin-data-row {
+      color: var(--ink);
+      font-size: calc(var(--u) * 1.02);
+      line-height: 1.15;
+    }
+
+    .margin-data-row strong {
+      color: var(--blue);
+      font-size: calc(var(--u) * 1.12);
+    }
+
+    .margin-value {
+      font-weight: 700;
+    }
+
+    .margin-total-row {
+      border-top: 0;
+      background: var(--pink);
+      color: var(--blue);
+      font-size: calc(var(--u) * 1.18);
+      font-weight: 700;
+      line-height: 1.08;
+    }
+
+    .margin-total-row .margin-total-value {
+      font-size: calc(var(--u) * 1.62);
+      letter-spacing: -0.03em;
+    }
+
+    .additional-opportunity {
+      position: absolute;
+      left: 5.5%;
+      top: 77.2%;
+      width: 89%;
+      height: 13.2%;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      overflow: hidden;
+      border-radius: calc(var(--u) * 0.8);
+      background: var(--blue);
+      color: #FFFFFF;
+    }
+
+    .additional-line {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr;
+      align-items: center;
+      gap: calc(var(--u) * 1.2);
+      padding: 0 calc(var(--u) * 1.55);
+      border-top: 1px solid rgba(255, 255, 255, 0.23);
+      font-size: calc(var(--u) * 0.86);
+      line-height: 1.12;
+    }
+
+    .additional-line:first-child {
+      border-top: 0;
+    }
+
+    .additional-label strong {
+      color: var(--pink);
+      font-size: calc(var(--u) * 0.94);
+    }
+
+    .additional-label span {
+      margin-left: calc(var(--u) * 0.38);
+      color: var(--frost);
+    }
+
+    .additional-metric {
+      text-align: right;
+    }
+
+    .additional-metric strong {
+      display: inline-block;
+      margin-left: calc(var(--u) * 0.36);
+      color: #FFFFFF;
+      font-size: calc(var(--u) * 1.04);
+    }
+
+    .appendix-source {
+      position: absolute;
+      left: 5.5%;
+      bottom: 3.2%;
+      width: 89%;
+      margin: 0;
+      color: var(--muted);
+      font-size: calc(var(--u) * 0.76);
+      line-height: 1.2;
+    }
+
     .deck-controls {
       position: fixed;
       right: 18px;
@@ -1229,7 +1469,7 @@
 
       <section class="slide slide-decision" aria-labelledby="slide-4-title">
         <div class="decision-context">
-          <h2 class="decision-title" id="slide-4-title">How far do we want to take this?</h2>
+          <h2 class="decision-title" id="slide-4-title">What’s next?</h2>
           <p class="decision-subtitle">The remaining decision is the level of ambition and ongoing investment.</p>
 
           <div class="decision-evidence">
@@ -1259,7 +1499,7 @@
 
         <section class="decision-options" aria-labelledby="decision-options-title">
           <div class="options-header">
-            <h3 id="decision-options-title">Two viable positions</h3>
+            <h3 id="decision-options-title">Two paths forward</h3>
             <span>Ongoing investment</span>
           </div>
 
@@ -1275,6 +1515,76 @@
             <span class="option-investment">Ongoing</span>
           </article>
         </section>
+      </section>
+
+      <section class="slide slide-appendix-divider" aria-labelledby="slide-5-title">
+        <div class="appendix-divider-copy">
+          <p class="appendix-divider-kicker">Appendix</p>
+          <h2 class="appendix-divider-title" id="slide-5-title">Indicative commercial opportunity</h2>
+          <p class="appendix-divider-subtitle">Existing UK and European relationships first, with additional opportunities shown separately.</p>
+        </div>
+        <div class="appendix-divider-accent" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide slide-margin-opportunity" aria-labelledby="slide-6-title">
+        <header class="margin-header">
+          <h2 class="margin-title" id="slide-6-title">Existing UK and European clients indicate c.£2.1m margin at 5%</h2>
+          <p class="margin-subtitle">Illustrative margin based on £41.5m of unweighted revenue opportunity across 14 existing relationships.</p>
+        </header>
+
+        <div class="margin-calculation" role="table" aria-label="Existing UK and European client opportunity by segment">
+          <div class="margin-row margin-table-head" role="row">
+            <span role="columnheader">Existing client segment</span>
+            <span role="columnheader">Clients</span>
+            <span role="columnheader">Revenue opportunity</span>
+            <span role="columnheader">Margin at 5%</span>
+          </div>
+          <div class="margin-row margin-data-row" role="row">
+            <span role="cell"><strong>Telco</strong></span>
+            <span role="cell">5</span>
+            <span class="margin-value" role="cell">£19.5m</span>
+            <span class="margin-value" role="cell">£1.0m</span>
+          </div>
+          <div class="margin-row margin-data-row" role="row">
+            <span role="cell"><strong>Retail</strong></span>
+            <span role="cell">4</span>
+            <span class="margin-value" role="cell">£10.0m</span>
+            <span class="margin-value" role="cell">£0.5m</span>
+          </div>
+          <div class="margin-row margin-data-row" role="row">
+            <span role="cell"><strong>Banking</strong></span>
+            <span role="cell">2</span>
+            <span class="margin-value" role="cell">£6.3m</span>
+            <span class="margin-value" role="cell">£0.3m</span>
+          </div>
+          <div class="margin-row margin-data-row" role="row">
+            <span role="cell"><strong>Insurance</strong></span>
+            <span role="cell">3</span>
+            <span class="margin-value" role="cell">£5.7m</span>
+            <span class="margin-value" role="cell">£0.3m</span>
+          </div>
+          <div class="margin-row margin-total-row" role="row">
+            <span role="cell">Existing UK and Europe</span>
+            <span role="cell">14</span>
+            <span class="margin-total-value" role="cell">£41.5m</span>
+            <span class="margin-total-value" role="cell">c.£2.1m</span>
+          </div>
+        </div>
+
+        <div class="additional-opportunity" aria-label="Additional indicative opportunities">
+          <div class="additional-line">
+            <div class="additional-label"><strong>New clients</strong><span>UK and Europe, indicative and unweighted</span></div>
+            <div class="additional-metric">Revenue <strong>£67.6m</strong></div>
+            <div class="additional-metric">Margin at 5% <strong>c.£3.4m</strong></div>
+          </div>
+          <div class="additional-line">
+            <div class="additional-label"><strong>Rest of world</strong><span>Existing clients</span></div>
+            <div class="additional-metric">Revenue <strong>£8.3m</strong></div>
+            <div class="additional-metric">Margin at 5% <strong>c.£0.4m</strong></div>
+          </div>
+        </div>
+
+        <p class="appendix-source">Source: Draft GTM pipeline, 16 June 2026. Account-level estimates are unvalidated. Margin is illustrative at 5% and is not probability-weighted.</p>
       </section>
     </div>
 
