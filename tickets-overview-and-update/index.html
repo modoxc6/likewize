@@ -71,6 +71,75 @@
       display: block;
     }
 
+    .slide-title {
+      background: var(--pink);
+      color: var(--blue);
+      isolation: isolate;
+    }
+
+    .title-slide-pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .title-slide-copy {
+      position: absolute;
+      left: 7%;
+      top: 18%;
+      width: 57%;
+      z-index: 2;
+    }
+
+    .title-slide-kicker {
+      margin: 0 0 calc(var(--u) * 3.2);
+      color: var(--blue);
+      font-size: calc(var(--u) * 0.9);
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .title-slide-heading {
+      margin: 0;
+      color: var(--blue);
+      font-size: calc(var(--u) * 6.3);
+      font-weight: 700;
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+    }
+
+    .title-slide-subtitle {
+      max-width: 28em;
+      margin: calc(var(--u) * 2.8) 0 0;
+      color: #31223A;
+      font-size: calc(var(--u) * 1.48);
+      line-height: 1.45;
+    }
+
+    .title-slide-rule {
+      width: calc(var(--u) * 22.5);
+      height: calc(var(--u) * 0.23);
+      margin-top: calc(var(--u) * 2.7);
+      background: var(--blue);
+    }
+
+    .title-slide-signature {
+      position: absolute;
+      left: 7%;
+      bottom: 6.5%;
+      z-index: 2;
+      margin: 0;
+      color: var(--blue);
+      font-size: calc(var(--u) * 0.9);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
     .slide-hero {
       background: var(--pink);
       isolation: isolate;
@@ -1272,7 +1341,18 @@
 <body>
   <main class="deck-shell" aria-label="Tickets Overview and Update presentation">
     <div class="deck" id="deck">
-      <section class="slide slide-hero is-active" aria-labelledby="slide-1-title">
+      <section class="slide slide-title is-active" aria-labelledby="slide-1-title">
+        <img class="title-slide-pattern" src="Likewize Dot Pattern.png" alt="">
+        <div class="title-slide-copy">
+          <p class="title-slide-kicker">Likewize · CEO Briefing</p>
+          <h1 class="title-slide-heading" id="slide-1-title">Tickets</h1>
+          <p class="title-slide-subtitle">A partner-led live-events proposition .... what it is, where we are, and what’s next.</p>
+          <div class="title-slide-rule" aria-hidden="true"></div>
+        </div>
+        <p class="title-slide-signature">Likewize.</p>
+      </section>
+
+      <section class="slide slide-hero" aria-labelledby="slide-2-title">
         <div class="hero-copy">
           <div class="hero-kicker">
             <div class="proposition-mark hero-proposition-mark" aria-label="Tickets sits adjacent to the core proposition">
@@ -1285,7 +1365,7 @@
             </div>
             <p class="brand-line">Likewize Moments | Tickets</p>
           </div>
-          <h1 class="hero-title" id="slide-1-title">Tickets extends the partner proposition into live events</h1>
+          <h1 class="hero-title" id="slide-2-title">Tickets extends the partner proposition into live events</h1>
           <p class="hero-subtitle">A fully managed secondary ticket marketplace, distributed through partner brands and delivered through Likewize Moments.</p>
         </div>
 
@@ -1329,9 +1409,9 @@
         </div>
       </section>
 
-      <section class="slide slide-operating" aria-labelledby="slide-2-title">
+      <section class="slide slide-operating" aria-labelledby="slide-3-title">
         <div class="operating-copy">
-          <h2 class="operating-title" id="slide-2-title">Tixstock provides the marketplace. Likewize owns the proposition.</h2>
+          <h2 class="operating-title" id="slide-3-title">Tixstock provides the marketplace. Likewize owns the proposition.</h2>
           <p class="operating-subtitle">The model avoids building ticket inventory and commerce from scratch, but leaves Likewize with meaningful product and operating ownership.</p>
         </div>
 
@@ -1403,9 +1483,9 @@
         </aside>
       </section>
 
-      <section class="slide slide-progress" aria-labelledby="slide-3-title">
+      <section class="slide slide-progress" aria-labelledby="slide-4-title">
         <div class="progress-copy">
-          <h2 class="progress-title" id="slide-3-title">Most of the build is behind us. Two blockers remain.</h2>
+          <h2 class="progress-title" id="slide-4-title">Most of the build is behind us. Two blockers remain.</h2>
           <p class="progress-subtitle">The core marketplace works. Legal and Compliance have been closely involved, and external DLA review is complete. Closing now depends on seller disclosure and the ePay login flow.</p>
         </div>
 
@@ -1467,9 +1547,9 @@
         </section>
       </section>
 
-      <section class="slide slide-decision" aria-labelledby="slide-4-title">
+      <section class="slide slide-decision" aria-labelledby="slide-5-title">
         <div class="decision-context">
-          <h2 class="decision-title" id="slide-4-title">What’s next?</h2>
+          <h2 class="decision-title" id="slide-5-title">What’s next?</h2>
           <p class="decision-subtitle">The remaining decision is the level of ambition and ongoing investment.</p>
 
           <div class="decision-evidence">
@@ -1517,18 +1597,18 @@
         </section>
       </section>
 
-      <section class="slide slide-appendix-divider" aria-labelledby="slide-5-title">
+      <section class="slide slide-appendix-divider" aria-labelledby="slide-6-title">
         <div class="appendix-divider-copy">
           <p class="appendix-divider-kicker">Appendix</p>
-          <h2 class="appendix-divider-title" id="slide-5-title">Indicative commercial opportunity</h2>
+          <h2 class="appendix-divider-title" id="slide-6-title">Indicative commercial opportunity</h2>
           <p class="appendix-divider-subtitle">Existing UK and European relationships first, with additional opportunities shown separately.</p>
         </div>
         <div class="appendix-divider-accent" aria-hidden="true"></div>
       </section>
 
-      <section class="slide slide-margin-opportunity" aria-labelledby="slide-6-title">
+      <section class="slide slide-margin-opportunity" aria-labelledby="slide-7-title">
         <header class="margin-header">
-          <h2 class="margin-title" id="slide-6-title">Existing UK and European clients indicate c.£2.1m margin at 5%</h2>
+          <h2 class="margin-title" id="slide-7-title">Existing UK and European clients indicate c.£2.1m margin at 5%</h2>
           <p class="margin-subtitle">Illustrative margin based on £41.5m of unweighted revenue opportunity across 14 existing relationships.</p>
         </header>
 
