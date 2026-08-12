@@ -218,7 +218,7 @@ function render(){
     cat.items.forEach(it=>{
       html += `<div class="card" data-done="${it.pct >= 100}" style="--accent:${cat.color}">
         <div class="card-inner">
-          <a class="card-link" href="${it.href}"${/^https?:/.test(it.href) ? ' target="_blank" rel="noopener"' : ''}>
+          <a class="card-link" href="${it.href}" target="_blank" rel="noopener">
             <h3>${it.title}</h3>
             ${it.desc ? `<p class="desc">${it.desc}</p>` : ''}
             <div class="meta">
@@ -230,7 +230,7 @@ function render(){
             </div>
             <span class="go">${it.cta || 'Open deck'} →</span>
           </a>
-          ${it.variants ? it.variants.map(v=>`<div class="variant">Variant: <a href="${v.href}">${v.title}</a></div>`).join('') : ''}
+          ${it.variants ? it.variants.map(v=>`<div class="variant">Variant: <a href="${v.href}" target="_blank" rel="noopener">${v.title}</a></div>`).join('') : ''}
         </div>
       </div>`;
     });
