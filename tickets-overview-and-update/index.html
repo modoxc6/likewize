@@ -1237,6 +1237,234 @@
       line-height: 1.2;
     }
 
+    .slide-commercial-model {
+      background: #FFFFFF;
+      color: var(--ink);
+    }
+
+    .commercial-header {
+      position: absolute;
+      left: 5.5%;
+      top: 5.2%;
+      width: 89%;
+    }
+
+    .commercial-title {
+      margin: 0;
+      color: var(--blue);
+      font-size: calc(var(--u) * 3.0);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+      white-space: nowrap;
+    }
+
+    .commercial-subtitle {
+      margin: calc(var(--u) * 0.72) 0 0;
+      color: var(--muted);
+      font-size: calc(var(--u) * 1.02);
+      line-height: 1.3;
+    }
+
+    .commercial-content {
+      position: absolute;
+      left: 5.5%;
+      top: 20.5%;
+      width: 89%;
+      height: 69%;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: calc(var(--u) * 1.6);
+    }
+
+    .unit-economics,
+    .volume-sensitivity {
+      min-width: 0;
+      overflow: hidden;
+      border-radius: calc(var(--u) * 1.0);
+      background: var(--paper);
+      box-shadow: 0 calc(var(--u) * 1.0) calc(var(--u) * 2.8) rgba(50, 0, 190, 0.12);
+    }
+
+    .unit-economics {
+      display: grid;
+      grid-template-rows: 0.9fr 0.58fr repeat(8, 1fr) 0.88fr;
+    }
+
+    .commercial-panel-heading {
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(var(--u) * 1.0);
+      padding: 0 calc(var(--u) * 1.35);
+      background: var(--blue);
+      color: #FFFFFF;
+    }
+
+    .commercial-panel-heading h3,
+    .commercial-panel-heading p {
+      margin: 0;
+    }
+
+    .commercial-panel-heading h3 {
+      font-size: calc(var(--u) * 1.28);
+      line-height: 1.05;
+    }
+
+    .commercial-panel-heading p {
+      color: var(--frost);
+      font-size: calc(var(--u) * 0.78);
+      line-height: 1.1;
+      text-align: right;
+    }
+
+    .unit-row {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1.72fr 1.08fr 0.64fr;
+      align-items: center;
+      gap: calc(var(--u) * 0.62);
+      padding: 0 calc(var(--u) * 1.25);
+      border-top: 1px solid rgba(50, 0, 190, 0.12);
+      color: #43364A;
+      font-size: calc(var(--u) * 0.83);
+      line-height: 1.08;
+    }
+
+    .unit-row span:last-child {
+      color: var(--blue);
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .unit-table-head {
+      border-top: 0;
+      background: #ECE6FF;
+      color: var(--blue);
+      font-size: calc(var(--u) * 0.72);
+      font-weight: 700;
+    }
+
+    .unit-row-ePay {
+      background: var(--blush);
+    }
+
+    .unit-row-likewize {
+      background: var(--frost);
+    }
+
+    .unit-total {
+      border-top: 0;
+      background: var(--pink);
+      color: var(--blue);
+      font-size: calc(var(--u) * 0.94);
+      font-weight: 700;
+    }
+
+    .unit-total span:last-child {
+      font-size: calc(var(--u) * 1.2);
+    }
+
+    .volume-sensitivity {
+      display: grid;
+      grid-template-rows: 0.9fr 0.62fr repeat(5, 1fr) 0.92fr 1.22fr;
+    }
+
+    .volume-row {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 0.66fr 0.94fr 1.12fr 1.18fr;
+      align-items: center;
+      gap: calc(var(--u) * 0.5);
+      padding: 0 calc(var(--u) * 1.15);
+      border-top: 1px solid rgba(50, 0, 190, 0.12);
+      color: var(--ink);
+      font-size: calc(var(--u) * 0.82);
+      line-height: 1.08;
+    }
+
+    .volume-row span:not(:first-child) {
+      text-align: right;
+    }
+
+    .volume-table-head {
+      border-top: 0;
+      background: #ECE6FF;
+      color: var(--blue);
+      font-size: calc(var(--u) * 0.7);
+      font-weight: 700;
+    }
+
+    .volume-data-row span:first-child,
+    .volume-data-row span:last-child {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .volume-break-even {
+      border-top: 0;
+      background: var(--pink);
+    }
+
+    .volume-break-even span:first-child::after {
+      content: "Break-even";
+      display: block;
+      margin-top: calc(var(--u) * 0.12);
+      color: #5D1F69;
+      font-size: calc(var(--u) * 0.62);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .volume-baseline {
+      background: var(--frost);
+    }
+
+    .commercial-definition {
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 calc(var(--u) * 1.15);
+      background: var(--blue);
+      color: #FFFFFF;
+      font-size: calc(var(--u) * 0.7);
+      line-height: 1.25;
+    }
+
+    .commercial-definition strong {
+      color: var(--pink);
+    }
+
+    .commercial-fixed-cost-note {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: calc(var(--u) * 0.24);
+      padding: 0 calc(var(--u) * 1.15);
+      background: #ECE6FF;
+      color: #43364A;
+      font-size: calc(var(--u) * 0.7);
+      line-height: 1.2;
+    }
+
+    .commercial-fixed-cost-note strong {
+      color: var(--blue);
+      font-size: calc(var(--u) * 0.82);
+    }
+
+    .commercial-source {
+      position: absolute;
+      left: 5.5%;
+      bottom: 2.9%;
+      width: 89%;
+      margin: 0;
+      color: var(--muted);
+      font-size: calc(var(--u) * 0.7);
+      line-height: 1.2;
+    }
+
     .deck-controls {
       position: fixed;
       right: 18px;
@@ -1665,6 +1893,124 @@
         </div>
 
         <p class="appendix-source">Source: Draft GTM pipeline, 16 June 2026. Account-level estimates are unvalidated. Margin is illustrative at 5% and is not probability-weighted.</p>
+      </section>
+
+      <section class="slide slide-commercial-model" aria-labelledby="slide-8-title">
+        <header class="commercial-header">
+          <h2 class="commercial-title" id="slide-8-title">Commercial model and unit economics</h2>
+          <p class="commercial-subtitle">At 50k annual tickets, ePay earns £515k commission revenue and Likewize makes £258k margin after fixed platform costs.</p>
+        </header>
+
+        <div class="commercial-content">
+          <section class="unit-economics" aria-labelledby="unit-economics-title">
+            <header class="commercial-panel-heading">
+              <h3 id="unit-economics-title">Per-ticket economics</h3>
+              <p>£100 average ticket value</p>
+            </header>
+            <div class="unit-row unit-table-head" role="row">
+              <span role="columnheader">Cost or fee</span>
+              <span role="columnheader">Recipient</span>
+              <span role="columnheader">Per ticket</span>
+            </div>
+            <div class="unit-row" role="row">
+              <span role="cell">Ticket supply</span>
+              <span role="cell">Seller / supplier</span>
+              <span role="cell">£100.00</span>
+            </div>
+            <div class="unit-row" role="row">
+              <span role="cell">Transaction fee</span>
+              <span role="cell">Tixstock</span>
+              <span role="cell">£3.00</span>
+            </div>
+            <div class="unit-row unit-row-ePay" role="row">
+              <span role="cell">Partner commission</span>
+              <span role="cell">ePay</span>
+              <span role="cell">£10.30</span>
+            </div>
+            <div class="unit-row" role="row">
+              <span role="cell">Kanopi commission</span>
+              <span role="cell">Kanopi</span>
+              <span role="cell">£0.67</span>
+            </div>
+            <div class="unit-row unit-row-likewize" role="row">
+              <span role="cell">Service fee</span>
+              <span role="cell">Likewize</span>
+              <span role="cell">£5.15</span>
+            </div>
+            <div class="unit-row" role="row">
+              <span role="cell">Platform and build recovery</span>
+              <span role="cell">Fixed-cost recovery</span>
+              <span role="cell">£1.88</span>
+            </div>
+            <div class="unit-row" role="row">
+              <span role="cell">Payment processing</span>
+              <span role="cell">Stripe</span>
+              <span role="cell">£2.32</span>
+            </div>
+            <div class="unit-row" role="row">
+              <span role="cell">UK VAT</span>
+              <span role="cell">HMRC</span>
+              <span role="cell">£3.60</span>
+            </div>
+            <div class="unit-row unit-total" role="row">
+              <span role="cell">Final customer price</span>
+              <span role="cell"></span>
+              <span role="cell">£126.92</span>
+            </div>
+          </section>
+
+          <section class="volume-sensitivity" aria-labelledby="volume-sensitivity-title">
+            <header class="commercial-panel-heading">
+              <h3 id="volume-sensitivity-title">Annual volume sensitivity</h3>
+              <p>First 24 months</p>
+            </header>
+            <div class="volume-row volume-table-head" role="row">
+              <span role="columnheader">Tickets</span>
+              <span role="columnheader">Ticket sales</span>
+              <span role="columnheader">ePay commission</span>
+              <span role="columnheader">Likewize margin</span>
+            </div>
+            <div class="volume-row volume-data-row" role="row">
+              <span role="cell">10k</span>
+              <span role="cell">£1.0m</span>
+              <span role="cell">£103k</span>
+              <span role="cell">(£24k)</span>
+            </div>
+            <div class="volume-row volume-data-row volume-break-even" role="row">
+              <span role="cell">13.4k</span>
+              <span role="cell">£1.34m</span>
+              <span role="cell">£138k</span>
+              <span role="cell">£0</span>
+            </div>
+            <div class="volume-row volume-data-row" role="row">
+              <span role="cell">25k</span>
+              <span role="cell">£2.5m</span>
+              <span role="cell">£258k</span>
+              <span role="cell">£82k</span>
+            </div>
+            <div class="volume-row volume-data-row volume-baseline" role="row">
+              <span role="cell">50k</span>
+              <span role="cell">£5.0m</span>
+              <span role="cell">£515k</span>
+              <span role="cell">£258k</span>
+            </div>
+            <div class="volume-row volume-data-row" role="row">
+              <span role="cell">100k</span>
+              <span role="cell">£10.0m</span>
+              <span role="cell">£1.03m</span>
+              <span role="cell">£609k</span>
+            </div>
+            <div class="commercial-definition">
+              <span><strong>Likewize margin</strong> = £5.15 service fee + £1.88 cost recovery per ticket, less £94k annual fixed platform and build costs.</span>
+            </div>
+            <div class="commercial-fixed-cost-note">
+              <strong>£1.88 platform and build recovery</strong>
+              <span>£0.50 build recovery + £1.01 Tixstock monthly fee + £0.37 Kanopi monthly fee, based on 50k annual tickets.</span>
+            </div>
+          </section>
+        </div>
+
+        <p class="commercial-source">Source: Likewize Ticketing Proforma Final. Figures exclude corporate overhead and tax. ePay is shown as commission revenue, not profit. Values may not sum exactly due to rounding.</p>
       </section>
     </div>
 
