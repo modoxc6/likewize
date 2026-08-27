@@ -184,7 +184,8 @@ body { margin: 0; background: #0B0B0D; }
 .decision-title { font-size: 28px; font-weight: 800; margin: 0 0 24px; letter-spacing: -0.01em; }
 .decision-item { font-size: 19px; line-height: 1.55; color: #232329; margin: 0 0 18px; padding-left: 26px; position: relative; }
 .decision-item:last-child { margin-bottom: 0; }
-.decision-item::before { content: ''; position: absolute; left: 0; top: 9px; width: 9px; height: 9px; border-radius: 999px; }
+.decision-item.dm-flex { display: flex; gap: 15px; padding-left: 0; }
+.decision-item::before { content: none; }
 .decision-col.pink .decision-item::before { background: #FF96FF; border: 1.5px solid #1B0070; }
 .decision-col.violet .decision-item::before { background: #3200BE; }
 .dark-slide .decision-col.violet .decision-item::before { background: #B7A6FF; }
@@ -460,7 +461,8 @@ body { margin: 0; background: #0B0B0D; }
 
 <!-- 1 - TITLE -->
 <section class="lw-slide" data-label="Title" data-screen-label="01" style="background:#3200BE; color:#FFFFFF; padding:120px 140px; justify-content:center;">
-  <div class="lw-photo-bg"></div>
+  <div style="position:absolute; inset:0; background-image:url('./assets/images/hero-travel-balloons.jpeg'); background-size:cover; background-position:center;"></div>
+  <div style="position:absolute; inset:0; background-image:linear-gradient(100deg, rgba(50,0,190,0.95) 0%, rgba(50,0,190,0.88) 40%, rgba(50,0,190,0.55) 100%);"></div>
   <div class="lw-watermark">ESIM</div>
   <div style="position:relative; z-index:2;">
     <h1 style="font-size:150px; line-height:1.0; font-weight:800; letter-spacing:-0.03em; margin:0 0 48px;">eSIM Route to Market</h1>
@@ -476,7 +478,7 @@ body { margin: 0; background: #0B0B0D; }
 <!-- 2 - WHY ESIM -->
 <section class="lw-slide" data-label="Why eSIM" data-screen-label="02" style="background:#FFFFFF; color:#0B0B0D; padding:80px 140px 56px;">
   <h2 style="font-size:46px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Travel eSIM: an emerging banking benefit and growth opportunity</h2>
-  <p style="font-size:22px; line-height:1.5; color:#5C5C65; margin:0 0 30px; max-width:1450px;">The banking market is beginning to adopt travel eSIM as a customer benefit, creating an opportunity for Likewize to establish an early position.</p>
+  <p style="font-size:22px; line-height:1.5; color:#5C5C65; margin:0 0 30px; max-width:1450px;">The eSIM market is already established. Adoption within banking is not, and that is where the position is still open.</p>
   <div style="display:flex; gap:26px; flex:1;">
     <div style="flex:1; background:#FFFFFF; border:1.5px solid #E7E7EC; border-radius:20px; padding:32px 34px; display:flex; flex-direction:column;">
       <div style="width:64px; height:64px; border-radius:999px; background:#F5D2FA; display:flex; align-items:center; justify-content:center; margin-bottom:22px; flex:none;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3200BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
@@ -484,7 +486,7 @@ body { margin: 0; background: #0B0B0D; }
       <div style="display:flex; gap:12px; margin-bottom:13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3200BE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:4px;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-size:18px; line-height:1.5; color:#232329;">Revolut has launched roaming-inclusive propositions</span></div>
       <div style="display:flex; gap:12px; margin-bottom:13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3200BE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:4px;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-size:18px; line-height:1.5; color:#232329;">NatWest launching travel eSIM benefit</span></div>
       <div style="display:flex; gap:12px; margin-bottom:13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3200BE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:4px;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-size:18px; line-height:1.5; color:#232329;">Banking products often converge on successful benefits</span></div>
-      <div style="display:flex; gap:12px; margin-bottom:13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3200BE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:4px;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-size:18px; line-height:1.5; color:#232329;">Opportunity to establish an early market position</span></div>
+      <div style="display:flex; gap:12px; margin-bottom:13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3200BE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:4px;"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font-size:18px; line-height:1.5; color:#232329;">Early position still available within banking, not within eSIM itself.</span></div>
     </div>
     <div style="flex:1; background:#F5D2FA33; border:1.5px solid #E7C6EF; border-radius:20px; padding:32px 34px; display:flex; flex-direction:column;">
       <div style="width:64px; height:64px; border-radius:999px; background:#F5D2FA; display:flex; align-items:center; justify-content:center; margin-bottom:22px; flex:none;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3200BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4l3 2"></path></svg></div>
@@ -525,8 +527,8 @@ body { margin: 0; background: #0B0B0D; }
 <section class="lw-slide" data-label="The mandate and where this stands" data-screen-label="03" style="background:#FFFFFF; color:#0B0B0D; padding:88px 140px 60px;">
   <p class="quote-block" style="margin-bottom:34px; font-size:52px;">Bring an eSIM proposition to market under the Traveller pack.</p>
   <div class="why-now-list" style="max-width:1560px;">
-    <div class="why-now-item"><span class="why-now-mark">1</span><span>Conversations held across the full option set: ePay, Dragonpass, eSIM Go, 1Global, Vodafone Three.</span></div>
-    <div class="why-now-item"><span class="why-now-mark">2</span><span>Likewize previously lost the NatWest eSIM opportunity via ePay, on price and inflexibility. This work exists to find a better route.</span></div>
+    <div class="why-now-item"><span class="why-now-mark">1</span><span>Conversations held across the full option set: ePay, Dragonpass, eSIM Go, 1Global, Vodafone Three, BT Wholesale.</span></div>
+    <div class="why-now-item"><span class="why-now-mark">2</span><span>Likewize was unsuccessful in the NatWest eSIM bid via ePay. Assurant and Dragonpass won on price and product flexibility, which also deepened a competitor's position inside the account.</span></div>
     <div class="why-now-item"><span class="why-now-mark">3</span><span>Legal and compliance ruled in July that Likewize will not become Telco of Record, which removed one option and reshaped the rest.</span></div>
   </div>
   <div style="background:#FAFAFB; border:1.5px solid #E7E7EC; border-radius:20px; padding:34px 44px; margin-top:44px;">
@@ -541,13 +543,13 @@ body { margin: 0; background: #0B0B0D; }
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">What happened with NatWest</h2>
   <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
   <div class="ntw-timeline">
-    <div class="ntw-beat"><p class="ntw-beat-date">Feb 2026</p><p class="ntw-beat-text">NatWest asked Likewize for a travel eSIM proposition for Platinum/Black accounts.</p></div>
+    <div class="ntw-beat"><svg width="104" height="104" viewBox="0 0 1000 1000" style="position:absolute; top:-30px; right:-26px;"><circle cx="500" cy="500" r="470" fill="#ECE6FF" stroke="#FFFFFF" stroke-width="28"></circle><circle cx="500" cy="500" r="325" fill="#F5D2FA"></circle><circle cx="500" cy="500" r="200" fill="#3200BE"></circle><circle cx="730" cy="270" r="62" fill="#3200BE" stroke="#FFFFFF" stroke-width="22"></circle></svg><p class="ntw-beat-date">Feb 2026</p><p class="ntw-beat-text">NatWest asked Likewize for a travel eSIM proposition for Platinum/Black accounts.</p></div>
     <span class="ntw-arrow">→</span>
     <div class="ntw-beat"><p class="ntw-beat-date">The offer</p><p class="ntw-beat-text">We offered <b style="color:#3200BE;">£8.20 per activation</b> (3GB, Europe), built on ePay's catalogue pricing.</p></div>
     <span class="ntw-arrow">→</span>
     <div class="ntw-beat loss"><p class="ntw-beat-date">We lost</p><p class="ntw-beat-text">Too expensive, too inflexible.</p></div>
     <span class="ntw-arrow">→</span>
-    <div class="ntw-beat"><span class="ntw-beat-badge">Not yet public</span><p class="ntw-beat-date">1 Oct 2026</p><p class="ntw-beat-text">NatWest Platinum relaunches with a <b style="color:#3200BE;">5GB travel eSIM via DragonPass Premier+</b> (Assurant + Dragonpass).</p></div>
+    <div class="ntw-beat"><p class="ntw-beat-date">1 Oct 2026</p><p class="ntw-beat-text">NatWest Platinum relaunches with a <b style="color:#3200BE;">5GB travel eSIM via DragonPass Premier+</b> (Assurant + Dragonpass).</p></div>
   </div>
   <div class="ntw-callout">
     <p class="ntw-callout-text">If NatWest came back today, what would we offer?</p>
@@ -563,28 +565,28 @@ body { margin: 0; background: #0B0B0D; }
   <div style="display:flex; flex:1; align-items:center;">
   <div style="flex:1; min-width:0;">
   <div class="flow-row" style="margin-bottom:10px;">
-    <div class="flow-row-label" style="width:250px; font-size:18px;">ePay <span>what we did</span></div>
+    <div class="flow-row-label" style="width:250px; font-size:18px;">Distribution <span>ePay</span></div>
     <div class="flow-chain"><div class="flow-node" style="padding:18px 22px; font-size:17px;">Network</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">Aggregator</div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">ePay</div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node us" style="padding:18px 22px; font-size:18px;">Likewize</div><div class="flow-arrow"></div><div class="flow-node dest" style="padding:18px 22px; font-size:17px;">NatWest</div></div>
   </div>
   <p class="flow-caption" style="margin:0 0 24px 270px; font-size:17px;">Two mouths to feed. Fixed catalogue, no flexibility.</p>
 
   <div class="flow-row" style="margin-bottom:10px;">
-    <div class="flow-row-label" style="width:250px; font-size:18px;">eSIM Go Breeze <span>affiliate</span></div>
-    <div class="flow-chain"><div class="flow-node" style="padding:18px 22px; font-size:17px;">Network</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">eSIM Go</div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node us" style="padding:18px 22px; font-size:18px;">Likewize</div><div class="flow-arrow"></div><div class="flow-node dest" style="padding:18px 22px; font-size:17px;">Customer</div></div>
+    <div class="flow-row-label" style="width:250px; font-size:18px;">Managed <span>Dragonpass, eSIM Go Breeze</span></div>
+    <div class="flow-chain"><div class="flow-node" style="padding:18px 22px; font-size:17px;">Network</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">Aggregator</div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">Partner</div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node us" style="padding:18px 22px; font-size:18px;">Likewize</div><div class="flow-arrow"></div><div class="flow-node dest" style="padding:18px 22px; font-size:17px;">NatWest</div></div>
   </div>
-  <p class="flow-caption" style="margin:0 0 24px 270px; font-size:17px;">eSIM Go is merchant of record. Co-branded at best, no pricing control.</p>
+  <p class="flow-caption" style="margin:0 0 24px 270px; font-size:17px;">Two or three mouths to feed. The partner owns the product and platform, we take a margin on a light build.</p>
 
   <div class="flow-row" style="margin-bottom:10px;">
-    <div class="flow-row-label" style="width:250px; font-size:18px;">Dragonpass <span>buy</span></div>
-    <div class="flow-chain"><div class="flow-node" style="padding:18px 22px; font-size:17px;">Network</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">Aggregator</div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">Dragonpass</div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node us" style="padding:18px 22px; font-size:18px;">Likewize</div><div class="flow-arrow"></div><div class="flow-node dest" style="padding:18px 22px; font-size:17px;">NatWest</div></div>
-  </div>
-  <p class="flow-caption" style="margin:0 0 24px 270px; font-size:17px;">Two or three mouths to feed. Dragonpass is itself powered by eSIM Go in some markets. Bespoke packages, real flexibility.</p>
-
-  <div class="flow-row" style="margin-bottom:10px;">
-    <div class="flow-row-label" style="width:250px; font-size:18px;">1Global <span>synthetic wholesale</span></div>
+    <div class="flow-row-label" style="width:250px; font-size:18px;">Synthetic wholesale <span>1Global</span></div>
     <div class="flow-chain"><div class="flow-node" style="padding:18px 22px; font-size:17px;">Network</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">1Global<span style="display:block; font-weight:600; font-size:12px; color:#86868F;">as Telco of Record</span></div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node us" style="padding:18px 22px; font-size:18px;">Likewize</div><div class="flow-arrow"></div><div class="flow-node dest" style="padding:18px 22px; font-size:17px;">NatWest</div></div>
   </div>
   <p class="flow-caption" style="margin:0 0 24px 270px; font-size:17px;">One supplier relationship. We set retail pricing and own the proposition. 1Global keeps the regulatory and VAT burden.</p>
+
+  <div class="flow-row" style="margin-bottom:10px;">
+    <div class="flow-row-label" style="width:250px; font-size:18px;">Full wholesale <span>ruled out in July</span></div>
+    <div class="flow-chain"><div class="flow-node" style="padding:18px 22px; font-size:17px;">Network</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px;">Aggregator</div><div class="flow-fee" style="width:34px; height:34px; font-size:15px;">£</div><div class="flow-arrow"></div><div class="flow-node" style="padding:18px 22px; font-size:17px; background:#3200BE; border-color:#3200BE; color:#FFFFFF; font-weight:700;">Likewize<span style="display:block; font-weight:600; font-size:12px; color:rgba(255,255,255,0.8);">as Telco of Record</span></div><div class="flow-arrow"></div><div class="flow-node dest" style="padding:18px 22px; font-size:17px;">NatWest</div></div>
+  </div>
+  <p class="flow-caption" style="margin:0 0 24px 270px; font-size:17px;">Best economics, but Likewize takes on telecom licensing, multi-country VAT, KYC and consumer protection.</p>
 
   </div>
   <div class="flow-complexity-rail">
@@ -593,13 +595,13 @@ body { margin: 0; background: #0B0B0D; }
   </div>
   </div>
   <div style="margin-top:8px; background:#FAFAFB; border:1.5px dashed #C7C7D1; border-radius:14px; padding:18px 28px;">
-    <p style="margin:0; font-size:17px; line-height:1.5; color:#5C5C65;"><b style="color:#232329;">Ruled out:</b> Likewize as Telco of Record, the full wholesale model, was ruled out in July on telecom licensing, multi-country VAT, KYC and consumer-protection grounds.</p>
+    <p style="margin:0; font-size:17px; line-height:1.5; color:#5C5C65;"><b style="color:#232329;">Ruled out:</b> Full wholesale, where Telco of Record sits with Likewize, was ruled out in July on telecom licensing, multi-country VAT, KYC and consumer-protection grounds.</p>
   </div>
 </section>
 
 <!-- 6 - THE SPECTRUM -->
 <section class="lw-slide" data-label="The spectrum" data-screen-label="06" style="background:#FAFAFB; color:#0B0B0D; padding:76px 140px 44px;">
-  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">Four routes, one trade-off</h2>
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">Five routes, one trade-off</h2>
   <p style="font-size:22px; line-height:1.5; color:#5C5C65; margin:0 0 22px; max-width:1500px;">Effort is the only axis where the easy routes win. Control and margin both improve as you move right.</p>
 
   <div style="flex:1; display:flex; gap:26px; min-height:0;">
@@ -608,32 +610,38 @@ body { margin: 0; background: #0B0B0D; }
     </div>
     <div style="flex:1; position:relative; background:#FFFFFF; border-left:2px solid #C7C7D1; border-bottom:2px solid #C7C7D1; border-radius:0 16px 0 0;">
       <svg style="position:absolute; inset:0; width:100%; height:100%;" preserveAspectRatio="none"><line x1="3%" y1="97%" x2="97%" y2="3%" stroke="#E1D6F5" stroke-width="3" stroke-dasharray="12 12"></line></svg>
-    <div style="position:absolute; left:13%; bottom:12%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:260px;">
+    <div style="position:absolute; left:11%; bottom:11%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:260px;">
       <div style="width:26px; height:26px; border-radius:999px; background:#C7C7D1; border:4px solid #FFFFFF; box-shadow:0 4px 14px rgba(11,11,13,0.18);"></div>
       <div style="text-align:center;">
-        <p style="margin:0; font-size:20px; font-weight:800; color:#86868F;">ePay <span style="font-size:12px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; background:#F3F3F6; border:1px solid #D6D6DD; color:#86868F; padding:3px 9px; border-radius:999px;">ruled out</span></p>
+        <p style="margin:0; font-size:20px; font-weight:800; color:#86868F;">Distribution <span style="font-size:12px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; background:#F3F3F6; border:1px solid #D6D6DD; color:#86868F; padding:3px 9px; border-radius:999px;">ruled out</span><span style="display:block; font-size:16px; font-weight:700; color:#A0A0AA; margin-top:3px;">ePay</span></p>
         <p style="margin:4px 0 0; font-size:17px; font-weight:700; color:#A0A0AA; line-height:1.35;">£8.00</p>
       </div>
     </div>
-    <div style="position:absolute; left:30%; bottom:20%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:260px;">
-      <div style="width:26px; height:26px; border-radius:999px; background:#B2B2BC; border:4px solid #FFFFFF; box-shadow:0 4px 14px rgba(11,11,13,0.18);"></div>
+    <div style="position:absolute; left:27%; bottom:19%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:260px;">
+      <div style="width:26px; height:26px; border-radius:999px; background:#FF96FF; border:4px solid #FFFFFF; box-shadow:0 4px 14px rgba(11,11,13,0.18);"></div>
       <div style="text-align:center;">
-        <p style="margin:0; font-size:20px; font-weight:800; color:#232329;">eSIM Go Breeze</p>
+        <p style="margin:0; font-size:20px; font-weight:800; color:#C9188A;">Managed<span style="display:block; font-size:16px; font-weight:700; color:#232329; margin-top:3px;">eSIM Go Breeze</span></p>
         <p style="margin:4px 0 0; font-size:17px; font-weight:700; color:#3200BE; line-height:1.35;">No rate on file, affiliate commission</p>
       </div>
     </div>
-    <div style="position:absolute; left:55%; bottom:66%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:260px;">
+    <div style="position:absolute; left:47%; bottom:57%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:260px;">
       <div style="width:26px; height:26px; border-radius:999px; background:#FF96FF; border:4px solid #FFFFFF; box-shadow:0 4px 14px rgba(11,11,13,0.18);"></div>
       <div style="text-align:center;">
-        <p style="margin:0; font-size:20px; font-weight:800; color:#232329;">Dragonpass</p>
+        <p style="margin:0; font-size:20px; font-weight:800; color:#C9188A;">Managed<span style="display:block; font-size:16px; font-weight:700; color:#232329; margin-top:3px;">Dragonpass</span></p>
         <p style="margin:4px 0 0; font-size:17px; font-weight:700; color:#3200BE; line-height:1.35;">£6.70, D2C rate, B2B rate not yet quoted</p>
       </div>
     </div>
-    <div style="position:absolute; left:84%; bottom:86%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:260px;">
+    <div style="position:absolute; left:68%; bottom:79%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:260px;">
       <div style="width:26px; height:26px; border-radius:999px; background:#3200BE; border:4px solid #FFFFFF; box-shadow:0 4px 14px rgba(11,11,13,0.18);"></div>
       <div style="text-align:center;">
-        <p style="margin:0; font-size:20px; font-weight:800; color:#232329;">1Global synthetic</p>
-        <p style="margin:4px 0 0; font-size:17px; font-weight:700; color:#3200BE; line-height:1.35;">£3.60 to £4.25</p>
+        <p style="margin:0; font-size:20px; font-weight:800; color:#3200BE;">Synthetic wholesale<span style="display:block; font-size:16px; font-weight:700; color:#232329; margin-top:3px;">1Global</span></p>
+        <p style="margin:4px 0 0; font-size:17px; font-weight:700; color:#3200BE; line-height:1.35;">£3.96</p>
+      </div>
+    </div>
+    <div style="position:absolute; left:90%; bottom:94%; transform:translate(-50%, 50%); display:flex; flex-direction:column; align-items:center; gap:8px; width:250px;">
+      <div style="width:26px; height:26px; border-radius:999px; background:#1B0070; border:4px solid #FFFFFF; box-shadow:0 4px 14px rgba(11,11,13,0.18);"></div>
+      <div style="text-align:center;">
+        <p style="margin:0; font-size:20px; font-weight:800; color:#1B0070;">Full wholesale <span style="font-size:12px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; background:#F5D2FA; border:1px solid #C9A6D9; color:#1B0070; padding:3px 9px; border-radius:999px;">ruled out</span><span style="display:block; font-size:16px; font-weight:700; color:#232329; margin-top:3px;">Likewize as Telco of Record</span></p>
       </div>
     </div>
       <p style="position:absolute; left:4%; bottom:34%; margin:0; max-width:330px; font-size:16px; font-style:italic; line-height:1.45; color:#86868F;">Breeze is ePay again, with a different logo.</p>
@@ -645,19 +653,19 @@ body { margin: 0; background: #0B0B0D; }
     <p style="font-size:16px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#86868F; margin:0 0 16px;">Time to market</p>
     <div style="display:flex; flex-direction:column; gap:10px;">
       <div style="display:flex; align-items:center; gap:18px;">
-        <span style="width:230px; flex:none; font-size:17px; font-weight:700; color:#86868F;">ePay</span>
+        <span style="width:250px; flex:none; font-size:17px; font-weight:800; color:#86868F; line-height:1.25;">Distribution<span style="display:block; font-size:14px; font-weight:600; color:#86868F; margin-top:2px;">ePay</span></span>
         <div style="flex:1; height:22px; background:#F3F3F6; border-radius:999px; overflow:hidden;"><div style="width:44%; height:100%; background:#C7C7D1; border-radius:999px;"></div></div>
       </div>
       <div style="display:flex; align-items:center; gap:18px;">
-        <span style="width:230px; flex:none; font-size:17px; font-weight:700; color:#232329;">eSIM Go Breeze</span>
-        <div style="flex:1; height:22px; background:#F3F3F6; border-radius:999px; overflow:hidden;"><div style="width:38%; height:100%; background:#B2B2BC; border-radius:999px;"></div></div>
+        <span style="width:250px; flex:none; font-size:17px; font-weight:800; color:#C9188A; line-height:1.25;">Managed<span style="display:block; font-size:14px; font-weight:600; color:#86868F; margin-top:2px;">eSIM Go Breeze</span></span>
+        <div style="flex:1; height:22px; background:#F3F3F6; border-radius:999px; overflow:hidden;"><div style="width:38%; height:100%; background:#FF96FF; border-radius:999px;"></div></div>
       </div>
       <div style="display:flex; align-items:center; gap:18px;">
-        <span style="width:230px; flex:none; font-size:17px; font-weight:700; color:#232329;">Dragonpass</span>
+        <span style="width:250px; flex:none; font-size:17px; font-weight:800; color:#C9188A; line-height:1.25;">Managed<span style="display:block; font-size:14px; font-weight:600; color:#86868F; margin-top:2px;">Dragonpass</span></span>
         <div style="flex:1; height:22px; background:#F3F3F6; border-radius:999px; overflow:hidden;"><div style="width:26%; height:100%; background:#FF96FF; border-radius:999px;"></div></div>
       </div>
       <div style="display:flex; align-items:center; gap:18px;">
-        <span style="width:230px; flex:none; font-size:17px; font-weight:700; color:#232329;">1Global synthetic</span>
+        <span style="width:250px; flex:none; font-size:17px; font-weight:800; color:#3200BE; line-height:1.25;">Synthetic wholesale<span style="display:block; font-size:14px; font-weight:600; color:#86868F; margin-top:2px;">1Global</span></span>
         <div style="flex:1; height:22px; background:#F3F3F6; border-radius:999px; overflow:hidden;"><div style="width:92%; height:100%; background:#3200BE; border-radius:999px;"></div></div>
       </div>
     </div>
@@ -666,14 +674,14 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 7 - THE COMPARISON -->
-<section class="lw-slide" data-label="The comparison" data-screen-label="07" style="background:#FAFAFB; color:#0B0B0D; padding:76px 140px 64px;">
-  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 18px;">The comparison</h2>
+<section class="lw-slide" data-label="The comparison" data-screen-label="07" style="background:#FAFAFB; color:#0B0B0D; padding:56px 140px 34px;">
+  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">The comparison</h2>
   <div class="cmp-table">
     <div class="cmp-header-row">
       <div class="cmp-row-label"></div>
-      <div class="cmp-col" style="font-size:28px;">ePay<span style="display:block; font-size:16px; font-weight:700; color:#86868F; text-transform:none; margin-top:5px;">ruled out</span></div>
-      <div class="cmp-col dragonpass" style="color:#C9188A; font-size:28px;">Dragonpass</div>
-      <div class="cmp-col wholesale" style="color:#3200BE; font-size:28px;">1Global<span style="display:block; font-size:16px; font-weight:700; color:#3200BE; opacity:0.75; text-transform:none; margin-top:5px;">synthetic wholesale</span></div>
+      <div class="cmp-col" style="font-size:28px;">Distribution<span style="display:block; font-size:16px; font-weight:700; color:#86868F; text-transform:none; margin-top:5px;">ePay, ruled out</span></div>
+      <div class="cmp-col dragonpass" style="color:#C9188A; font-size:28px;">Managed<span style="display:block; font-size:16px; font-weight:700; color:#C9188A; opacity:0.8; text-transform:none; margin-top:5px;">Dragonpass</span></div>
+      <div class="cmp-col wholesale" style="color:#3200BE; font-size:28px;">Synthetic wholesale<span style="display:block; font-size:16px; font-weight:700; color:#3200BE; opacity:0.75; text-transform:none; margin-top:5px;">1Global</span></div>
     </div>
     <div class="cmp-row">
       <div class="cmp-row-label-cell" style="font-size:19px;">Wholesale cost,<br>one 5GB Spain eSIM</div>
@@ -692,7 +700,7 @@ body { margin: 0; background: #0B0B0D; }
         <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:84%; background:#FF96FF;"></div></div>
       </div>
       <div class="cmp-cell wholesale">
-        <span class="cmp-figure big" style="font-size:50px;">~£3.60 to £4.25</span><span class="cmp-sub" style="font-size:19px; max-width:300px; color:#3200BE;">roughly half the ePay price at the same Likewize margin</span>
+        <span class="cmp-figure big" style="font-size:50px;">£3.96</span><span class="cmp-sub" style="font-size:19px; max-width:300px; color:#3200BE;">Spain 5GB, roughly half the ePay price at the same Likewize margin</span>
         <div class="cmp-bar-track"><div class="cmp-bar-fill" style="width:49%;"></div></div>
       </div>
     </div>
@@ -700,16 +708,17 @@ body { margin: 0; background: #0B0B0D; }
       <div class="cmp-row-label-cell" style="font-size:19px;">Our responsibilities</div>
       <div class="cmp-cell"><span class="cmp-sub" style="font-size:17px; font-weight:800; color:#232329; letter-spacing:0.04em; text-transform:uppercase;">Minimal</span><ul class="cmp-resp-list" style="font-size:19px; line-height:1.55;"><li>Partner relationship and proposition</li><li>First-line customer support</li><li>Pricing and usage risk</li></ul></div>
       <div class="cmp-cell heavy-pink"><span class="cmp-sub" style="font-size:17px; font-weight:800; color:#1B0070; letter-spacing:0.04em; text-transform:uppercase;">Light</span><ul class="cmp-resp-list" style="font-size:18px; line-height:1.5;"><li>Partner relationship and proposition</li><li>Single API integration</li><li>First-line customer support</li><li>Pricing and usage risk</li><li>Funding and commitment terms unconfirmed</li><li>Provide brand assets and config for their whitelabel setup</li></ul></div>
-      <div class="cmp-cell heavy"><span class="cmp-sub" style="font-size:17px; font-weight:800; color:#FF96FF; letter-spacing:0.04em; text-transform:uppercase;">Moderate</span><ul class="cmp-resp-list heavy" style="font-size:17px; line-height:1.5;"><li>Partner relationship and proposition</li><li>1Global Connect API integration</li><li>Build the customer-facing surface ourselves; 1Global supply the API, not the UI</li><li>Collect customer funds and sweep daily to 1Global</li><li>First-line customer support</li><li>Device compatibility checks, refunds and notifications</li><li>Catalogue and retail pricing management</li><li>Pricing and usage risk, with breakage upside</li><li>Deposit of roughly one month of traffic, minimum €20k, refundable</li></ul></div>
+      <div class="cmp-cell heavy"><span class="cmp-sub" style="font-size:17px; font-weight:800; color:#FF96FF; letter-spacing:0.04em; text-transform:uppercase;">Moderate</span><ul class="cmp-resp-list heavy" style="font-size:17px; line-height:1.4;"><li>Partner relationship and proposition</li><li>1Global Connect API integration</li><li>Build the customer-facing surface ourselves; 1Global supply the API, not the UI</li><li>Collect customer funds and sweep daily to 1Global</li><li>First-line customer support</li><li>Device compatibility checks, refunds and notifications</li><li>Catalogue and retail pricing management</li><li>Pricing and usage risk, with breakage upside</li><li>Pre-funded balance with 1Global, drawn down at the point of sale</li></ul></div>
     </div>
   </div>
+  <p style="margin:14px 0 0; font-size:15px; line-height:1.45; color:#86868F; max-width:1640px;">Benchmark: one 5GB, 30-day Spain eSIM. The first two prices use available supplier catalogue and D2C rates. Synthetic wholesale applies the same Likewize commercial formula, 20% markup plus a £0.04 platform fee, to 1Global's €3.85 full-consumption cost at €1 = £0.85, giving £3.96. At 1Global's observed 65% consumption, the equivalent price is £2.81, including the benefit of 35% unused data.</p>
   </section>
 
 <!-- 8 - THE OPPORTUNITY -->
 <section class="lw-slide" data-label="Sizing the opportunity" data-screen-label="08" style="background:#FFFFFF; color:#0B0B0D; padding:88px 140px 70px;">
   <h2 style="font-size:46px; font-weight:800; letter-spacing:-0.03em; margin:0 0 12px;">Sizing the opportunity</h2>
   <p style="font-size:24px; line-height:1.5; color:#5C5C65; margin:0 0 40px; max-width:1400px;">Financial services is the market. Sizing to be confirmed.</p>
-  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:28px; flex:1;">
+  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:28px; flex:none; height:300px;">
     <div class="stat-tile" style="max-width:none; padding:36px 34px; display:flex; flex-direction:column; justify-content:space-between; gap:26px;">
       <p class="stat-label" style="font-size:20px; margin:0; color:#232329; font-weight:700; line-height:1.4;">Addressable partner base, EMEA financial services</p>
       <span style="align-self:flex-start; font-size:15px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#3200BE; background:#F5D2FA; border-radius:999px; padding:10px 20px;">Awaiting input</span>
@@ -727,36 +736,44 @@ body { margin: 0; background: #0B0B0D; }
       <span style="align-self:flex-start; font-size:15px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#3200BE; background:#F5D2FA; border-radius:999px; padding:10px 20px;">Awaiting input</span>
     </div>
   </div>
-  <div style="margin-top:32px; background:#F5D2FA33; border:1.5px solid #E7C6EF; border-radius:22px; padding:34px 44px; display:flex; align-items:center; gap:36px;">
+  <div style="margin-top:30px; background:#F5D2FA33; border:1.5px solid #E7C6EF; border-radius:22px; padding:32px 44px; display:flex; align-items:flex-start; gap:44px;">
     <div style="flex:1;">
-      <p style="font-size:26px; font-weight:800; margin:0 0 10px; color:#3200BE;">Global view and sign-off position</p>
-      <p style="font-size:19px; line-height:1.5; color:#5C5C65; margin:0;">EMEA framing, with the global view and global sign-off position to be added.</p>
+      <p style="font-size:26px; font-weight:800; margin:0 0 12px; color:#3200BE;">Can this be deployed across the group?</p>
+      <p style="font-size:19px; line-height:1.5; color:#232329; margin:0;">Yes, within 1Global's licensing footprint. 1Global is licensed across the EU plus Switzerland and Norway, Australia, the US and Canada, with the Middle East possible but regulatorily harder. It supports end users in 40 markets today, including the UK, most of Europe, the US, Canada, Australia, Japan, Singapore, Brazil and Mexico. Wider APAC needs 1Global to complete its own regulatory work, market by market. Commercially, a single Likewize tenant covers multiple partners and regions on one reconciliation, so a group rollout does not need a new agreement per region.</p>
+      <p style="font-size:16px; line-height:1.5; color:#5C5C65; margin:12px 0 0;">UK and Europe now, DACH and France next, Australia and North America longer term through partner regions.</p>
+      <p style="font-size:16px; line-height:1.5; color:#5C5C65; margin:6px 0 0;">1Global cannot serve grocery-adjacent retail partners, a shareholder restriction. Financial services is unaffected.</p>
     </div>
-    <span style="flex:none; font-size:15px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#FFFFFF; background:#3200BE; border-radius:999px; padding:12px 24px;">Awaiting input</span>
+    <div style="flex:none; width:240px; display:flex; flex-direction:column; gap:12px;">
+      <p style="font-size:14px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#86868F; margin:0;">Group sign-off position</p>
+      <span style="align-self:flex-start; font-size:15px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:#FFFFFF; background:#3200BE; border-radius:999px; padding:12px 24px;">Awaiting input</span>
+    </div>
   </div>
 </section>
 
 <!-- 9 - WHAT THE DECISION HINGES ON -->
-<section class="lw-slide dark-slide" data-label="What the decision hinges on" data-screen-label="09" style="padding:80px 140px 56px;">
-  <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 12px;">What the decision hinges on</h2>
-  <p style="font-size:22px; color:rgba(255,255,255,0.7); margin:0; max-width:1400px;">Two live routes. Here is what separates them.</p>
+<section class="lw-slide dark-slide" data-label="What the decision hinges on" data-screen-label="09" style="padding:80px 140px 56px; background:#1B0070; color:#FFFFFF;">
+  <h2 style="color:#FFFFFF; font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 12px;">What the decision hinges on</h2>
+  <div style="display:flex; align-items:baseline; justify-content:space-between; gap:40px;">
+    <p style="font-size:22px; color:rgba(255,255,255,0.7); margin:0; max-width:1400px;">Two live routes. Here is what separates them.</p>
+    <p style="margin:0; font-size:16px; color:rgba(255,255,255,0.5);">Operating model detail in the appendix.</p>
+  </div>
   <div class="decision-cols">
-    <div class="decision-col pink" style="padding:36px 40px;">
+    <div class="decision-col pink" style="padding:36px 40px; background:#3A1C86; border:1.5px solid #FF96FF;">
       <div class="decision-icon">?</div>
-      <p class="decision-title">Dragonpass: what do we add?</p>
-      <p class="decision-item" style="font-size:18px;">Real differentiation exists, contrary to the original "same platform, same products" assumption. Dragonpass runs its own multi-supplier orchestration, blending eSIM Go with direct MNO deals per market, an entitlement and redemption engine, and confirmed live whitelabel branding covering network name, SMS sender ID, install name and QR code. Assurant gets the same underlying supply, not the same integration depth, for free.</p>
-      <p class="decision-item" style="font-size:18px;">Dragonpass already sits behind several other Likewize lifestyle products. What stops a partner going to them direct? Their orchestration and whitelabel layer is the answer if we can articulate it. Ben's read is that this risk is weak with banks, on the basis that NatWest gave the business to an existing partner precisely because that partner eased the route to market.</p>
-      <p class="decision-item" style="font-size:18px;">We hold their D2C rate, £6.70 for Spain 5GB, not a wholesale rate. That implies a 90 to 120% markup over eSIM Go's own cost, so there is real room to negotiate below it.</p>
-      <p class="decision-item" style="font-size:18px;">The Android journey still requires the Dragonpass app. Unresolved.</p>
+      <p class="decision-title" style="color:#FFFFFF;">Managed<span style="display:block; font-size:19px; font-weight:700; color:rgba(255,255,255,0.7); margin-top:8px;">Dragonpass. What do we add?</span></p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#FF96FF; margin-top:9px;"></span>Real differentiation exists, contrary to the original "same platform, same products" assumption. Dragonpass runs its own multi-supplier orchestration, blending eSIM Go with direct MNO deals per market, an entitlement and redemption engine, and confirmed live whitelabel branding covering network name, SMS sender ID, install name and QR code. Assurant gets the same underlying supply, not the same integration depth, for free.</p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#FF96FF; margin-top:9px;"></span>Dragonpass already sits behind several other Likewize lifestyle products. What stops a partner going to them direct? Their orchestration and whitelabel layer is the answer if we can articulate it. Ben's read is that this risk is weak with banks, on the basis that NatWest gave the business to an existing partner precisely because that partner eased the route to market.</p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#FF96FF; margin-top:9px;"></span>We hold their D2C rate, £6.70 for Spain 5GB, not a wholesale rate. That implies a 90 to 120% markup over eSIM Go's own cost, so there is real room to negotiate below it.</p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#FF96FF; margin-top:9px;"></span>The Android journey still requires the Dragonpass app. Unresolved.</p>
     </div>
-    <div class="decision-col violet" style="padding:36px 40px;">
+    <div class="decision-col violet" style="padding:36px 40px; background:#2A1274; border:1.5px solid #8C79D6;">
       <div class="decision-icon">?</div>
-      <p class="decision-title">1Global synthetic: what stays with us?</p>
-      <p class="decision-item" style="font-size:18px;">1Global remains Telco of Record. Licensing, multi-country VAT registration and remittance, and the regulatory burden stay with them. This is the structure that keeps the economics without the obligations legal ruled out in July.</p>
-      <p class="decision-item" style="font-size:18px;">We set retail pricing freely and own the proposition end to end. Margin is retail less wholesale, plus breakage, and observed consumption runs at about 65% of purchased bundles.</p>
-      <p class="decision-item" style="font-size:18px;">We build the customer-facing product. 1Global supply the Connect API, not the UI. Purchase and management surface, QR distribution, self-service and support all sit with us.</p>
-      <p class="decision-item" style="font-size:18px;">Money flow is the trade. Customers pay through our gateway, we sweep to 1Global daily, and commission settles monthly against their consumption report.</p>
-      <p class="decision-item" style="font-size:18px;">The real constraint: under synthetic wholesale, reselling on to other banks is harder. A third party would need its own agreement with 1Global. This is what ties the route to the core decision on the next slide.</p>
+      <p class="decision-title" style="color:#FFFFFF;">Synthetic wholesale<span style="display:block; font-size:19px; font-weight:700; color:rgba(255,255,255,0.7); margin-top:8px;">1Global. What stays with us?</span></p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#B7A6FF; margin-top:9px;"></span>1Global remains Telco of Record. Licensing, multi-country VAT registration and remittance, and the regulatory burden stay with them. This is the structure that keeps the economics without the obligations legal ruled out in July.</p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#B7A6FF; margin-top:9px;"></span>We set retail pricing freely and own the proposition end to end. Margin is retail less wholesale, plus breakage, and observed consumption runs at about 65% of purchased bundles.</p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#B7A6FF; margin-top:9px;"></span>We build the customer-facing product. 1Global supply the Connect API, not the UI. Purchase and management surface, QR distribution, self-service and support all sit with us.</p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#B7A6FF; margin-top:9px;"></span>Money flow is the trade. Customers pay through our gateway, we sweep to 1Global daily, and commission settles monthly against their consumption report.</p>
+      <p class="decision-item dm-flex" style="font-size:18px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#B7A6FF; margin-top:9px;"></span>The real constraint: under synthetic wholesale, reselling on to other banks is harder. A third party would need its own agreement with 1Global. This is what ties the route to the core decision on the next slide.</p>
     </div>
   </div>
 </section>
@@ -768,16 +785,16 @@ body { margin: 0; background: #0B0B0D; }
   <div class="decision-cols" style="margin-top:28px;">
     <div class="decision-col pink" style="padding:38px 42px;">
       <p class="decision-title">Existing partners</p>
-      <p class="decision-item" style="font-size:20px;">Sell through the partners and touchpoints Likewize already holds.</p>
-      <p class="decision-item" style="font-size:20px;">Fits synthetic wholesale cleanly. We own the proposition and the pricing for our own book, and the resale constraint never binds.</p>
-      <p class="decision-item" style="font-size:20px;">Supported by Ben's read that disintermediation risk is weak with banks, since NatWest chose an existing partner for exactly that reason.</p>
-      <p class="decision-item" style="font-size:20px;">Anis has separately approached 1Global about selling Likewize services to them, which is a different thread that points the same way.</p>
+      <p class="decision-item dm-flex" style="font-size:20px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#FF96FF; margin-top:9px;"></span>Sell through the partners and touchpoints Likewize already holds.</p>
+      <p class="decision-item dm-flex" style="font-size:20px;"><span style="flex: 0 0 auto; width: 10px; height: 10px; border-radius: 999px; background: rgb(255, 150, 255); margin-top: 9px;"></span>Fits synthetic wholesale cleanly. We own the proposition and the pricing for our own book, and the resale constraint is less of a risk.</p>
+      <p class="decision-item dm-flex" style="font-size:20px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#FF96FF; margin-top:9px;"></span>Supported by Ben's read that disintermediation risk is weak with banks, since NatWest chose an existing partner for exactly that reason.</p>
+      <p class="decision-item dm-flex" style="font-size:20px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#FF96FF; margin-top:9px;"></span>Anis has separately approached 1Global about selling Likewize services to them, which is a different thread that points the same way.</p>
     </div>
     <div class="decision-col violet" style="padding:38px 42px;">
       <p class="decision-title">New prospects</p>
-      <p class="decision-item" style="font-size:20px;">Build an eSIM proposition Likewize can take to the open market under its own brand.</p>
-      <p class="decision-item" style="font-size:20px;">Needs real wholesale to work properly, which is the ruled-out Telco-of-Record model.</p>
-      <p class="decision-item" style="font-size:20px;">Under synthetic, every onward partner needs its own 1Global agreement, so the model does not scale the same way.</p>
+      <p class="decision-item dm-flex" style="font-size:20px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#B7A6FF; margin-top:9px;"></span>Build an eSIM proposition Likewize can take to the open market under its own brand.</p>
+      <p class="decision-item dm-flex" style="font-size:20px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#B7A6FF; margin-top:9px;"></span>Needs real wholesale to work properly, which is the ruled-out Telco-of-Record model.</p>
+      <p class="decision-item dm-flex" style="font-size:20px;"><span style="flex:none; width:10px; height:10px; border-radius:999px; background:#B7A6FF; margin-top:9px;"></span>Under synthetic, every onward partner needs its own 1Global agreement, so the model does not scale the same way.</p>
     </div>
   </div>
   <div style="margin-top:28px; background:#0B0B0D; color:#FFFFFF; border-radius:20px; padding:30px 44px;">
@@ -807,7 +824,8 @@ body { margin: 0; background: #0B0B0D; }
 
 <!-- 12 - NEXT STEPS -->
 <section class="lw-slide" data-label="Next steps" data-screen-label="12" style="background:#3200BE; color:#1B0A45; padding:104px 140px; justify-content:flex-start;">
-  <div class="lw-photo-bg pink"></div>
+  <div style="position:absolute; inset:0; background-image:url('./assets/images/hero-travel-balloons.jpeg'); background-size:cover; background-position:center;"></div>
+  <div style="position:absolute; inset:0; background-image:linear-gradient(100deg, rgba(255,150,255,0.95) 0%, rgba(255,150,255,0.88) 40%, rgba(255,150,255,0.55) 100%);"></div>
   <div class="lw-watermark">ESIM</div>
   <h2 style="position:relative; z-index:2; font-size:74px; font-weight:800; letter-spacing:-0.03em; margin:0 0 20px; color:#1B0A45;">Next steps</h2>
   <p style="position:relative; z-index:2; font-size:24px; color:#1B0A45; max-width:1400px; margin:0 0 10px;">Content agreed first, then the pack goes to Haydn ahead of a session in the week of 21 September.</p>
@@ -872,7 +890,7 @@ body { margin: 0; background: #0B0B0D; }
       <p class="vendor-item">Recommended-track model: 1Global as Telco of Record, Likewize as agent. They hold the licences and the VAT obligations.</p>
       <p class="vendor-item">Likewize collects customer funds and sweeps daily; commission settles monthly against their consumption report.</p>
       <p class="vendor-item">No quoted price difference between synthetic and real wholesale: same rates, provisioning fee and consumption basis.</p>
-      <p class="vendor-item">Deposit of roughly one month of traffic, minimum €20k, refundable.</p>
+      <p class="vendor-item">Prepayment balance model, confirmed in writing on 26 August: Likewize pre-funds a balance with 1Global, VAT and the €0.60 provisioning fee are deducted at the point of sale, data usage daily, with an alert at 75% drawn.</p>
       <p class="vendor-item">€0.60 one-time provisioning, one eSIM for life. Consumption billing on actual MB per country, with ~65% observed consumption, so breakage accrues to Likewize.</p>
       <p class="vendor-item">Reference points: 1Global's eSIM clients include Revolut, bunq and N26.</p>
     </div>
@@ -880,58 +898,37 @@ body { margin: 0; background: #0B0B0D; }
   <p class="vendor-assumptions"><b style="color:#232329;">Assumptions:</b> Currency: $1 = £0.76, €1 = £0.85. Likewize markup held constant across all routes at 20% + £0.04 platform fee (per the original NatWest proposal). 1Global's 65% consumption figure is their number, not independently verified.</p>
 </section>
 
-<!-- 5h - APPENDIX 2: WHOLESALE RESPONSIBILITIES -->
-<section class="lw-slide" data-label="Appendix 2: The ruled-out wholesale model" data-screen-label="15" style="background:#FAFAFB; color:#0B0B0D; padding:80px 140px 50px;">
-  <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">The ruled-out wholesale model, for reference</h2>
-  <p style="font-size:18px; line-height:1.5; color:#5C5C65; margin:0 0 18px; max-width:1600px;">This is the Likewize-as-Telco-of-Record scope that was ruled out in July, retained to show what the synthetic model avoids.</p>
-  <div class="vendor-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 16px; flex:1;">
-    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Commercial &amp; Regulatory Foundation</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Telco of Record: licences, ongoing regulatory reporting, multi-country VAT registration &amp; remittance</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Own end-customer payment collection, reconciliation &amp; chargebacks</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Prepay account credit &amp; spend-tier commitments ($25k/mo Silver, $100k/mo Gold)</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Own pricing &amp; usage risk directly</p>
+<!-- 5h - APPENDIX 2: WHAT RUNNING SYNTHETIC WHOLESALE TAKES -->
+<section class="lw-slide" data-label="Appendix 2: What running synthetic wholesale takes" data-screen-label="15" style="background:#FAFAFB; color:#0B0B0D; padding:80px 140px 50px;">
+  <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">What running synthetic wholesale takes</h2>
+  <p style="font-size:18px; line-height:1.5; color:#5C5C65; margin:0 0 20px; max-width:1600px;">Indicative day-to-day effort and cost under the 1Global synthetic model.</p>
+  <div class="vendor-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 18px; flex:1;">
+    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Customer support</p>
+      <p class="vendor-item" style="font-size:15px; line-height:1.5;">First line sits with Likewize. Device compatibility checks, activation problems, refunds and notifications. 1Global supply the API, not the support layer.</p>
     </div>
-    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Core Technical Integration</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">eSIM Go Management API + CallBack API (usage-threshold events: 1/50/80/100%)</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">API token/auth management, SDK integration</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Real-time bundle ordering &amp; eSIM lifecycle management (create, assign, top-up, revoke)</p>
+    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">New partner setup</p>
+      <p class="vendor-item" style="font-size:15px; line-height:1.5;">A single Likewize tenant covers multiple partners on one reconciliation, which is 1Global’s own recommendation. A partner wanting its own eSIM profile or SPN must be a separate tenant, which adds an implementation fee and a separate product catalogue, credentials and test and production environments for Likewize to manage. Only worth it at real scale, around 10m monthly app users.</p>
     </div>
-    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Customer-Facing Delivery</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Build the purchase/management surface ourselves, eSIM Go gives the API, not the UI</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">QR code distribution (email, WhatsApp, Messenger, Facebook)</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Self-service: usage tracking, top-up, status, support tickets</p>
+    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Integration</p>
+      <p class="vendor-item" style="font-size:15px; line-height:1.5;">1Global Connect API, plus the customer-facing surface built and funded by Likewize. Purchase and management, QR distribution and self-service all sit with us.</p>
     </div>
-    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Operational Support</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Device compatibility checks pre-purchase</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Refund policy &amp; automated bundle revocation</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Multi-channel notifications (email, push, SMS)</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">First-line support: installation, compatibility, refunds</p>
+    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center; background:#F5D2FA44; border-color:#C9A6D9;">
+      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Money flow</p>
+      <p class="vendor-item" style="font-size:15px; line-height:1.5;">Likewize pre-funds a balance with 1Global. VAT and the €0.60 provisioning fee are deducted at the point of sale, data usage daily, with an alert at 75% drawn. Monthly reconciliation, commission invoiced separately.</p>
     </div>
-    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Finance, Inventory &amp; Data Ops</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Bundle procurement &amp; inventory management (12-month shelf life, no pre-stock required)</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Catalogue/pricing management, kept current as eSIM Go updates rates</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Multi-user org admin, order/install history</p>
+    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Usage assumptions</p>
+      <p class="vendor-item" style="font-size:15px; line-height:1.5;">Consumption billing on actual MB per country. Observed consumption runs at about 65% of purchased bundles, so breakage is upside rather than a modelled certainty.</p>
     </div>
-    <div class="vendor-card" style="padding:20px 28px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:19px; margin-bottom:10px;">Business / Go-to-Market</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Define segments &amp; messaging (leisure/business/enterprise)</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Time acquisition to the 7–10 day pre-departure conversion window</p>
-      <p class="vendor-item" style="font-size:14px; line-height:1.4;">Build our own retention strategy, no rolling-top-up model comes with the platform</p>
+    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
+      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Ownership</p>
+      <p class="vendor-item" style="font-size:15px; line-height:1.5;">Retail pricing, catalogue, proposition and partner relationship all sit with Likewize. 1Global remain Telco of Record and carry licensing, multi-country VAT and the regulatory burden.</p>
     </div>
   </div>
-  <div style="margin-top:18px; background:#3200BE; color:#fff; border-radius:18px; padding:20px 34px;">
-    <p style="font-size:16px; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:#FF96FF; margin:0 0 10px;">Added scope, not baseline, the Dragonpass-parity gap</p>
-    <div style="display:flex; gap:32px; flex-wrap:wrap;">
-      <p style="font-size:15px; line-height:1.45; margin:0; flex:1; min-width:280px;"><b>Entitlement/redemption engine</b>, funded/subsidised allocation logic</p>
-      <p style="font-size:15px; line-height:1.45; margin:0; flex:1; min-width:280px;"><b>Multi-supplier orchestration</b>, the resilience and edge-market coverage eSIM Go alone doesn't give us</p>
-      <p style="font-size:15px; line-height:1.45; margin:0; flex:1; min-width:280px;"><b>Whitelabel branding depth</b> (network name, SMS sender ID), not confirmed as available on eSIM Go at all</p>
-    </div>
-  </div>
+  <p style="margin:18px 0 0; font-size:15px; line-height:1.5; color:#86868F;">This replaces the full wholesale responsibilities scope ruled out in July.</p>
 </section>
 
 <!-- 5i - APPENDIX 3: COMMERCIAL MODEL OPTIONS -->
@@ -1008,8 +1005,15 @@ body { margin: 0; background: #0B0B0D; }
   </div>
 </section>
 
+<!-- DIVIDER - Initiative output -->
+<section class="lw-slide" data-label="Initiative output" data-screen-label="18" style="background:#F5D2FA; color:#0B0B0D; padding:0 140px; justify-content:center; align-items:flex-start;">
+  <div class="divider-line"></div>
+  <h2 style="font-size:76px; font-weight:800; letter-spacing:-0.03em; margin:0 0 24px;">Initiative output</h2>
+  <p style="font-size:26px; color:#5C5C65; max-width:1100px; line-height:1.5; margin:0;">This initiative ran through a structured product workflow, start to finish. The following slides evidence each stage.</p>
+</section>
+
 <!-- 7 - HOW WE GOT HERE (stage names/labels/purposes fixed, only replace the Outcome text under each stage) -->
-<section class="lw-slide" data-label="How we got here" data-screen-label="18" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+<section class="lw-slide" data-label="How we got here" data-screen-label="19" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
   <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 18px;">Product lifecycle in action</h2>
   <div class="pipeline-strip">
     <div class="pipe-step"><div class="pipe-head"><div class="pipe-num">1</div><div class="pipe-name">Goals and Metrics</div></div><p class="pipe-field"><b>Purpose</b>Set the strategic frame and the target we're chasing.</p><p class="pipe-field"><b>Outcome</b>Skipped, investigating the route, not designing the end product yet.</p></div>
@@ -1023,7 +1027,7 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 8 - FRAMING (kicker/h2/blurb fixed, only replace the canvas-tree content below) -->
-<section class="lw-slide dark-slide" data-label="Framing" data-screen-label="19" style="padding:90px 140px 60px;">
+<section class="lw-slide dark-slide" data-label="Framing" data-screen-label="20" style="padding:90px 140px 60px;">
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Strategy Canvas</h2>
   <span class="phase-badge">Phase: Creation</span>
   <p class="strategy-blurb">A framework connecting company Vision to individual product decisions, narrowing at each layer: <b style="color:#fff;">Vision</b> is the destination the company is ultimately working toward; <b style="color:#fff;">Strategic Intent</b> is one of the 2–3 business goals chosen to get there; <b style="color:#fff;">Product Initiative</b> shows how this product area advances that intent; <b style="color:#fff;">Options</b> are the specific solutions on the table.</p>
@@ -1060,7 +1064,7 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 9 - GOALS & GUARDRAIL (kicker/h2/blurb fixed, only replace the lens tags and stat-row below) -->
-<section class="lw-slide gradient-slide" data-label="Goals and guardrail" data-screen-label="20" style="padding:90px 140px 60px;">
+<section class="lw-slide gradient-slide" data-label="Goals and guardrail" data-screen-label="21" style="padding:90px 140px 60px;">
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Goals &amp; Metrics</h2>
   <p class="strategy-blurb" style="color:rgba(255,255,255,0.85);">A <b style="color: rgb(255, 255, 255);">Goal</b> states the outcome, what success looks like; a <b style="color: rgb(255, 255, 255);">Metric</b> measures progress toward it. AARRR ("Pirate Metrics". Acquisition, Activation, Retention, Referral, Revenue) maps a customer journey to the right metric at each stage; HEART is the alternative, for iterating on an existing feature's quality and engagement. The <b>Guardrail </b>is a check on the goal, ensuring that there is no negative impact to improving the metric.</p>
   <div style="background:rgba(255,255,255,0.16); border:1.5px solid rgba(255,255,255,0.4); border-radius:16px; padding:20px 28px; margin-bottom:28px;">
@@ -1083,7 +1087,7 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 10 - WHO IT'S FOR (kicker/h2/blurb fixed, persona count can vary, 2 shown as default) -->
-<section class="lw-slide" data-label="Who it's for" data-screen-label="21" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+<section class="lw-slide" data-label="Who it's for" data-screen-label="22" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Empathising with Users</h2>
   <p class="strategy-blurb" style="color:#5C5C65; font-size:16px; margin:0 0 12px; max-width:1500px;">Personas and Empathy Maps put a face on who we're building for, not to invent detail for its own sake, but to force real focus on someone's context and concerns before designing a solution. A <b style="color:#3200BE;">Persona</b> captures who the person is; an <b style="color:#3200BE;">Empathy Map</b> digs into what they think, feel, say, and do in the moment that matters, surfacing the <b style="color:#3200BE;">Pain</b> that blocks them and the <b style="color:#3200BE;">Gain</b> that would actually convert them.</p>
   <p style="font-size:13px; color:#86868F; font-style:italic; margin:0 0 20px;">Both personas are hypothetical/generated research, no real customer interviews behind them yet.</p>
@@ -1108,7 +1112,7 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 11 - THE REAL PROBLEM (kicker/h2/blurb fixed, job-story count can vary, 3 shown as default) -->
-<section class="lw-slide" data-label="The real problem" data-screen-label="22" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+<section class="lw-slide" data-label="The real problem" data-screen-label="23" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Identifying the Problem</h2>
   <p class="strategy-blurb" style="color:#5C5C65; font-size:16px; margin:0 0 18px; max-width:1500px;">Job Stories (Jobs to Be Done) reframe a feature ask as the real underlying need, not "add a checkout toggle" but the actual problem it solves. Once problems are named, the Opportunity quadrant scores each one on <b style="color:#3200BE;">Customer Signal</b> (how strong the problem is for users) against <b style="color:#3200BE;">Business Alignment</b> (how much solving it advances the goal), only the top-right corner is safe to build without question.</p>
   <div class="problem-row">
@@ -1149,7 +1153,7 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 12 - DE-RISKING (PROBLEM EXPLORATION) (kicker/h2/blurb fixed, experiment count can vary, 3 shown as default) -->
-<section class="lw-slide dark-slide" data-label="Problem Exploration" data-screen-label="23" style="padding:90px 140px 60px;">
+<section class="lw-slide dark-slide" data-label="Problem Exploration" data-screen-label="24" style="padding:90px 140px 60px;">
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Problem Exploration</h2>
   <p class="strategy-blurb">Before committing to a solution, Problem-Solution Fit experiments test two questions: do customers actually have this problem, and can it be solved? A <b style="color:#fff;">Concierge experiment</b> delivers the value manually, no real product, to learn fast and cheap before writing code.</p>
   <p style="font-size:16px; line-height:1.5; color:rgba(255,255,255,0.72); max-width:1450px; margin:0 0 26px;"><b style="color: rgb(255, 150, 255);">Skipped, deliberately.</b>&nbsp;The High/High prioritization already confirms the problem is real and the opportunity exists; a Concierge-style experiment is impractical at this route-to-market decision stage; and this kind of test belongs later, once delivery mechanics are actually being designed.</p>
@@ -1163,7 +1167,7 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 13 - DE-RISKING (SOLUTION EXPLORATION) (kicker/h2/blurb fixed, assumption-chip count can vary, 3 shown as default) -->
-<section class="lw-slide dark-slide" data-label="Solution Exploration" data-screen-label="24" style="padding:90px 140px 60px;">
+<section class="lw-slide dark-slide" data-label="Solution Exploration" data-screen-label="25" style="padding:90px 140px 60px;">
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Solution Exploration</h2>
   <p class="strategy-blurb">Once a solution idea exists, break it into its assumptions and find the <b style="color:#fff;">Riskiest Assumption</b>, the one most essential to success but least understood, then design a cheap experiment to test it before building, rather than assuming it's true.</p>
   <div class="assumption-row">
@@ -1211,7 +1215,7 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 14 - THE SOLUTION (STORY MAP) (kicker/h2/blurb fixed, theme count can vary, 5 shown as default, matching the source deck) -->
-<section class="lw-slide" data-label="The solution - story map" data-screen-label="25" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+<section class="lw-slide" data-label="The solution - story map" data-screen-label="26" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px;">Story Mapping &amp; Minimum Feature Set</h2>
   <p class="strategy-blurb" style="color:#5C5C65; font-size:16px; margin:0 0 10px; max-width:1500px;">Story Mapping breaks the user's journey into themes (the backbone) and the tasks under each, ranked by <b style="color:#3200BE;">Cost of Delay</b>, how much value is lost by not shipping something sooner. The <b style="color:#3200BE;">Minimum Feature Set</b> line marks the first release: the smallest genuinely useful slice, not a cut-down or buggy one.</p>
   <p style="font-size:15px; color:#86868F; margin:0 0 20px; max-width:1500px;"><b style="color:#232329;">User, goal, context:</b> An eSIM traveller (Dan or Meera) sorting mobile data before or during an international trip, so connectivity is one less thing to worry about.</p>
@@ -1260,7 +1264,7 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 15 - THE SOLUTION (WIREFRAMES), bespoke per initiative, no fixed content beyond the wf-* CSS classes above -->
-<section class="lw-slide" data-label="The solution - wireframes" data-screen-label="26" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
+<section class="lw-slide" data-label="The solution - wireframes" data-screen-label="27" style="background:#FFFFFF; color:#0B0B0D; padding:90px 140px 60px;">
   <h2 style="font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">Wireframes, deliberately skipped</h2>
   <div class="variant-row">
     <div class="variant-card" style="flex:none; width:100%;">
@@ -1272,8 +1276,9 @@ body { margin: 0; background: #0B0B0D; }
 </section>
 
 <!-- 16 - ROADMAP (kicker/h2/blurb fixed. Kano list item counts can vary, matching the source deck's default of 5 Basic / 2 Performance) -->
-<section class="lw-slide" data-label="Roadmap" data-screen-label="27" style="background:#3200BE; color:#FFFFFF; padding:90px 140px 60px;">
-  <div class="lw-photo-bg"></div>
+<section class="lw-slide" data-label="Roadmap" data-screen-label="28" style="background:#3200BE; color:#FFFFFF; padding:90px 140px 60px;">
+  <div style="position:absolute; inset:0; background-image:url('./assets/images/hero-travel-balloons.jpeg'); background-size:cover; background-position:center;"></div>
+  <div style="position:absolute; inset:0; background-image:linear-gradient(100deg, rgba(50,0,190,0.95) 0%, rgba(50,0,190,0.88) 40%, rgba(50,0,190,0.55) 100%);"></div>
   <h2 style="position:relative; z-index:2; font-size:44px; font-weight:800; letter-spacing:-0.03em; margin:0 0 14px; color:#fff;">Roadmap Entry</h2>
   <p class="strategy-blurb" style="position:relative; z-index:2; margin:0 0 22px;">A Roadmap Entry is a compact three-field summary, <b style="color:#fff;">Outcomes</b>, <b style="color:#fff;">Status</b>, <b style="color:#fff;">Priority</b>, sitting on top of a Kano classification of the Minimum Feature Set: <b style="color:#fff;">Basic Needs</b> are mandatory, <b style="color:#fff;">Performance Needs</b> get a satisfactory (not maximal) level, and <b style="color:#fff;">Delighters</b> are added only once the basics already work.</p>
   <div class="roadmap-card" style="position:relative; z-index:2;">
