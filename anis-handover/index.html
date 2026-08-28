@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Handover · Anis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#23202B;
+    --surface:#2C2836;
+    --frame:#35303F;
+    --ink:#DCD6E4;
+    --grey:#A9A2B8;
+    --pink:#FF96FF;
+    --blue-lift:#4A18E6;
+    --frost:#C8FAFA;
+    --hair:rgba(255,150,255,0.15);
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:Manrope, Arial, sans-serif;
+    color:var(--ink);
+    background-color:var(--bg);
+    background-image:
+      radial-gradient(760px 380px at 12% 14%, rgba(255,150,255,0.22), transparent 70%),
+      radial-gradient(720px 400px at 88% 30%, rgba(74,24,230,0.50), transparent 70%);
+    background-repeat:no-repeat;
+    background-size:100% 900px;
+    background-position:top center;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ position:relative; padding:64px 32px 96px; }
+  .wrap{ max-width:1120px; margin:0 auto; position:relative; }
+  .eyebrow{
+    display:flex; align-items:center; gap:12px;
+    color:var(--pink); font-size:11px; text-transform:uppercase;
+    letter-spacing:.18em; font-weight:800; margin-bottom:16px;
+  }
+  .eyebrow::after{ content:""; height:1px; flex:1; background:linear-gradient(90deg,var(--hair),transparent); }
+  h1{
+    margin:0; font-family:"Bricolage Grotesque", Arial, sans-serif; font-weight:800;
+    font-size:clamp(32px,8vw,76px); line-height:1; letter-spacing:-.035em;
+    white-space:nowrap;
+  }
+  h1 em{ font-style:normal; color:var(--pink); }
+
+  .tally{
+    display:inline-flex; align-items:center; gap:14px; margin-top:30px;
+    background:var(--pink); color:#000; border-radius:999px;
+    padding:12px 24px 12px 14px; font-weight:800; font-size:15px;
+  }
+  .tally b{
+    font-family:"Bricolage Grotesque", Arial, sans-serif;
+    display:grid; place-items:center; width:34px; height:34px;
+    border-radius:50%; background:#000; color:var(--pink); font-size:18px;
+  }
+
+  /* ---------- level 1 grid ---------- */
+  .board{
+    max-width:1120px; margin:-56px auto 0; padding:0 32px 110px; position:relative;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:start;
+  }
+
+  .tile{
+    border:2px solid transparent; border-radius:22px; overflow:hidden;
+    background:var(--surface);
+    transition:border-color .25s, transform .25s, box-shadow .25s;
+  }
+
+  .face{
+    appearance:none; font-family:inherit; text-align:left; cursor:pointer;
+    border:0; background:none; color:inherit; width:100%;
+    display:grid; gap:14px; padding:28px 26px 26px;
+    min-height:250px; grid-template-rows:1fr auto auto;
+  }
+  .face:focus-visible{ outline:3px solid var(--frost); outline-offset:-6px; border-radius:18px; }
+  .face .glyph{ align-self:center; justify-self:start; }
+  .face .glyph svg{ width:96px; height:96px; display:block; }
+  .face h2{
+    margin:0; font-family:"Bricolage Grotesque", Arial, sans-serif;
+    font-size:26px; font-weight:800; letter-spacing:-.02em; line-height:1.05;
+  }
+  .chip{
+    justify-self:start; font-size:11px; font-weight:800;
+    text-transform:uppercase; letter-spacing:.14em;
+    padding:7px 13px; border-radius:999px; white-space:nowrap;
+  }
+
+  .tile.act{ background:var(--pink); color:#000; }
+  .tile.act .face .glyph svg{ stroke:#000; }
+  .tile.act .face .chip{ background:#000; color:var(--pink); animation:beat 2.6s ease-in-out infinite; }
+  .tile.act:hover{ transform:translateY(-5px); box-shadow:0 20px 40px rgba(0,0,0,0.45); }
+  @keyframes beat{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.07); }
+  }
+
+  .tile.fyi{ background:var(--blue-lift); border-color:var(--blue-lift); color:#fff; }
+  .tile.fyi .face .glyph svg{ stroke:#fff; }
+  .tile.fyi .face .chip{ background:rgba(255,255,255,0.18); color:#fff; }
+  .tile.fyi:hover{ transform:translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,0.45); }
+
+  .tile.open{ grid-column:1 / -1; transform:none !important; }
+  .tile.open .face{
+    grid-template-rows:none; grid-template-columns:auto 1fr auto;
+    align-items:center; min-height:0; gap:22px; padding:22px 26px;
+    border-bottom:2px solid rgba(0,0,0,0.14);
+  }
+  .tile.open.fyi .face{ border-bottom-color:rgba(255,255,255,0.22); }
+  .tile.open .face .glyph svg{ width:52px; height:52px; }
+  .tile.open .face .chip{ animation:none; }
+  .tile .body{ display:none; }
+  .tile.open .body{ display:block; }
+
+  .body{ background:var(--bg); padding:26px 26px 30px; }
+  .tile.open.act .body{ background:#1D1A24; }
+
+  /* ---------- level 2 grid ---------- */
+  .subs{
+    display:grid; gap:12px; align-items:stretch;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+  }
+
+  .strand{
+    border:2px solid var(--blue-lift); border-radius:16px; overflow:hidden;
+    background:var(--blue-lift); color:#fff; height:100%;
+    transition:border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .sub{
+    appearance:none; font-family:inherit; text-align:left; cursor:pointer;
+    border:0; background:none; color:inherit; width:100%; height:100%;
+    display:grid; gap:12px; padding:22px; min-height:164px;
+    grid-template-columns:1fr auto; grid-template-rows:auto 1fr auto;
+  }
+  .sub:focus-visible{ outline:3px solid var(--frost); outline-offset:-6px; border-radius:12px; }
+  .sub .mark{ grid-column:1; grid-row:1; display:block; }
+  .sub .mark svg{ width:44px; height:44px; stroke:#fff; display:block; }
+  .sub h3{
+    grid-column:1 / -1; grid-row:2; align-self:end; margin:0;
+    font-family:"Bricolage Grotesque", Arial, sans-serif;
+    font-size:19px; font-weight:800; letter-spacing:-.015em; line-height:1.15;
+    text-wrap:balance;
+  }
+  .sub .chip{
+    grid-column:1; grid-row:3; align-self:end;
+    font-size:10px; padding:6px 11px; background:rgba(255,255,255,0.18); color:#fff;
+  }
+  .sub .go{ grid-column:2; grid-row:3; justify-self:end; align-self:end; }
+  .sub .go svg{ width:22px; height:22px; stroke:#fff; display:block; }
+
+  /* strand that carries an ask: same language as a level-1 pink tile */
+  .strand.has{ background:var(--pink); border-color:var(--pink); color:#000; }
+  .strand.has .sub .mark svg,
+  .strand.has .sub .go svg{ stroke:#000; }
+  .strand.has .sub .chip{ background:#000; color:var(--pink); }
+  .strand.has:hover{ transform:translateY(-3px); box-shadow:0 14px 28px rgba(0,0,0,0.45); }
+  .strand:not(.has):hover{ transform:translateY(-3px); box-shadow:0 14px 28px rgba(0,0,0,0.45); }
+
+  .strand.open{ grid-column:1 / -1; transform:none !important; }
+  .strand.open .sub{
+    grid-template-columns:auto 1fr auto; grid-template-rows:auto;
+    height:auto;
+    align-items:center; min-height:0; gap:16px; padding:16px 20px;
+    border-bottom:1px solid rgba(255,255,255,0.22);
+  }
+  .strand.open.has .sub{ border-bottom-color:rgba(0,0,0,0.18); }
+  .strand.open .sub .mark{ grid-column:1; grid-row:1; }
+  .strand.open .sub .mark svg{ width:26px; height:26px; }
+  .strand.open .sub h3{ grid-column:2; grid-row:1; align-self:center; }
+  .strand.open .sub .chip{ grid-column:3; grid-row:1; align-self:center; }
+  .strand.open .sub .go{ display:none; }
+  .strand .detail{ display:none; }
+  .strand.open .detail{ display:block; padding:24px 20px 26px; background:var(--bg); }
+  .tile.open.act .strand.open .detail{ background:#1D1A24; }
+
+  /* ---------- stats ---------- */
+  .stats{ display:flex; flex-wrap:wrap; gap:10px; margin:0 0 22px; }
+  .stat{
+    border:1px solid var(--frame); border-radius:14px; padding:12px 16px;
+    background:var(--surface); min-width:118px;
+  }
+  .stat .n{
+    display:block; font-family:"Bricolage Grotesque", Arial, sans-serif;
+    font-size:24px; font-weight:800; letter-spacing:-.02em; color:var(--frost);
+    line-height:1.1;
+  }
+  .stat .l{
+    display:block; margin-top:5px; font-size:10px; font-weight:800;
+    text-transform:uppercase; letter-spacing:.12em; color:var(--grey);
+  }
+
+  /* ---------- bullets ---------- */
+  .pts{ list-style:none; margin:0; padding:0; }
+  .pts li{
+    position:relative; padding-left:22px; margin:0 0 12px;
+    font-size:15.5px; line-height:1.55; max-width:76ch; color:var(--ink);
+  }
+  .pts li:last-child{ margin-bottom:0; }
+  .pts li::before{
+    content:""; position:absolute; left:0; top:.62em;
+    width:11px; height:2px; border-radius:2px; background:var(--pink);
+  }
+  .tile.fyi .pts li::before{ background:var(--frost); }
+
+  /* ---------- over to you ---------- */
+  .yours{
+    margin-top:24px; border-radius:16px; padding:22px 24px;
+    background:var(--pink); color:#000;
+  }
+  .yours .hd{
+    display:flex; align-items:center; gap:10px; margin-bottom:16px;
+    font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.16em;
+  }
+  .yours .hd svg{ width:18px; height:18px; stroke:#000; }
+  .ask{ display:flex; gap:14px; align-items:flex-start; }
+  .ask + .ask{ margin-top:16px; padding-top:16px; border-top:2px solid rgba(0,0,0,0.14); }
+  .ask .num{
+    flex:none; display:grid; place-items:center; width:28px; height:28px;
+    border-radius:50%; background:#000; color:var(--pink);
+    font-family:"Bricolage Grotesque", Arial, sans-serif; font-weight:800; font-size:14px;
+  }
+  .ask .txt{ font-size:16px; line-height:1.55; font-weight:600; }
+  .ask .when{
+    display:inline-block; margin-top:8px; font-size:11px; font-weight:800;
+    text-transform:uppercase; letter-spacing:.12em;
+    background:#000; color:var(--pink); padding:4px 10px; border-radius:999px;
+  }
+
+  .nothing{
+    margin-top:24px; border:1px dashed var(--frame); border-radius:16px;
+    padding:16px 20px; color:var(--ink); font-size:14px; font-weight:600;
+    display:flex; align-items:center; gap:12px;
+  }
+  .nothing svg{ width:18px; height:18px; stroke:var(--frost); flex:none; }
+
+  .shut{
+    margin-top:22px; appearance:none; font-family:inherit; cursor:pointer;
+    background:none; border:1px solid var(--frame); color:var(--grey);
+    border-radius:999px; padding:9px 18px; font-size:11px; font-weight:800;
+    text-transform:uppercase; letter-spacing:.14em;
+  }
+  .shut:hover{ border-color:var(--pink); color:var(--pink); }
+  .body > .shut{ margin-top:20px; }
+
+  footer{
+    max-width:1120px; margin:0 auto; padding:0 32px 70px;
+    font-variant:small-caps; letter-spacing:.06em;
+    color:var(--grey); font-size:13px;
+  }
+
+  @media (max-width:900px){ .board{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:620px){
+    .hero{ padding:44px 20px 80px; }
+    h1{ font-size:clamp(26px,8.4vw,40px); }
+    .board{ grid-template-columns:1fr; padding:0 20px 80px; gap:14px; }
+    .face{ min-height:200px; }
+    .face .glyph svg{ width:74px; height:74px; }
+    .body{ padding:20px 18px 24px; }
+    .subs{ grid-template-columns:1fr; }
+    footer{ padding:0 20px 60px; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; transition:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Handover · Friday 28 August 2026</div>
+    <h1>Here's <em>everything</em>.</h1>
+    <div class="tally"><b>5</b> things need you next week</div>
+  </div>
+</div>
+
+<div class="board" id="board">
+
+  <!-- ============================= TICKETS ============================= -->
+  <div class="tile act">
+    <button class="face" aria-expanded="false" data-tile>
+      <span class="glyph">
+        <svg viewBox="0 0 48 48" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 17a4 4 0 0 0 0 14v6a2 2 0 0 0 2 2h32a2 2 0 0 0 2-2v-6a4 4 0 0 1 0-14v-6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2z"/>
+          <path d="M24 13v4M24 22v4M24 31v4"/>
+        </svg>
+      </span>
+      <h2>Tickets</h2>
+      <span class="chip">3 for you</span>
+    </button>
+    <div class="body">
+      <div class="subs">
+
+        <div class="strand has">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 7v6c0 5 3.8 8.4 9 9 5.2-.6 9-4 9-9V7z"/></svg></span>
+            <h3>Tixstock US entity (seller of record)</h3>
+            <span class="chip">1 for you</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <div class="stats">
+              <span class="stat"><span class="n">11 Sep</span><span class="l">Steven back</span></span>
+              <span class="stat"><span class="n">US only</span><span class="l">Tixstock's answer</span></span>
+            </div>
+            <ul class="pts">
+              <li>Tixstock will only give us a US entity as seller of record. Firm, no UK or European option.</li>
+              <li>Marbrow expects it to be a shell. Naming it puts seller liability back on us with nothing behind it.</li>
+              <li>Agreed step is TPRM due diligence on the entity. I am triggering it today and asking Tixstock for the contact and postal address.</li>
+              <li>Nothing is approved until Steven is back on 11 September. Marbrow will not clear it before then.</li>
+            </ul>
+            <div class="yours">
+              <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M6 11l6 6 6-6"/></svg>Over to you</div>
+              <div class="ask">
+                <span class="num">1</span>
+                <span class="txt">Marbrow has emailed you. He wants your view on the overall approach, not a sign-off.</span>
+              </div>
+            </div>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+
+        <div class="strand has">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+            <h3>Santander tickets opportunity</h3>
+            <span class="chip">2 for you</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <div class="stats">
+              <span class="stat"><span class="n">8p</span><span class="l">Platform fee</span></span>
+              <span class="stat"><span class="n">6.5p</span><span class="l">Floor to present</span></span>
+              <span class="stat"><span class="n">£1.1m</span><span class="l">3yr revenue</span></span>
+              <span class="stat"><span class="n">£542k</span><span class="l">3yr gross profit</span></span>
+            </div>
+            <ul class="pts">
+              <li>Broker and inventory-source response drafted for Lisa Stewart and shared with Adam Slater.</li>
+              <li>Ali has finished the model. Santander-facing view is an 8p platform fee on a 300k base, c.£886k over three years, with 5% commission back to them covering c.£486k of it.</li>
+              <li>Internally he runs lower conversion, giving c.£1.1m Likewize revenue and c.£542k gross profit over three years, mostly from the platform fee rather than ticket sales.</li>
+              <li>Breakeven is c.5p, so 6.5p is the floor to present. All indicative pending Finance and Business approval.</li>
+              <li>Two risk-share options to test: a £150k marketing fund conditional on marketing permission, or a conversion floor refunding 1.5p per customer per month below 1%.</li>
+              <li>Ali reviews with Georgie Culkin on Tuesday 1 September, then Investco.</li>
+              <li>Marbrow requires the case to be caveated as not signed off by legal or compliance, on the US entity. He is briefing Ali.</li>
+            </ul>
+            <div class="yours">
+              <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M6 11l6 6 6-6"/></svg>Over to you</div>
+              <div class="ask">
+                <span class="num">1</span>
+                <span class="txt">Only decision next week is whether Santander still goes to Investco on this basis.<span class="when">Tue 1 Sep</span></span>
+              </div>
+              <div class="ask">
+                <span class="num">2</span>
+                <span class="txt">Still owed: Chris Evans' portal estimate, which replaces the £30k placeholder. He will share it with you when ready (may require chasing.)</span>
+              </div>
+            </div>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+
+        <div class="strand">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 0 0 6 .5l2.5-2.5a4.2 4.2 0 0 0-6-6L11 7"/><path d="M14 10.5a4 4 0 0 0-6-.5L5.5 12.5a4.2 4.2 0 0 0 6 6L13 17"/></svg></span>
+            <h3>Tixstock reference in Kanopi URL</h3>
+            <span class="chip">Read only</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <ul class="pts">
+              <li>Tixstock have confirmed the URL reference has to be removed. It is a strict red line.</li>
+              <li>Told Nigel Fellowes-Freeman that Kanopi either find a way to mask it, or apply the full name change.</li>
+              <li>Ball is with Kanopi. Nothing for you to do next week.</li>
+            </ul>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+
+      </div>
+      <button class="shut" data-shut>Close Tickets</button>
+    </div>
+  </div>
+
+  <!-- ============================= eSIM ============================= -->
+  <div class="tile act">
+    <button class="face" aria-expanded="false" data-tile>
+      <span class="glyph">
+        <svg viewBox="0 0 48 48" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 7h18l8 8v26a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/>
+          <rect x="17" y="21" width="14" height="12" rx="2"/>
+          <path d="M17 26h14M24 21v12"/>
+        </svg>
+      </span>
+      <h2>eSIM</h2>
+      <span class="chip">1 for you</span>
+    </button>
+    <div class="body">
+      <div class="subs">
+        <div class="strand has">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h6"/></svg></span>
+            <h3>Haydn proposal pack</h3>
+            <span class="chip">1 for you</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <ul class="pts">
+              <li>Restructure done. Post-call revision prompt written and ready to run.</li>
+              <li>BT Wholesale sits in the option set only, until pricing and the contractual chain are resolved.</li>
+              <li>Next week: Ben progresses the BT NDA and pricing. I integrate it and re-review on return.</li>
+            </ul>
+            <div class="yours">
+              <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M6 11l6 6 6-6"/></svg>Over to you</div>
+              <div class="ask">
+                <span class="num">1</span>
+                <span class="txt">Next week: opportunity sizing.</span>
+              </div>
+            </div>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+      </div>
+      <button class="shut" data-shut>Close eSIM</button>
+    </div>
+  </div>
+
+  <!-- ============================= PINK CLUB ============================= -->
+  <div class="tile act">
+    <button class="face" aria-expanded="false" data-tile>
+      <span class="glyph">
+        <svg viewBox="0 0 48 48" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="13" y="4" width="22" height="40" rx="4"/>
+          <path d="M24 17.5c2-3.4 7-2.6 7 1.4 0 3.6-4.8 6.4-7 8.1-2.2-1.7-7-4.5-7-8.1 0-4 5-4.8 7-1.4z"/>
+          <path d="M21 38h6"/>
+        </svg>
+      </span>
+      <h2>Pink Club</h2>
+      <span class="chip">1 for you</span>
+    </button>
+    <div class="body">
+      <div class="subs">
+        <div class="strand has">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <h3>giffgaff</h3>
+            <span class="chip">1 for you</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <div class="stats">
+              <span class="stat"><span class="n">70%</span><span class="l">Value locked</span></span>
+              <span class="stat"><span class="n">2 yrs</span><span class="l">Guaranteed</span></span>
+              <span class="stat"><span class="n">4/yr</span><span class="l">Health checks</span></span>
+              <span class="stat"><span class="n">£50</span><span class="l">Screen repair</span></span>
+            </div>
+            <ul class="pts">
+              <li>Plan is a bundle: health check at registration sets a recycle value, locked at 70% and guaranteed two years.</li>
+              <li>Four health checks a year thereafter, with £50 screen repair, free battery, other repairs discounted.</li>
+              <li>Separate content strand running. Speedperform publishing landed well, member comms director call on Thursday.</li>
+              <li>Entry point (app vs web) still open, which is what sizes the build. Mark pushing for a full journey workshop, and asking for customer info (e.g., user personas).</li>
+            </ul>
+            <div class="yours">
+              <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M6 11l6 6 6-6"/></svg>Over to you</div>
+              <div class="ask">
+                <span class="num">1</span>
+                <span class="txt">Whether the Formula E event feedback goes via Nicholas May.</span>
+              </div>
+            </div>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+      </div>
+      <button class="shut" data-shut>Close Pink Club</button>
+    </div>
+  </div>
+
+  <!-- ============================= MARKET OVERVIEW ============================= -->
+  <div class="tile fyi">
+    <button class="face" aria-expanded="false" data-tile>
+      <span class="glyph">
+        <svg viewBox="0 0 48 48" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="18"/>
+          <circle cx="24" cy="24" r="10"/>
+          <circle cx="24" cy="24" r="2.5"/>
+          <path d="M24 6v6M24 36v6M6 24h6M36 24h6"/>
+        </svg>
+      </span>
+      <h2>Market Overview</h2>
+      <span class="chip">Read only</span>
+    </button>
+    <div class="body">
+      <div class="subs">
+
+        <div class="strand">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v13H13l-4 3v-3H4z"/></svg></span>
+            <h3>Site rollout</h3>
+            <span class="chip">Read only</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <div class="stats">
+              <span class="stat"><span class="n">Mon</span><span class="l">SLT</span></span>
+              <span class="stat"><span class="n">Tue</span><span class="l">Sales teams</span></span>
+              <span class="stat"><span class="n">1</span><span class="l">Correction, closed</span></span>
+            </div>
+            <ul class="pts">
+              <li>Introduced to SLT on Monday, link shared and access opened. Shared with the sales teams on Tuesday.</li>
+              <li>First real user feedback in: Charlotte Cobley corrected the Barclays product matrix. Fixed and closed same day.</li>
+              <li>Barclays also run a hidden trade-in service for Tech Pack customers. Held off the site until their contract allows it to be marketed.</li>
+              <li>Content this week: trade-in coverage rebuilt with journey and settlement split out, plus CeX, Mazuma and WeBuyAnyPhone added and the UK and European trade-in rows re-verified.</li>
+            </ul>
+            <div class="nothing">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+              Nothing needed from you. Feedback keeps coming in through the site.
+            </div>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+
+        <div class="strand">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M12 12v6"/><circle cx="12" cy="20" r="1.6"/></svg></span>
+            <h3>Digital Care coverage</h3>
+            <span class="chip">Read only</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <div class="stats">
+              <span class="stat"><span class="n">4-5</span><span class="l">Companies, first cut</span></span>
+              <span class="stat"><span class="n">~1 mth</span><span class="l">Wider output</span></span>
+            </div>
+            <ul class="pts">
+              <li>Kicked off with Jeppe. First cut is the four or five global companies matching our core Digital Care offer.</li>
+              <li>Jeppe sending a competitor shortlist, example implementations and comparison fields towards the end of next week.</li>
+              <li>His wider Digital Care workstream output, including external research, lands in about a month. Will feed into market overview.</li>
+            </ul>
+            <div class="nothing">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+              Nothing to do unless Jeppe's pack slips.
+            </div>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+
+      </div>
+      <button class="shut" data-shut>Close Market Overview</button>
+    </div>
+  </div>
+
+  <!-- ============================= CIRCULATORY ============================= -->
+  <div class="tile fyi">
+    <button class="face" aria-expanded="false" data-tile>
+      <span class="glyph">
+        <svg viewBox="0 0 48 48" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 10.5h13.5a8 8 0 0 1 7 11.8"/>
+          <path d="M33 37.5H19.5a8 8 0 0 1-7-11.8"/>
+          <path d="M19.5 5.5 14 10.5l5.5 5M28.5 42.5l5.5-5-5.5-5"/>
+        </svg>
+      </span>
+      <h2>Circulatory</h2>
+      <span class="chip">Read only</span>
+    </button>
+    <div class="body">
+      <div class="subs">
+        <div class="strand">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
+            <h3>Dawson Andrews</h3>
+            <span class="chip">Read only</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <div class="stats">
+              <span class="stat"><span class="n">£110k</span><span class="l">Build</span></span>
+              <span class="stat"><span class="n">£6,250</span><span class="l">Monthly</span></span>
+              <span class="stat"><span class="n">£30k+</span><span class="l">Trade-in</span></span>
+              <span class="stat"><span class="n">7 Sep</span><span class="l">Workshop</span></span>
+            </div>
+            <ul class="pts">
+              <li>Indicative cost is £110k build plus £6,250 monthly, with integrated trade-in from £30k on top.</li>
+              <li>Scope agreed as smartphones and tablets only for launch.</li>
+              <li>Open questions are out with DA. Ross has accepted his; Andy Smith and Calvin Burkinshaw need chasing on 1 September (Ross picking this up).</li>
+              <li>Business case and the trade-in API brief both still to be built. Neither is date-critical.</li>
+              <li>Workshop planned for Sep 7.</li>
+            </ul>
+            <div class="nothing">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+              Nothing for you next week. Ross is covering the chase.
+            </div>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+      </div>
+      <button class="shut" data-shut>Close Circulatory</button>
+    </div>
+  </div>
+
+  <!-- ============================= MVNO ============================= -->
+  <div class="tile fyi">
+    <button class="face" aria-expanded="false" data-tile>
+      <span class="glyph">
+        <svg viewBox="0 0 48 48" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 38V26M19 38V19M28 38V12M37 38V6"/>
+          <path d="M6 43h36"/>
+        </svg>
+      </span>
+      <h2>MVNO</h2>
+      <span class="chip">Read only</span>
+    </button>
+    <div class="body">
+      <div class="subs">
+        <div class="strand">
+          <button class="sub" aria-expanded="false" data-sub>
+            <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span>
+            <h3>Offsite preparation</h3>
+            <span class="chip">Read only</span>
+            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <div class="detail">
+            <div class="stats">
+              <span class="stat"><span class="n">4</span><span class="l">Enablers checked</span></span>
+              <span class="stat"><span class="n">0</span><span class="l">With a device offer</span></span>
+              <span class="stat"><span class="n">21 Sep</span><span class="l">Material due</span></span>
+            </div>
+            <ul class="pts">
+              <li>Enabler pass complete. Gigs, Plintron, Effortel and 1GLOBAL carry no public device-service offer, so the MVNE route means creating a category rather than joining a shelf.</li>
+              <li>AKKO supports a strategic conversation, not an acquisition recommendation.</li>
+              <li>Material due 21 September, a week before the offsite. Nothing is date-critical next week.</li>
+            </ul>
+            <div class="nothing">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+              Nothing for you next week.
+            </div>
+            <button class="shut" data-back>Back</button>
+          </div>
+        </div>
+      </div>
+      <button class="shut" data-shut>Close MVNO</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>Rich Boulton · Handover for Anis Tahir · 28 August 2026 · Internal</footer>
+
+<script>
+(function(){
+  var faces  = [].slice.call(document.querySelectorAll('[data-tile]'));
+  var subs   = [].slice.call(document.querySelectorAll('[data-sub]'));
+
+  function closeSub(sub){
+    sub.parentElement.classList.remove('open');
+    sub.setAttribute('aria-expanded','false');
+  }
+  function closeTile(face){
+    var tile = face.parentElement;
+    tile.classList.remove('open');
+    face.setAttribute('aria-expanded','false');
+    [].forEach.call(tile.querySelectorAll('[data-sub]'), closeSub);
+  }
+  function scrollTo(el){
+    window.requestAnimationFrame(function(){
+      var y = el.getBoundingClientRect().top + window.pageYOffset - 20;
+      window.scrollTo({ top:y, behavior:'smooth' });
+    });
+  }
+
+  faces.forEach(function(face){
+    face.addEventListener('click', function(){
+      var tile = face.parentElement;
+      if (tile.classList.contains('open')) { closeTile(face); return; }
+      faces.forEach(closeTile);
+      tile.classList.add('open');
+      face.setAttribute('aria-expanded','true');
+      scrollTo(tile);
+    });
+  });
+
+  subs.forEach(function(sub){
+    sub.addEventListener('click', function(){
+      var strand = sub.parentElement;
+      if (strand.classList.contains('open')) { closeSub(sub); return; }
+      [].forEach.call(strand.closest('.subs').querySelectorAll('[data-sub]'), closeSub);
+      strand.classList.add('open');
+      sub.setAttribute('aria-expanded','true');
+      scrollTo(strand);
+    });
+  });
+
+  [].forEach.call(document.querySelectorAll('[data-back]'), function(btn){
+    btn.addEventListener('click', function(){
+      var sub = btn.closest('.strand').querySelector('[data-sub]');
+      closeSub(sub);
+      sub.focus();
+    });
+  });
+
+  [].forEach.call(document.querySelectorAll('[data-shut]'), function(btn){
+    btn.addEventListener('click', function(){
+      var face = btn.closest('.tile').querySelector('[data-tile]');
+      closeTile(face);
+      face.focus();
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape') return;
+    var openSub = document.querySelector('.strand.open [data-sub]');
+    if (openSub) { closeSub(openSub); openSub.focus(); return; }
+    faces.forEach(closeTile);
+  });
+})();
+</script>
+
+</body>
+</html>
