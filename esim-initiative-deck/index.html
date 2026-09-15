@@ -454,6 +454,95 @@ body { margin: 0; background: #0B0B0D; }
 .gradient-slide .stat-tag.guardrail { background: #0B0B0D; color: #FFFFFF; }
 .gradient-slide .stat-label { color: rgba(255,255,255,0.85); }
 .gradient-slide .stat-value { color: #FFFFFF; }
+
+/* Slide 8: native vector market sizing composition */
+.market-sizing-slide { font-family:"Likewize Sans", Arial, sans-serif; overflow:hidden; }
+.market-sizing-slide * { box-sizing:border-box; }
+.ms-title { position:absolute; left:50px; top:22px; margin:0; color:#1B0070; font-size:50px; line-height:1.08; font-weight:800; letter-spacing:-0.025em; }
+.ms-subtitle { position:absolute; left:50px; top:93px; margin:0; color:#686872; font-size:27px; line-height:1.2; font-weight:400; }
+.ms-col { position:absolute; top:138px; height:646px; }
+.ms-left { left:38px; width:560px; }
+.ms-middle { left:640px; width:600px; border-left:1px solid #D9D4E3; padding-left:38px; }
+.ms-right { left:1260px; width:624px; border-left:1px solid #D9D4E3; padding-left:30px; }
+.ms-section-head { display:flex; align-items:center; gap:28px; height:34px; color:#E7198C; font-size:20px; line-height:1; font-weight:800; text-transform:uppercase; }
+.ms-section-head::after { content:""; flex:1; height:2px; background:#E7198C; }
+.ms-big-number { position:absolute; left:28px; top:62px; margin:0; color:#1B0070; font-size:78px; line-height:1; font-weight:800; letter-spacing:-0.035em; }
+.ms-big-label { position:absolute; left:28px; top:151px; margin:0; color:#1B0070; font-size:31px; line-height:1.15; font-weight:800; }
+.ms-left-copy { position:absolute; left:28px; top:205px; margin:0; color:#292932; font-size:23px; line-height:1.32; }
+.ms-bubble { position:absolute; display:flex; flex-direction:column; align-items:center; justify-content:center; border:1.5px solid; border-radius:999px; overflow:hidden; }
+.ms-bubble img { display:block; max-width:74%; max-height:35%; object-fit:contain; }
+.ms-bubble-value { position:absolute; bottom:14%; color:#1B0070; font-size:27px; line-height:1; font-weight:800; white-space:nowrap; }
+.ms-bubble--lloyds { left:12px; top:250px; width:236px; height:236px; background:#F4ECFF; border-color:#E9C5FA; }
+.ms-bubble--lloyds img { width:174px; max-width:none; max-height:none; }
+.ms-bubble--nationwide { left:250px; top:250px; width:236px; height:236px; background:#FFF0F8; border-color:#F0C5EB; }
+.ms-nationwide-lockup { display:flex; align-items:center; gap:8px; color:#24145F; font-size:22px; font-weight:800; margin-top:-30px; }
+.ms-nationwide-lockup img { width:43px; max-width:none; max-height:none; }
+.ms-bubble--nationwide > img { width:150px; max-width:none; max-height:none; margin-top:10px; }
+.ms-bubble--natwest { left:52px; top:452px; width:180px; height:180px; background:#EEE3FF; border-color:#E2C2FA; }
+.ms-bubble--natwest img { width:120px; max-width:none; max-height:none; margin-top:-18px; }
+.ms-bubble--monzo { left:222px; top:458px; width:144px; height:144px; background:#E4FCFC; border-color:#AEECEC; }
+.ms-bubble--monzo img { width:105px; max-width:none; max-height:none; margin-top:-17px; }
+.ms-bubble--coop { left:358px; top:456px; width:126px; height:126px; background:#E7F7FF; border-color:#B9DFF4; }
+.ms-bubble--coop img { width:104px; max-width:none; max-height:none; margin-top:-15px; }
+.ms-bubble--santander { left:184px; top:558px; width:112px; height:112px; background:#FFF0E9; border-color:#F1CDBE; }
+.ms-bubble--santander img { width:73px; max-width:none; max-height:none; margin-top:-26px; }
+.ms-tsb-lockup { display:flex; gap:3px; margin-top:8px; }
+.ms-tsb-lockup span { display:grid; place-items:center; width:14px; height:14px; border-radius:50%; background:#28A8D8; color:#fff; font-size:8px; font-weight:800; }
+.ms-bubble--chase { left:318px; top:562px; width:100px; height:100px; background:#EAF4FF; border-color:#C8DDF1; }
+.ms-chase-lockup { display:flex; align-items:center; gap:5px; color:#2C2176; font-size:12px; font-weight:800; margin-top:-20px; }
+.ms-chase-lockup img { width:20px; max-width:none; max-height:none; }
+.ms-bubble--monzo .ms-bubble-value { font-size:19px; bottom:38%; }
+.ms-bubble--coop .ms-bubble-value { font-size:16px; bottom:13%; }
+.ms-bubble--santander .ms-bubble-value { font-size:14px; bottom:13%; }
+.ms-bubble--chase .ms-bubble-value { font-size:13px; bottom:13%; }
+.ms-natwest-summary { position:absolute; left:38px; top:75px; width:190px; }
+.ms-natwest-summary > img { width:170px; height:42px; object-fit:contain; object-position:left center; }
+.ms-natwest-figure { margin:20px 0 2px; color:#E7198C; font-size:37px; line-height:1; font-weight:800; }
+.ms-natwest-unit { margin:0; color:#30303A; font-size:18px; }
+.ms-natwest-rule { width:112px; height:1px; margin:17px 0; background:#CFC9DA; }
+.ms-natwest-note { margin:0; color:#E7198C; font-size:20px; line-height:1.28; }
+.ms-donut { position:absolute; left:214px; top:142px; width:300px; height:300px; border-radius:50%; background:conic-gradient(from 278.4deg, #E7198C 0deg 81.6deg, #3200BE 81.6deg 360deg); }
+.ms-donut::after { content:""; position:absolute; inset:60px; border-radius:50%; background:#FFFFFF; }
+.ms-donut-copy { position:absolute; inset:0; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#1B0070; text-align:center; }
+.ms-donut-copy strong { font-size:58px; line-height:0.95; letter-spacing:-0.04em; }
+.ms-donut-copy span { margin-top:10px; font-size:23px; line-height:1.05; font-weight:800; }
+.ms-whitespace-label { position:absolute; left:530px; top:342px; color:#1B0070; }
+.ms-whitespace-label::before { content:""; position:absolute; right:100%; top:17px; width:20px; height:1px; margin-right:8px; background:#6F6F78; }
+.ms-whitespace-label strong { display:block; font-size:32px; line-height:1; }
+.ms-whitespace-label span { display:block; margin-top:13px; font-size:17px; line-height:1.28; color:#30303A; }
+.ms-callout { position:absolute; left:38px; right:0; bottom:12px; height:98px; display:flex; align-items:center; gap:27px; border:1px solid #EDBFF1; border-radius:15px; background:#F4ECFF; padding:0 26px; color:#1B0070; }
+.ms-callout svg { flex:0 0 58px; width:58px; height:58px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.ms-callout p { margin:0; font-size:22px; line-height:1.24; font-weight:800; }
+.ms-signal-title { margin:8px 0 0; color:#1B0070; font-size:28px; font-weight:800; }
+.ms-signal { position:absolute; left:30px; right:0; height:132px; display:grid; grid-template-columns:200px 58px 1fr; align-items:center; column-gap:20px; border-bottom:1px solid #D7D2DE; }
+.ms-signal--one { top:72px; }
+.ms-signal--two { top:204px; }
+.ms-signal-logo { max-width:190px; max-height:58px; object-fit:contain; object-position:left center; }
+.ms-check { display:grid; place-items:center; width:51px; height:51px; border-radius:50%; background:#58C83F; color:#FFFFFF; font-size:39px; line-height:1; }
+.ms-signal-copy { margin:0; color:#292932; font-size:21px; line-height:1.2; }
+.ms-adopter-grid { position:absolute; left:32px; right:0; top:372px; display:grid; grid-template-columns:repeat(3, 1fr); gap:26px 34px; align-items:center; }
+.ms-adopter { height:42px; display:flex; align-items:center; justify-content:center; min-width:0; }
+.ms-adopter img { display:block; max-width:100%; max-height:42px; object-fit:contain; }
+.ms-adopter-nationwide { display:flex; align-items:center; gap:6px; color:#33226D; font-size:16px; font-weight:800; white-space:nowrap; }
+.ms-adopter-nationwide img { width:33px; }
+.ms-halifax-chip { width:138px; height:52px; padding:6px 10px; border-radius:8px; background:#09549A; }
+.ms-adopter-caption { position:absolute; left:0; right:0; top:502px; margin:0; color:#555560; text-align:center; font-size:19px; }
+.ms-right-callout { position:absolute; left:30px; right:0; bottom:12px; height:94px; display:flex; align-items:center; gap:28px; border:1px solid #F3C3EC; border-radius:15px; background:#FFF0FA; padding:0 31px; color:#1B0070; }
+.ms-right-callout svg { flex:0 0 58px; width:58px; height:58px; fill:none; stroke:#E7198C; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.ms-right-callout p { margin:0; font-size:22px; line-height:1.22; font-weight:800; }
+.ms-capabilities { position:absolute; left:36px; right:36px; top:803px; height:204px; border:1px solid #D8D4E1; border-radius:16px 16px 0 0; padding:17px 31px 0; }
+.ms-capabilities-head { display:flex; align-items:center; gap:42px; color:#E7198C; font-size:20px; font-weight:800; text-transform:uppercase; }
+.ms-capabilities-head::after { content:""; flex:1; height:2px; background:#E7198C; }
+.ms-capability-row { display:grid; grid-template-columns:repeat(4, 1fr); gap:26px; margin-top:17px; }
+.ms-capability { display:grid; grid-template-columns:98px 1fr; align-items:center; gap:24px; min-width:0; }
+.ms-capability-icon { display:grid; place-items:center; width:94px; height:94px; border-radius:50%; color:#FFFFFF; background:#3200BE; }
+.ms-capability:nth-child(even) .ms-capability-icon { background:#E7198C; }
+.ms-capability-icon svg { width:52px; height:52px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.ms-capability p { margin:0; color:#1B0070; font-size:23px; line-height:1.16; font-weight:800; }
+.ms-footer { position:absolute; left:36px; right:36px; bottom:0; height:55px; display:flex; align-items:center; justify-content:space-between; background:#1B0070; padding:0 56px; color:#FFFFFF; }
+.ms-footer-source { max-width:1390px; font-size:14px; line-height:1.25; }
+.ms-footer-brand { font-size:32px; font-weight:800; letter-spacing:-0.02em; white-space:nowrap; }
+.ms-footer-brand i { color:#E7198C; font-style:normal; }
 </style>
 </helmet>
 
@@ -715,8 +804,121 @@ body { margin: 0; background: #0B0B0D; }
   </section>
 
 <!-- 8 - THE OPPORTUNITY -->
-<section class="lw-slide" data-label="Sizing the UK packaged account travel eSIM opportunity" data-screen-label="08" style="background:#FFFFFF; color:#0B0B0D; padding:0;">
-  <img src="./assets/images/esim-market-sizing-4k.png" alt="Sizing the UK packaged account travel eSIM opportunity. About 6.2 million packaged account customers are identified across seven UK banking groups. Excluding NatWest's 1.4 million customer base leaves about 4.8 million customers, or 77 percent, as near-term market whitespace." style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;" draggable="false">
+<section class="lw-slide market-sizing-slide" data-label="Sizing the UK packaged account travel eSIM opportunity" data-screen-label="08" style="background:#FFFFFF; color:#0B0B0D; padding:0;">
+  <h2 class="ms-title">Sizing the UK packaged account travel eSIM opportunity</h2>
+  <p class="ms-subtitle">A sizeable installed base, with travel eSIM adoption still at an early stage across UK banking.</p>
+
+  <div class="ms-col ms-left">
+    <div class="ms-section-head">Market size</div>
+    <p class="ms-big-number">~6.2m</p>
+    <p class="ms-big-label">Packaged account customers</p>
+    <p class="ms-left-copy">Identified across seven major UK banking<br>groups</p>
+
+    <div class="ms-bubble ms-bubble--lloyds">
+      <img src="./assets/logos/lloyds-group-official.svg" alt="Lloyds Banking Group">
+      <span class="ms-bubble-value">2.0m</span>
+    </div>
+    <div class="ms-bubble ms-bubble--nationwide">
+      <div class="ms-nationwide-lockup"><img src="./assets/logos/nationwide-symbol.svg" alt=""><span>Nationwide</span></div>
+      <img src="./assets/logos/virgin.svg" alt="Virgin Money">
+      <span class="ms-bubble-value">1.8m</span>
+    </div>
+    <div class="ms-bubble ms-bubble--natwest">
+      <img src="./assets/logos/natwest.svg" alt="NatWest">
+      <span class="ms-bubble-value">1.4m</span>
+    </div>
+    <div class="ms-bubble ms-bubble--monzo">
+      <img src="./assets/logos/monzo.svg" alt="Monzo">
+      <span class="ms-bubble-value">0.4m</span>
+    </div>
+    <div class="ms-bubble ms-bubble--coop">
+      <img src="./assets/logos/coop.svg" alt="The Co-operative Bank">
+      <span class="ms-bubble-value">0.25m</span>
+    </div>
+    <div class="ms-bubble ms-bubble--santander">
+      <img src="./assets/logos/santander.svg" alt="Santander">
+      <div class="ms-tsb-lockup" aria-label="TSB"><span>T</span><span>S</span><span>B</span></div>
+      <span class="ms-bubble-value">0.225m</span>
+    </div>
+    <div class="ms-bubble ms-bubble--chase">
+      <div class="ms-chase-lockup"><img src="./assets/logos/chase-mark.svg" alt=""><span>Chase</span></div>
+      <span class="ms-bubble-value">0.1m</span>
+    </div>
+  </div>
+
+  <div class="ms-col ms-middle">
+    <div class="ms-section-head">Market whitespace</div>
+    <div class="ms-natwest-summary">
+      <img src="./assets/logos/natwest.svg" alt="NatWest">
+      <p class="ms-natwest-figure">1.4m</p>
+      <p class="ms-natwest-unit">customers</p>
+      <div class="ms-natwest-rule"></div>
+      <p class="ms-natwest-note">Travel eSIM<br>launches<br>October 2026</p>
+    </div>
+    <div class="ms-donut" role="img" aria-label="77 percent market whitespace">
+      <div class="ms-donut-copy"><strong>77%</strong><span>Market<br>whitespace</span></div>
+    </div>
+    <div class="ms-whitespace-label"><strong>4.8m</strong><span>customers<br><br>Remaining<br>opportunity</span></div>
+    <div class="ms-callout">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      <p>Travel eSIM remains largely<br>unadopted across UK packaged<br>banking.</p>
+    </div>
+  </div>
+
+  <div class="ms-col ms-right">
+    <div class="ms-section-head">Market signals</div>
+    <p class="ms-signal-title">Early market adoption</p>
+    <div class="ms-signal ms-signal--one">
+      <img class="ms-signal-logo" src="./assets/logos/revolut.svg" alt="Revolut">
+      <span class="ms-check" aria-hidden="true">✓</span>
+      <p class="ms-signal-copy">Travel connectivity<br>already embedded<br>within premium<br>propositions</p>
+    </div>
+    <div class="ms-signal ms-signal--two">
+      <img class="ms-signal-logo" src="./assets/logos/natwest.svg" alt="NatWest">
+      <span class="ms-check" aria-hidden="true">✓</span>
+      <p class="ms-signal-copy">Travel eSIM launches<br>October 2026</p>
+    </div>
+    <div class="ms-adopter-grid" aria-label="Potential future adopters">
+      <div class="ms-adopter"><img src="./assets/logos/lloyds-group-official.svg" alt="Lloyds Banking Group"></div>
+      <div class="ms-adopter ms-adopter-nationwide"><img src="./assets/logos/nationwide-symbol.svg" alt=""><span>Nationwide</span></div>
+      <div class="ms-adopter"><img src="./assets/logos/hsbc.svg" alt="HSBC UK"></div>
+      <div class="ms-adopter"><img src="./assets/logos/barclays.svg" alt="Barclays"></div>
+      <div class="ms-adopter"><img class="ms-halifax-chip" src="./assets/logos/halifax.svg" alt="Halifax"></div>
+      <div class="ms-adopter"><img src="./assets/logos/firstdirect.svg" alt="First Direct"></div>
+    </div>
+    <p class="ms-adopter-caption">Potential future adopters</p>
+    <div class="ms-right-callout">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16v5"/><path d="M16 14v7"/><path d="M20 10v11"/><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"/><path d="M4 18v3"/><path d="M8 14v7"/></svg>
+      <p>Banking benefits tend to converge<br>once customers value the proposition.</p>
+    </div>
+  </div>
+
+  <div class="ms-capabilities">
+    <div class="ms-capabilities-head">Why Likewize can compete</div>
+    <div class="ms-capability-row">
+      <div class="ms-capability">
+        <div class="ms-capability-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18v-7"/><path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/></svg></div>
+        <p>Existing banking<br>relationships</p>
+      </div>
+      <div class="ms-capability">
+        <div class="ms-capability-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <p>Mobile protection<br>footprint</p>
+      </div>
+      <div class="ms-capability">
+        <div class="ms-capability-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg></div>
+        <p>Digital Care<br>journeys</p>
+      </div>
+      <div class="ms-capability">
+        <div class="ms-capability-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></div>
+        <p>Tech Hub<br>ecosystem</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ms-footer">
+    <div class="ms-footer-source">Source: Internal packaged-account estimates supplied by Ben Hill, 15 September 2026. 6.175m identified, less NatWest 1.4m = 4.775m near-term whitespace. No take-up assumption included.</div>
+    <div class="ms-footer-brand">likewize<i>.</i></div>
+  </div>
 </section>
 
 <!-- 9 - WHAT THE DECISION HINGES ON -->
