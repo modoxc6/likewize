@@ -917,7 +917,7 @@ body { margin: 0; background: #0B0B0D; }
         <div style="flex:1; height:22px; background:#F3F3F6; border-radius:999px; overflow:hidden;"><div style="width:92%; height:100%; background:#3200BE; border-radius:999px;"></div></div>
       </div>
     </div>
-    <p style="margin:16px 0 0; font-size:16px; font-style:italic; color:#86868F;">Relative only. Indicative timings to be confirmed.</p>
+    <p style="margin:16px 0 0; font-size:16px; color:#86868F;">Relative only. Indicative timings to be confirmed. <span style="color:#3200BE; font-weight:700;">Synthetic wholesale requires a substantial initial product build and a new daily supplier-settlement process. Capability detail on slide 15.</span></p>
   </div>
 </section>
 
@@ -1069,37 +1069,60 @@ body { margin: 0; background: #0B0B0D; }
   <p class="vendor-assumptions"><b style="color:#232329;">Assumptions:</b> Currency: $1 = £0.76, €1 = £0.85. Likewize markup held constant across all routes at 20% + £0.04 platform fee (per the original NatWest proposal). 1Global's 65% consumption figure is their number, not independently verified.</p>
 </section>
 
-<!-- 5h - APPENDIX 2: WHAT RUNNING SYNTHETIC WHOLESALE TAKES -->
-<section class="lw-slide" data-label="Appendix 4: What running synthetic wholesale takes" data-screen-label="15" style="background:#FAFAFB; color:#0B0B0D; padding:80px 140px 50px;">
-  <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 10px;">What running synthetic wholesale takes</h2>
-  <p style="font-size:18px; line-height:1.5; color:#5C5C65; margin:0 0 20px; max-width:1600px;">Indicative day-to-day effort and cost under the 1Global synthetic model.</p>
-  <div class="vendor-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 18px; flex:1;">
-    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Customer support</p>
-      <p class="vendor-item" style="font-size:15px; line-height:1.5;">First line sits with Likewize. Device compatibility checks, activation problems, refunds and notifications. 1Global supply the API, not the support layer.</p>
+<!-- 5h - APPENDIX 2: SYNTHETIC WHOLESALE CAPABILITY AND EFFORT -->
+<section class="lw-slide" data-label="Appendix 4: Synthetic wholesale capability and effort" data-screen-label="15" style="background:#FAFAFB; color:#0B0B0D; padding:64px 110px 42px;">
+  <h2 style="font-size:40px; font-weight:800; letter-spacing:-0.03em; margin:0 0 8px;">Synthetic wholesale capability and effort</h2>
+  <p style="font-size:18px; line-height:1.45; color:#5C5C65; margin:0 0 18px; max-width:1600px;">The model uses established delivery foundations, but requires a new eSIM customer product and new capability in catalogue, pricing and usage-risk management.</p>
+
+  <div style="display:grid; grid-template-columns:240px 1.28fr 1.08fr 138px 158px; border:1.5px solid #DCDCE4; border-radius:16px; overflow:hidden; background:#FFFFFF; flex:1; min-height:0;">
+    <div style="display:contents;">
+      <div style="padding:13px 18px; background:#3200BE; color:#FFFFFF; font-size:14px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase;">Workstream</div>
+      <div style="padding:13px 18px; background:#3200BE; color:#FFFFFF; font-size:14px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase;">Actions required</div>
+      <div style="padding:13px 18px; background:#3200BE; color:#FFFFFF; font-size:14px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase;">Capability starting point</div>
+      <div style="padding:13px 12px; background:#3200BE; color:#FFFFFF; font-size:14px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; text-align:center;">Setup</div>
+      <div style="padding:13px 12px; background:#3200BE; color:#FFFFFF; font-size:14px; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; text-align:center;">Ongoing</div>
     </div>
-    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">New partner setup</p>
-      <p class="vendor-item" style="font-size:15px; line-height:1.5;">A single Likewize tenant covers multiple partners on one reconciliation, which is 1Global’s own recommendation. A partner wanting its own eSIM profile or SPN must be a separate tenant, which adds an implementation fee and a separate product catalogue, credentials and test and production environments for Likewize to manage. Only worth it at real scale, around 10m monthly app users.</p>
-    </div>
-    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Integration</p>
-      <p class="vendor-item" style="font-size:15px; line-height:1.5;">1Global Connect API, plus the customer-facing surface built and funded by Likewize. Purchase and management, QR distribution and self-service all sit with us.</p>
-    </div>
-    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center; background:#F5D2FA44; border-color:#C9A6D9;">
-      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Money flow</p>
-      <p class="vendor-item" style="font-size:15px; line-height:1.5;">Likewize pre-funds a balance with 1Global. VAT and the €0.60 provisioning fee are deducted at the point of sale, data usage daily, with an alert at 75% drawn. Monthly reconciliation, commission invoiced separately.</p>
-    </div>
-    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Usage assumptions</p>
-      <p class="vendor-item" style="font-size:15px; line-height:1.5;">Consumption billing on actual MB per country. Observed consumption runs at about 65% of purchased bundles, so breakage is upside rather than a modelled certainty.</p>
-    </div>
-    <div class="vendor-card" style="padding:22px 30px; display:flex; flex-direction:column; justify-content:center;">
-      <p class="vendor-name" style="font-size:20px; margin-bottom:10px;">Ownership</p>
-      <p class="vendor-item" style="font-size:15px; line-height:1.5;">Retail pricing, catalogue, proposition and partner relationship all sit with Likewize. 1Global remain Telco of Record and carry licensing, multi-country VAT and the regulatory burden.</p>
+
+    <div style="display:contents;">
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:17px; font-weight:800; color:#3200BE;">Customer journey and entitlement</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;">Build purchase, entitlement and redemption, QR installation, balance, top-up and notifications.</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;"><b style="color:#C9188A;">New:</b> eSIM product journey and lifecycle.</div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:15px; font-weight:800; color:#1B0070; background:#F5D2FA; border-radius:999px; padding:7px 15px;">High</span></div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:15px; font-weight:800; color:#3200BE; background:#ECE6FF; border-radius:999px; padding:7px 15px;">Medium</span></div>
+
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:17px; font-weight:800; color:#3200BE;">API and service integration</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;">Integrate the Connect API, lifecycle events, usage callbacks, monitoring and incident handling.</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;"><b style="color:#3200BE;">Existing foundation, new application:</b> API integration is familiar; 1Global and the eSIM lifecycle are new.</div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:15px; font-weight:800; color:#1B0070; background:#F5D2FA; border-radius:999px; padding:7px 15px;">High</span></div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:15px; font-weight:800; color:#3200BE; background:#ECE6FF; border-radius:999px; padding:7px 15px;">Medium</span></div>
+
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:17px; font-weight:800; color:#3200BE;">Customer support</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;">Create runbooks and train teams for compatibility, activation, refunds and revocation.</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;"><b style="color:#3200BE;">Existing foundation, new application:</b> established support capability, with new eSIM knowledge and tooling.</div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:15px; font-weight:800; color:#3200BE; background:#ECE6FF; border-radius:999px; padding:7px 15px;">Medium</span></div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:14px; font-weight:800; color:#3200BE; background:#ECE6FF; border-radius:999px; padding:7px 12px; text-align:center; line-height:1.2;">Medium<br><span style="font-size:11px; font-weight:700;">volume-led</span></span></div>
+
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:17px; font-weight:800; color:#3200BE;">Payments and reconciliation</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;">Configure pre-funding, daily supplier settlement, FX and chargeback handling, plus monthly commission reconciliation.</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;"><b style="color:#3200BE;">Existing foundation, new application:</b> existing payment and finance capability, with a new 1Global settlement routine.</div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:14px; font-weight:800; color:#1B0070; background:#F5D2FA; border-radius:999px; padding:7px 11px; text-align:center;">Medium–High</span></div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:14px; font-weight:800; color:#1B0070; background:#F5D2FA; border-radius:999px; padding:7px 11px; text-align:center;">Medium–High</span></div>
+
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:17px; font-weight:800; color:#3200BE;">Catalogue, pricing and usage risk</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;">Maintain rates and packages, set prices, monitor consumption and breakage, and manage refund exposure.</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;"><b style="color:#C9188A;">New:</b> eSIM rate management and consumption economics.</div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:14px; font-weight:800; color:#1B0070; background:#F5D2FA; border-radius:999px; padding:7px 11px; text-align:center;">Medium–High</span></div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:14px; font-weight:800; color:#1B0070; background:#F5D2FA; border-radius:999px; padding:7px 11px; text-align:center;">Medium–High</span></div>
+
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:17px; font-weight:800; color:#3200BE;">Partner setup and governance</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;">Configure branding and products, test the journey, decide tenancy, and manage supplier and partner reporting.</div>
+      <div style="padding:14px 18px; border-top:1px solid #E7E7EC; font-size:15px; line-height:1.38; color:#232329;"><b style="color:#3200BE;">Existing foundation, new application:</b> established partner implementation, with new eSIM configuration.</div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:15px; font-weight:800; color:#3200BE; background:#ECE6FF; border-radius:999px; padding:7px 15px;">Medium</span></div>
+      <div style="padding:14px 12px; border-top:1px solid #E7E7EC; display:flex; align-items:center; justify-content:center;"><span style="font-size:14px; font-weight:800; color:#3200BE; background:#ECE6FF; border-radius:999px; padding:7px 11px; text-align:center;">Low–Medium</span></div>
     </div>
   </div>
-  <p style="margin:18px 0 0; font-size:15px; line-height:1.5; color:#86868F;">This replaces the full wholesale responsibilities scope ruled out in July.</p>
+
+  <p style="margin:14px 0 0; font-size:14px; line-height:1.4; color:#86868F;"><b style="color:#232329;">Definition:</b> “Existing foundation, new application” means Likewize has the underlying capability but still needs eSIM-specific processes, tooling and ownership. Ratings are directional and should be validated with Technology, Finance and Operations.</p>
 </section>
 
 <!-- 5i - APPENDIX 3: COMMERCIAL MODEL OPTIONS -->
